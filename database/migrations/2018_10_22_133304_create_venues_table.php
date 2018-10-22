@@ -17,11 +17,13 @@ class CreateVenuesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('location');
-            $table->string('budget');
-            $table->string('opening_hours');
-            $table->string('cuisine');
             $table->string('venue_type');
-            $table->string('links');
+            $table->string('night_type');
+            $table->string('budget');
+            $table->string('opening_time');
+            $table->string('closing_time');
+            $table->string('cuisine');
+            $table->string('link');
             $table->timestamps();
         });
     }

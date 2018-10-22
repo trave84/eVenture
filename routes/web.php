@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'PublicController@index');
+Route::get('/public', 'PublicController@index');
+
+Route::get('/venues', 'VenueController@index');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Auth::routes();
+
