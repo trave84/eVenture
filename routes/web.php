@@ -19,9 +19,12 @@ Route::get('/', 'PublicController@index');
 Route::get('/public', 'PublicController@index');
 
 Route::get('/venues', 'VenueController@index');
+Route::get('/features', 'FeatureController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+
 Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
