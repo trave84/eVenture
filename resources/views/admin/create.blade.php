@@ -5,42 +5,47 @@
 <div class="container"> 
 
 
-<form action="{{action('BookController@store')}}" method="post">
+<form action="{{ action('VenueController@store')}}" method="post">
 
         @csrf
 
         <div class="form-group">
-          <label>Title</label>
+          <label>Name of Venue</label>
           <input type="text" name="title" class="form-control">
         </div>
+        
         <div class="form-group">
-          <label>Authors</label>
+          <label>Location</label>
           <input type="text" name="authors" class="form-control">
         </div>
+        
         <div class="form-group">
-          <label>Image</label>
-          <input type="text" name="image" class="form-control">
-        </div>
-        <div class="form-group">
-          <label>Publisher</label>
-          <select name="publisher_id">
+          <label>Venue Type</label>
+            @foreach ($features as $feature)
+            <input type="checkbox" name="{{ $feature->id }}" value="Bike">{{ $feature->name }}
+            @endforeach
 
-            @foreach ($publishers as $publisher)
-            <option value="{{ $publisher->id }}">{{ $publisher->name }}</option>
+        </div>
+
+        <div class="form-group">
+          <label>Features</label>
+          <select name="feature_id">
+            @foreach ($features as $feature)
+            <option value="{{ $feature->id }}">{{ $feature->name }}</option>
             @endforeach            
           </select>
         </div>
+
         <div class="form-group">
-          <label>Genres</label>
-          <select name="genre_id">
+          <label>Attributes</label>
+          <select name="attribute_id">
            
-            @foreach ($genres as $genre)
-            <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+            @foreach ($attributes as $attribute)
+            <option value="{{ $attribute->id }}">{{ $attribute->name }}</option>
             @endforeach
           </select>
         </div>
         
-
         <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>

@@ -1,8 +1,6 @@
-@extends('layouts.app');
+@extends('layouts.app')
 @section('content')
-    <h1>Venues</h1>
-
-    @foreach ($venues as $venue)
+  <div class="venue">
     <div class="card" style="width: 18rem;">
       <img class="card-img-top" src=".../100px180/" alt="Card image cap">
       <div class="card-body">
@@ -11,6 +9,5 @@
         <a href="#" class="btn btn-primary">Check out</a>
       </div>
     </div>
-    @endforeach
   </div>
 @endsection

@@ -15,16 +15,27 @@
 //     return view('welcome');
 // });
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+// PUBLIC ACCESS:
 Route::get('/', 'PublicController@index');
 Route::get('/public', 'PublicController@index');
-
 Route::get('/venues', 'VenueController@index');
+Route::get('/venue/{id}/show', 'VenueController@show')->name('venue.show');
+
+
+// ADMIN ACCESS: 
+Route::get('/admin/venue/create', 'VenueController@create');
+Route::get('/admin/venue/{id}/edit', 'VenueController@edit')->name('venue.edit');
+
+Route::post('/admin/venue/{id}/update', 'VenueController@update');
+Route::post('/admin/venue/store', 'VenueController@store');
+
 Route::get('/features', 'FeatureController@index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+// USER ACCESS:
+Route::get('/user', 'UserController@index');
 
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

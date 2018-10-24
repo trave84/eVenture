@@ -4,40 +4,39 @@
 
 <div class="container"> 
 
-
-        <form action="{{action('BookController@update', [$book->id])}}" method="post">
+        <form action="{{action('VenueController@update', [$venue->id])}}" method="post">
         
                 @csrf
         
                 <div class="form-group">
                   <label>Title</label>
-                  <input type="text" name="title" value="{{ old('title', $book->title) }}" class="form-control">
+                  <input type="text" name="title" value="{{ old('title', $venue->title) }}" class="form-control">
                 </div>
                 <div class="form-group">
                   <label>Authors</label>
-                  <input type="text" name="authors" value="{{ old('author', $book->authors) }}"class="form-control">
+                  <input type="text" name="authors" value="{{ old('author', $venue->authors) }}"class="form-control">
                 </div>
                 <div class="form-group">
                   <label>Image</label>
-                  <input type="text" name="image" value="{{ old('image', $book->image) }} "class="form-control">
+                  <input type="text" name="image" value="{{ old('image', $venue->image) }} "class="form-control">
                 </div>
                 <div class="form-group">
-                  <label>Publisher</label>
-                  <select name="publisher_id">
+                  <label>attribute</label>
+                  <select name="attribute_id">
                   
-                    @foreach ($publishers as $publisher)
-                    <option value="{{ $publisher->id }}" @if ($book->publisher_id == $publisher->id) selected @endif >
-                    {{ $publisher->name }}
+                    @foreach ($attributes as $attribute)
+                    <option value="{{ $attribute->id }}" @if ($venue->attribute_id == $attribute->id) selected @endif >
+                    {{ $attribute->name }}
                     </option>
                     @endforeach
                 </select>
                 <div class="form-group">
-                  <label>Genre</label>
-                  <select name="genre_id">
+                  <label>feature</label>
+                  <select name="feature_id">
                   
-                    @foreach ($genres as $genre)
-                    <option value="{{ $genre->id }}" @if ($book->genre_id == $genre->id) selected @endif >
-                    {{ $genre->name }}
+                    @foreach ($features as $feature)
+                    <option value="{{ $feature->id }}" @if ($venue->feature_id == $feature->id) selected @endif >
+                    {{ $feature->name }}
                     </option>
                     @endforeach
                   </select>
