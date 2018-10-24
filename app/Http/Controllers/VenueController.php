@@ -57,7 +57,7 @@ class VenueController extends Controller
 
     public function update(Request $request, $id)
     {
-        $venue = Venue::findOfFail($id);
+        $venue = Venue::findOrFail($id);
         $venue->update($request->all());
 
         return redirect (action('VenueController@index'));

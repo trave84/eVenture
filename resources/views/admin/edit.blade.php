@@ -5,41 +5,38 @@
 <div class="container"> 
 
         <form action="{{action('VenueController@update', [$venue->id])}}" method="post">
+              @csrf
         
-                @csrf
-        
                 <div class="form-group">
-                  <label>Title</label>
-                  <input type="text" name="title" value="{{ old('title', $venue->title) }}" class="form-control">
+                  <label>Name of Venue</label>
+                  <input type="text" name="title" value="{{ old('name', $venue->name) }}" class="form-control">
                 </div>
+  
                 <div class="form-group">
-                  <label>Authors</label>
-                  <input type="text" name="authors" value="{{ old('author', $venue->authors) }}"class="form-control">
+                  <label>Location</label>
+                  <input type="text" name="location" value="{{ old('author', $venue->location) }}"class="form-control">
                 </div>
+  
                 <div class="form-group">
-                  <label>Image</label>
-                  <input type="text" name="image" value="{{ old('image', $venue->image) }} "class="form-control">
+                  <label>Night Types</label>
+                  <input type="text" name="night-type" value="{{ old('image', $venue->night_type) }} "class="form-control">
                 </div>
+  
                 <div class="form-group">
-                  <label>attribute</label>
+                  <label>Attributes</label>
                   <select name="attribute_id">
-                  
                     @foreach ($attributes as $attribute)
-                    <option value="{{ $attribute->id }}" @if ($venue->attribute_id == $attribute->id) selected @endif >
+                      <option value="{{ $attribute->id }}" @if ($venue->attribute_id == $attribute->id) selected @endif >
                     {{ $attribute->name }}
                     </option>
                     @endforeach
                 </select>
+  
                 <div class="form-group">
-                  <label>feature</label>
-                  <select name="feature_id">
-                  
-                    @foreach ($features as $feature)
-                    <option value="{{ $feature->id }}" @if ($venue->feature_id == $feature->id) selected @endif >
-                    {{ $feature->name }}
-                    </option>
-                    @endforeach
-                  </select>
+                  <label>Features</label>
+                  @foreach ($features as $feature)
+                    <input type="checkbox" name="{{ $feature->id }}" value="Bike">{{ $feature->name }}
+                  @endforeach
                 </div>
 
 

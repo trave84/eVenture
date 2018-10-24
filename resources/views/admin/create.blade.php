@@ -11,30 +11,30 @@
 
         <div class="form-group">
           <label>Name of Venue</label>
-          <input type="text" name="title" class="form-control">
+          <input type="text" name="name" class="form-control">
         </div>
         
         <div class="form-group">
           <label>Location</label>
-          <input type="text" name="authors" class="form-control">
+          <input type="text" name="location" class="form-control">
         </div>
         
         <div class="form-group">
-          <label>Venue Type</label>
+          <label>Features</label>
             @foreach ($features as $feature)
             <input type="checkbox" name="{{ $feature->id }}" value="Bike">{{ $feature->name }}
             @endforeach
 
         </div>
 
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label>Features</label>
           <select name="feature_id">
             @foreach ($features as $feature)
             <option value="{{ $feature->id }}">{{ $feature->name }}</option>
             @endforeach            
           </select>
-        </div>
+        </div> --}}
 
         <div class="form-group">
           <label>Attributes</label>
