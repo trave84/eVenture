@@ -16,10 +16,15 @@
 // });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'PageController@index');
+Route::get('/home', 'PageController@index');
+Route::get('/about', 'PageController@about');
+Route::get('/services', 'PageController@services');
 
 // PUBLIC ACCESS:
-Route::get('/', 'PublicController@index');
+// Route::get('/', 'PublicController@index');
 Route::get('/public', 'PublicController@index');
 Route::get('/venues', 'VenueController@index');
 Route::get('/venue/{id}/show', 'VenueController@show')->name('venue.show');
@@ -38,4 +43,4 @@ Route::get('/features', 'FeatureController@index');
 // USER ACCESS:
 Route::get('/user', 'UserController@index');
 
-
+Route::resource('reviews', 'ReviewController');
