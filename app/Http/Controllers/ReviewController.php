@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Review;
+use App\Review;     //BRINGIN: Review Model
 
 class ReviewController extends Controller
 {
@@ -14,8 +14,9 @@ class ReviewController extends Controller
      */
     public function index()
     {   
-        $reviews = Review::all();
-        return view('reviews.index')->with('reviews', $reviews);
+        $reviews = Review::orderBy('created_at', 'asc')->paginate(1);
+
+        return view('reviews.index')->with('reviews', $reviews);        // PASSDATA: by with()
 
     }
 
@@ -27,7 +28,7 @@ class ReviewController extends Controller
     public function create()
     {
         
-        return view('reviews.create')
+        return view('reviews.create');
     }
 
     /**
@@ -47,10 +48,10 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id)       //FINDREVIEW: by url/{id}
     {
         $review = Review::find($id);
-        return view('reviews.show')->with('review', $review);
+        return view('reviews.show')->with('review', $review);   //PASSTO: show.template
 
     }
 

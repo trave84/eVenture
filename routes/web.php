@@ -11,13 +11,10 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
+// NAVBAR PAGES:
 Route::get('/', 'PageController@index');
 Route::get('/home', 'PageController@index');
 Route::get('/about', 'PageController@about');

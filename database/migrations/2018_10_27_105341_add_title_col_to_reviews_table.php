@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVenueAttributeTable extends Migration
+class AddTitleColToReviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateVenueAttributeTable extends Migration
      */
     public function up()
     {
-        Schema::table('venue_attribute', function (Blueprint $table) {
-            //
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->string('title')->after('id');
         });
     }
 
@@ -25,8 +25,8 @@ class CreateVenueAttributeTable extends Migration
      */
     public function down()
     {
-        Schema::table('venue_attribute', function (Blueprint $table) {
-            //
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->dropColumn('title');
         });
     }
 }

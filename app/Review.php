@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-    protected $table = 'reviews';
-    public $primaryKey = 'id';
+    // protected $table = 'reviews';
+    // public $primaryKey = 'id';
 
+    public  function user(){
+        $this->belongsTo('App\User');
+    }
 
 }
