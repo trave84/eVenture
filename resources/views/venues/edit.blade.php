@@ -23,12 +23,24 @@
                 </div>
   
                 <div class="form-group">
-                  <label>Attributes</label>
+                  <label>Set the  {{ $attributes->find(1)->name }}</label>
                   <select name="attribute_id">
                     @foreach ($attributes as $attribute)
                       <option value="{{ $attribute->id }}" @if ($venue->attribute_id == $attribute->id) selected @endif >
-                    {{ $attribute->name }}
+                   
                     </option>
+                    @endforeach
+                </select>
+
+                <div class="form-group">
+                  <label>Set the {{ $attributes->find(2)->name }}</label>
+                  <select name="attribute_id">
+                    @foreach ($attributes as $attribute)
+                      <option value="{{ $attribute->id }}" @if ($venue->attribute_id == $attribute->id) selected @endif >1</option>
+                      <option value="{{ $attribute->id }}" @if ($venue->attribute_id == $attribute->id) selected @endif >2</option>
+                      <option value="{{ $attribute->id }}" @if ($venue->attribute_id == $attribute->id) selected @endif >3</option>
+                      <option value="{{ $attribute->id }}" @if ($venue->attribute_id == $attribute->id) selected @endif >4</option>
+                      <option value="{{ $attribute->id }}" @if ($venue->attribute_id == $attribute->id) selected @endif >5</option>
                     @endforeach
                 </select>
   

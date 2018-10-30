@@ -1,16 +1,19 @@
 @extends('layouts/app')
 @section('content')
-
+<h1>Create a Venue</h1>
 
 <div class="container"> 
 
-
+{{-- {{!! Form:: open(['action'=>'VenueController@store', 'method'=>'post']) !!}} --}}
 <form action="{{ action('VenueController@store')}}" method="post">
 
         @csrf
-
+        
         <div class="form-group">
+          {{-- {{ Form::label('title', 'Title') }} --}}
           <label>Name of Venue</label>
+          
+          {{-- {{ Form::text('title', '', ['class']) }} --}}
           <input type="text" name="name" class="form-control">
         </div>
         
@@ -18,7 +21,7 @@
           <label>Location</label>
           <input type="text" name="location" class="form-control">
         </div>
-        
+
         <div class="form-group">
           <label>Features</label>
             @foreach ($features as $feature)

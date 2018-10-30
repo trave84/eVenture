@@ -1,6 +1,13 @@
 @extends('layouts.app')
+
+
+@section('title', '|Create a new post')
+@section('stylesheet')
+
+{{-- {{!! <Html::style('css/select2.min.css') !!}} --}}
+
 @section('content')
-  <h1>Create post</h1>
+  <h1>Create a post</h1>
   
   <form action="{{action('ReviewController@store')}}" method="post">
     {{-- PROTECTION --}}
@@ -19,21 +26,29 @@
 
     {{-- LISTINGS OF MOOD --}}
     <div class="form-group">
-        <label for="mood">attribute of the venue</label>
+        <label for="mood">How was the sociability?</label>
         <select name="attribute_id">
 
           @foreach ($attributes as $attribute)
-          <option value="{{ $attribute->id }}">{{ $attribute->value }}</option>
+          <option value="{{ $attribute->value }}">1</option>
+          <option value="{{ $attribute->value }}">2</option>
+          <option value="{{ $attribute->value }}">3</option>
+          <option value="{{ $attribute->value }}">4</option>
+          <option value="{{ $attribute->value }}">5</option>
           @endforeach
         </select>
     </div>
     {{-- LISTINGS OF ENERGY --}}
     <div class="form-group">
-        <label for="energy">Energy of the venue</label>
+        <label for="energy">What was the energy like?</label>
         <select name="attribute_id">
 
           @foreach ($attributes as $attribute)
-          <option value="{{ $attribute->id }}">{{ $attribute->value }}</option>
+            <option value="{{ $attribute->value }}">1</option>
+            <option value="{{ $attribute->value }}">2</option>
+            <option value="{{ $attribute->value }}">3</option>
+            <option value="{{ $attribute->value }}">4</option>
+            <option value="{{ $attribute->value }}">5</option>
           @endforeach
         </select>
     </div>
@@ -41,4 +56,7 @@
     {{-- SUBMIT --}}
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+@section('scripts')
+  {{-- {{ !! Html::script('js/select2.min.js') !!}} --}}
+@endsection
 @endsection

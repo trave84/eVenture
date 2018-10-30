@@ -1,39 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Review;     
-use App\Feature;     
-use App\Attribute;     
+use App\Http\Controllers\Controller;
 
-class ReviewController extends Controller
+class MovieController extends Controller
 {
     /**
-      * Display a listing of the resource.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $reviews = Review::orderBy('created_at', 'asc')->paginate(1);
-
-        return view('reviews.index')->with('reviews', $reviews);        // PASSDATA: by with()
-
+    {
+        //
     }
 
-    /** 
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        $reviews = Review::all();
-        $attributes = Attribute::all();
-        $features = Feature::all();
-
-        return view('reviews.create')->with(compact(['review', 'attributes', 'features']));
+        //
     }
 
     /**
@@ -44,20 +35,7 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, array(
-            'title'=>'required|max:255','mood'=>'required', 'energy'=>'required'
-        ));
-        $attribute = new Attribute();
-        $attribute->title = $request->title;
-        $attribute->mood = $request->mood;
-        $attribute->energy = $request->energy;
-        
-        $attribute->save();
-        Session::flash('success', 'New review was successfully added.');
-
-        return redirect()->route('reviews.index'); 
-
-
+        //
     }
 
     /**
@@ -66,11 +44,9 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)       //FINDREVIEW: by url/{id}
+    public function show($id)
     {
-        $review = Review::find($id);
-        return view('reviews.show')->with('review', $review);   //PASSTO: show.template
-
+        //
     }
 
     /**

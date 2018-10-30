@@ -17,7 +17,14 @@ class VenueController extends Controller
     }
 
     public function index()
-    {
+    {   
+        return 'a string';          // return the literal data
+        return view('welcome');     // return the view
+        return [                    //  turns array or object into JSON
+            'foo' => 'bar'
+        ];
+
+
         $venues = Venue::limit(25)->get();
 
         return view('venues.index', compact(['venues']));
@@ -26,12 +33,13 @@ class VenueController extends Controller
     public function create()
     {
         $features = Feature::all();
-        $attributes = Attribute::all();
+        $attributes = Attribute::all();csrf
 
-        return view('admin.create')
+        return view('venues.create')
         ->with(compact('features', 'attributes'));
     }
 
+    // FORM: action() - Venue::create()
     public function store(Request $request)
     {
         $venue = Venue::create($request->all());
@@ -46,13 +54,14 @@ class VenueController extends Controller
         return view('venues.show', compact('venue'));
     }
 
+
     public function edit($id)
     {
         $venue = Venue::findOrFail($id);
         $features = Feature::all();
         $attributes = Attribute::all();
         
-        return view('admin.edit')->with(compact('venue', 'features', 'attributes'));
+        return view('venues.edit')->with(compact('venue', 'features', 'attributes'));
     }
 
     public function update(Request $request, $id)
@@ -63,7 +72,7 @@ class VenueController extends Controller
         return redirect (action('VenueController@index'));
     }
 
-    public function destroy()
+    public function destroy($id)
     {
         $venue = Venue::findOfFail($id);
         $venue->delete();
