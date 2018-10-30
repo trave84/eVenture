@@ -33,10 +33,9 @@ class VenueController extends Controller
     public function create()
     {
         $features = Feature::all();
-        $attributes = Attribute::all();csrf
-
-        return view('venues.create')
-        ->with(compact('features', 'attributes'));
+        $attributes = Attribute::all();
+ 
+        return view('venues.create')->with(compact('features', 'attributes'));
     }
 
     // FORM: action() - Venue::create()

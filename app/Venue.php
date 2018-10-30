@@ -31,7 +31,7 @@ class Venue extends Model
 
     public function tags()
     {
-        return $this->hasMany('App\Tag', 'tag_venue', 'venue_id', 'tag_id');
+        return $this->belongsToMany('App\Tag', 'tag_venue', 'venue_id', 'tag_id');
     }
 
     

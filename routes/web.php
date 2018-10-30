@@ -28,7 +28,10 @@ Route::get('/features', 'FeatureController@index');
 
 // ATTRIBUTES ACCESS:
 
-// REVIEW ACCESS:
+// Reviews :
+
+// Tags:
+Route::resource('tags', 'TagController', ['except' => ['create']]); 
 
 //GEOCODE:
 Route::get('/mygeocode', function(){
