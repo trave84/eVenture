@@ -13,12 +13,11 @@ class PageController extends Controller
     
     }
 
-    public function about(){
-        $title = 'About us';
-        return view('pages.about', compact('title'));
+    public function getAbout(){
+        return view('pages.about');
     }
     
-    public function services(){
+    public function getServices(){
         $data = array(
             'title' => 'Services',
             'services' => ['Bars', 'Clubs', 'Resturants']

@@ -6,8 +6,8 @@ Auth::routes();
 // NAVBAR PAGES:
 Route::get('/', 'PageController@index');
 Route::get('/home', 'PageController@index');
-Route::get('/about', 'PageController@about');
-Route::get('/services', 'PageController@services');
+Route::get('/about', 'PageController@getAbout');
+Route::get('/venues', 'VenueController@show');
 
 // PUBLIC ACCESS:
 // Route::get('/', 'PublicController@index');
@@ -24,14 +24,13 @@ Route::post('/venue/update/{id}', 'VenueController@update');
 Route::post('/venue/store', 'VenueController@store');
 
 //FEATURES ACCESS:
-Route::get('/features', 'FeatureController@index');
+// Route::get('/features', 'FeatureController@index');
 
-// ATTRIBUTES ACCESS:
-
-// Reviews :
 
 // Tags:
-Route::resource('tags', 'TagController', ['except' => ['create']]); 
+Route::resource('tags', 'TagController');     // , ['except' => ['create']] 
+// Reviews :
+
 
 //GEOCODE:
 Route::get('/mygeocode', function(){

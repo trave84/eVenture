@@ -18,12 +18,11 @@ class VenueController extends Controller
 
     public function index()
     {   
-        return 'a string';          // return the literal data
-        return view('welcome');     // return the view
-        return [                    //  turns array or object into JSON
-            'foo' => 'bar'
-        ];
-
+        // return 'a string';          // return the literal data
+        // return view('welcome');     // return the view
+        // return [                    //  turns array or object into JSON
+        //     'foo' => 'bar'
+        // ];
 
         $venues = Venue::limit(25)->get();
 
@@ -73,7 +72,7 @@ class VenueController extends Controller
 
     public function destroy($id)
     {
-        $venue = Venue::findOfFail($id);
+        $venue = Venue::findOrFail($id);
         $venue->delete();
 
         return redirect (action('VenueController@index'));
