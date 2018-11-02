@@ -11,10 +11,10 @@ class Tag extends Model
     ];
 
     public function venues(){
-        return $this->belongsToMany('App\Venue', 'tag_venue');
+        return $this->belongsToMany('App\Venue');
     }
 
-    public function category(){
-        return $this->belongsTo('App\Category', 'category_tag');
+    public function categories(){
+        return $this->belongsTo('App\Category');
     }
 }

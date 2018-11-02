@@ -11,6 +11,6 @@ class Category extends Model
     ];
 
     public function tags(){
-        return $this->hasMany('App\Tag', 'category_tag');
+        return $this->hasMany('App\Tag');
     }
 }
