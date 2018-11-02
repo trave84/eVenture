@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVenueAttributeTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateVenueAttributeTable extends Migration
      */
     public function up()
     {
-        Schema::table('venue_attribute', function (Blueprint $table) {
-            //
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class CreateVenueAttributeTable extends Migration
      */
     public function down()
     {
-        Schema::table('venue_attribute', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('categories');
     }
 }

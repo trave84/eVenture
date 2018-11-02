@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVenueFeatureTable extends Migration
+class CreateReviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateVenueFeatureTable extends Migration
      */
     public function up()
     {
-        Schema::table('venue_feature', function (Blueprint $table) {
-            //
+        Schema::create('reviews', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +26,6 @@ class CreateVenueFeatureTable extends Migration
      */
     public function down()
     {
-        Schema::table('venue_feature', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('reviews');
     }
 }

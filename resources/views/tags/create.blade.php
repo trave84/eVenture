@@ -1,24 +1,28 @@
-@extends('layouts/app')
-@section('content')
-
+<h1>Create a Tag</h1>
 
 <div class="container"> 
 
-
-<form action="{{ action('VenueController@store')}}" method="post">
+{{-- {{!! Form:: open(['action'=>'VenueController@store', 'method'=>'post']) !!}} --}}
+<form action="{{ action('TagController@store')}}" method="post">
 
         @csrf
-
+        
         <div class="form-group">
-          <label>Name of Venue</label>
+          {{-- {{ Form::label('title', 'Title') }} --}}
+          <label>Name of Tag</label>
+          {{-- {{ Form::text('title', '', ['class']) }} --}}
           <input type="text" name="name" class="form-control">
         </div>
         
+        {{-- UNIQUE TAG CATEGORIES (VenueType, NighType)--}}
         <div class="form-group">
-          <label>Location</label>
-          <input type="text" name="location" class="form-control">
+          <label>Category of the Tag</label> 
+          {{-- CONNECT WITH CATEGORIES TABLE  --}}
+          @foreach ($categories as $category)
+            <option value="{{ $category->id }}">{{ $catergory->name }}</option>
+          @endforeach
         </div>
-        
+
         <div class="form-group">
           <label>Features</label>
             @foreach ($features as $feature)
@@ -49,4 +53,3 @@
         <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
-@endsection

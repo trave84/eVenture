@@ -16,11 +16,23 @@ class Venue extends Model
 
     public function features()
     {
-        return $$this->hasMany('App\Feature');
+        return $this->hasMany('App\Feature', 'feature_venue', 'venue_id', 'feature_id');
     }
 
     public function attributes()
     {
-        return $$this->hasMany('App\Attribute');
+        return $this->hasMany('App\Attribute', 'attribute_venue', 'venue_id', 'attribute_id');
     }
+
+    public function reviews()
+    {
+        return $this->hasMany('App\Review', 'review_venue', 'venue_id', 'review_id');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag', 'tag_venue', 'venue_id', 'tag_id');
+    }
+
+    
 }
