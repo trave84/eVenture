@@ -1,5 +1,6 @@
-<h1>Create a Tag</h1>
+@extends('layouts.app')
 
+@section('title', '| Create a new tag')
 <div class="container"> 
 
 {{-- {{!! Form:: open(['action'=>'VenueController@store', 'method'=>'post']) !!}} --}}
@@ -18,34 +19,9 @@
         <div class="form-group">
           <label>Category of the Tag</label> 
           {{-- CONNECT WITH CATEGORIES TABLE  --}}
-          @foreach ($categories as $category)
-            <option value="{{ $category->id }}">{{ $catergory->name }}</option>
-          @endforeach
-        </div>
-
-        <div class="form-group">
-          <label>Features</label>
-            @foreach ($features as $feature)
-            <input type="checkbox" name="{{ $feature->id }}" value="Bike">{{ $feature->name }}
-            @endforeach
-
-        </div>
-
-        {{-- <div class="form-group">
-          <label>Features</label>
-          <select name="feature_id">
-            @foreach ($features as $feature)
-            <option value="{{ $feature->id }}">{{ $feature->name }}</option>
-            @endforeach            
-          </select>
-        </div> --}}
-
-        <div class="form-group">
-          <label>Attributes</label>
-          <select name="attribute_id">
-           
-            @foreach ($attributes as $attribute)
-            <option value="{{ $attribute->id }}">{{ $attribute->name }}</option>
+          <select name="" id="">
+            @foreach ($categories as $category)
+              <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
           </select>
         </div>

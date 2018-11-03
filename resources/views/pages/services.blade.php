@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', '| Services')
 @section('content')
   <h1>Welcome to eVenture</h1>
   

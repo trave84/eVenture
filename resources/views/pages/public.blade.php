@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-
+@section('title', '| Public Page')
 @section('content')
     <div class="container">
         <h1>Public page</h1>

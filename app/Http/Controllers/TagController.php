@@ -24,8 +24,9 @@ class TagController extends Controller
     public function create()
     {
         $tags = Tag::all();
- 
-        return view('tags.create')->withTags($tags);
+        $categories = Category::all();
+        
+        return view('tags.create', compact('tags', 'categories'));
     }
 
     // Form action 

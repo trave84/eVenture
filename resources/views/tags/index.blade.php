@@ -1,4 +1,6 @@
 @extends('layouts.app')
+
+@section('title', '| Tags')
 @section('content')
   <div class="row">
     <div class="col-sm-12">

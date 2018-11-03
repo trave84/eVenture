@@ -1,6 +1,7 @@
 @extends('layouts.app')
-@section('content')
 
+@section('title', '| Reviews')
+@section('content')
   <a href="/reviews" class="btn btn-default">Go back</a>
   <h1>{{ $review->title }}</h1>
   <div>
@@ -21,8 +22,6 @@
 
         <form action="{{ action('ReviewController@destroy', [$review->id])}}" method="post">
           @@csrf
-
-
 
         </form>
     @endguest

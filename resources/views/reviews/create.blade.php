@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('title', '|Create a new post')
+@section('title', '| Create a new review')
 @section('stylesheet')
 
 {{-- {{!! <Html::style('css/select2.min.css') !!}} --}}
@@ -56,7 +56,9 @@
     {{-- SUBMIT --}}
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+
 @section('scripts')
   {{-- {{ !! Html::script('js/select2.min.js') !!}} --}}
-@endsection
+
+  @endsection
 @endsection
