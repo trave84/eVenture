@@ -4,10 +4,10 @@
 @section('content')
 
 <div class="jumbotron">
-    <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <h1 class="display-4">Welcome to eVenture!</h1>
+    <p class="lead">Find bars, clubs, restaurants based on your mood and energy level for the day</p>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p>Register and sign in to have the most functionalities and features available to you.</p>
     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
 

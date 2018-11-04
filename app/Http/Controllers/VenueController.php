@@ -24,7 +24,7 @@ class VenueController extends Controller
         //     'foo' => 'bar'
         // ];
 
-        $venues = Venue::limit(25)->get();
+        $venues = Venue::all();
 
         return view('venues.index', compact(['venues']));
     }
@@ -33,7 +33,10 @@ class VenueController extends Controller
     {
         $features = Feature::all();
         $attributes = Attribute::all();
- 
+        // $mood = Attribute::where ;
+        // $energy = Attribute:: ;
+
+        
         return view('venues.create')->with(compact('features', 'attributes'));
     }
 
@@ -48,7 +51,7 @@ class VenueController extends Controller
     public function show($id)
     {
         $venue = Venue::findOrFail($id);
-
+        
         return view('venues.show', compact('venue'));
     }
 

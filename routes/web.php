@@ -8,7 +8,7 @@ Route::get('/user', 'UserController@index');
 
 // PAGES:
 Route::get('/', 'PageController@index');
-Route::get('/home', 'PageController@home');
+Route::get('/home', 'PageController@index');
 
 Route::get('/venues', 'VenueController@show');
 Route::get('/contact', 'PageController@getContact');
@@ -17,11 +17,11 @@ Route::get('/about', 'PageController@getAbout');
 //Route::get('about/{data}', 'PagesController@getAbout');
 
 Route::get('/venues', 'VenueController@index');
-Route::get('/venue/show/{id}', 'VenueController@show')->name('venue.show');
+Route::get('/venues/show/{id}', 'VenueController@show')->name('venues.show');
 
 // VENUES: 
-Route::get('/venue/create', 'VenueController@create');
-Route::get('/venues/edit/{id}', 'VenueController@edit')->name('venue.edit');
+Route::get('/venues/create', 'VenueController@create');
+Route::get('/venues/edit/{id}', 'VenueController@edit')->name('venues.edit');
 
 Route::post('/venue/update/{id}', 'VenueController@update');
 Route::post('/venue/store', 'VenueController@store');
@@ -39,6 +39,16 @@ Route::get('/comments/{id}/edit', 'CommentController@edit')->name('comments.edit
 Route::put('/comments/{id}', 'CommentController@update')->name('comments.update');
 Route::delete('/comments/{id}', 'CommentController@destroy')->name('comments.destroy');
 Route::get('/comments/{id}/delete', 'CommentController@delete') ->name('comments.delete');
+
+// MOODIFIER:
+Route::resource('/moodifier','MoodifierController');
+
+// GROCERIES:
+Route::get('/groceries', 'GroceryController@index');
+Route::post('/groceries/post', 'GroceryController@store');
+
+// SHARES
+Route::resource('/shares', 'ShareController');
 
 //GEOCODE:
 Route::get('/mygeocode', function(){

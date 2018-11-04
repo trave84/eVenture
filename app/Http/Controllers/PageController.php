@@ -14,14 +14,28 @@ class PageController extends Controller
     }
 
     public function getAbout(){
-        return view('pages.about');
+        $first = 'Arpad';
+        $last = 'Kajari';
+
+        $full_name = $first . " " . $last;
+        $email = 'a.kajari@yahoo.com';
+        
+        $data = [];
+        $data ['full_name'] = $full_name; 
+        $data['email'] = $email; 
+
+        return view('pages.about')->withData($data);
     }
-    
+ 
     public function getServices(){
         $data = array(
             'title' => 'Services',
             'services' => ['Bars', 'Clubs', 'Resturants']
         );
         return view('pages.services')->with($data);
+    }
+
+    public function getContact(){
+        return view('pages.contact');
     }
 }

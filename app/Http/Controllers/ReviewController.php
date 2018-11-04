@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Review;     
 use App\Feature;     
 use App\Attribute;     
+use App\User;
+use App\Venue;
 
 class ReviewController extends Controller
 {
@@ -16,9 +18,10 @@ class ReviewController extends Controller
      */
     public function index()
     {   
+        $venues = Venue::all();
         $reviews = Review::orderBy('created_at', 'asc')->paginate(1);
 
-        return view('reviews.index')->with('reviews', $reviews);        // PASSDATA: by with()
+        return view('reviews.index')->with(compact('venues', 'reviews'));        // PASSDATA: by with()
 
     }
 
@@ -44,9 +47,10 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, array(
+        $this->validate($request, [
             'title'=>'required|max:255','mood'=>'required', 'energy'=>'required'
-        ));
+            ]);
+
         $attribute = new Attribute();
         $attribute->title = $request->title;
         $attribute->mood = $request->mood;
@@ -60,6 +64,11 @@ class ReviewController extends Controller
 
     }
 
+    public function getSingle($slug){
+        $reviews = Venue::where('slug', '=', $slug)->first();
+        
+        return view('reviews.single')->withReview($review);
+    }
     /**
      * Display the specified resource.
      *
@@ -68,8 +77,10 @@ class ReviewController extends Controller
      */
     public function show($id)       //FINDREVIEW: by url/{id}
     {
-        $review = Review::find($id);
-        return view('reviews.show')->with('review', $review);   //PASSTO: show.template
+        $users = User::all();
+        $review = Review::findOrFail($id);
+
+        return view('reviews.show', compact(['review']));   //PASSTO: show.template
 
     }
 

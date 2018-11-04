@@ -15,7 +15,6 @@ class AddUserIdToReviewsTable extends Migration
     {
         Schema::table('reviews', function (Blueprint $table) {
             $table->integer('user_id');
-            
         });
     }
 
@@ -27,7 +26,7 @@ class AddUserIdToReviewsTable extends Migration
     public function down()
     {
         Schema::table('reviews', function (Blueprint $table) {
-            Schema::dropColumn();
+            $table->dropColumn('user_id');
         });
     }
 }
