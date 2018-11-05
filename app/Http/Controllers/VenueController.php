@@ -18,12 +18,6 @@ class VenueController extends Controller
 
     public function index()
     {   
-        // return 'a string';          // return the literal data
-        // return view('welcome');     // return the view
-        // return [                    //  turns array or object into JSON
-        //     'foo' => 'bar'
-        // ];
-
         $venues = Venue::all();
 
         return view('venues.index', compact(['venues']));

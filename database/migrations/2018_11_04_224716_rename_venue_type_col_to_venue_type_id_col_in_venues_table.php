@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUserIdToReviewsTable extends Migration
+class ChangeVenueTypeColToVenueTypeIdColInVenuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddUserIdToReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            $table->integer('user_id');
+        Schema::table('venues', function (Blueprint $table) {
+            $table->renameColumn('venue_type', 'venue_type_id');
         });
     }
 
@@ -25,8 +25,8 @@ class AddUserIdToReviewsTable extends Migration
      */
     public function down()
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            $table->dropColumn('user_id');
+        Schema::table('venues', function (Blueprint $table) {
+            //
         });
     }
 }

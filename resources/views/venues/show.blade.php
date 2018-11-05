@@ -10,10 +10,10 @@
         <p class="card-title ">Location: {{ $venue->location }}</p>
         <p class="card-title ">Venue Type: {{ $venue->venue_type }}</p>
       </div>
-      <img class="card-img-top" src=".../180px100/" alt="Venue image goes here...">
+      <img class="card-img-top" src=".../180px100/" alt="$venue->banner_img">
       <div class="card-title card-tags">
         <i class="fas fa-dollar sign"></i> <p class="card-title ">{{ $venue->budget }}</p>
-        <p class="card-title ">Night Type:{{ $venue->night_type }}</p>
+        <p class="card-title ">Night Type: {{ $venue->night_type }}</p>
       </div>
       <div class="card-body">
         <p class="card-text">{{ $venue->description }}</p> 

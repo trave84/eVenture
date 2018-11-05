@@ -13,7 +13,7 @@
       @yield('content')
     </main>
 
-    {{-- @include('partials._footer') --}}
+    @include('partials._footer')
 
   </div>
 </body>

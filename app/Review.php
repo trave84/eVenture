@@ -13,4 +13,8 @@ class Review extends Model
         $this->belongsTo('App\User');
     }
 
+    public  function venue(){
+        $this->belongsTo('App\Venue');
+    }
+
 }

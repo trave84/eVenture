@@ -17,5 +17,5 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<link href="{{ asset('css.custom.css') }}" rel="stylesheet">
-<link href="{{ asset('css.select2.min.css') }}" rel="stylesheet">
+<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+<link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">

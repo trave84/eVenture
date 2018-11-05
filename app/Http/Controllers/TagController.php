@@ -79,4 +79,13 @@ class TagController extends Controller
 
         return redirect (action('TagController@index'));
     }
+
+    // public function postSearch(Request $request)
+    // {
+    //     $search_results = ;
+
+    //     return ;
+    // }
+
+
 }

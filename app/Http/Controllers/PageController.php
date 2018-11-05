@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only('getHome');
+    }
+
     public function index(){
         $title = 'Welcome to eVenture';
         return view('pages.index', compact('title'));
@@ -13,6 +18,10 @@ class PageController extends Controller
     
     }
 
+    public function getHome()
+    {
+        return view('pages.home');
+    }
     public function getAbout(){
         $first = 'Arpad';
         $last = 'Kajari';

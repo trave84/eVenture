@@ -8,7 +8,7 @@ Route::get('/user', 'UserController@index');
 
 // PAGES:
 Route::get('/', 'PageController@index');
-Route::get('/home', 'PageController@index');
+Route::get('/pages/home', 'PageController@getHome')->name('home');
 
 Route::get('/venues', 'VenueController@show');
 Route::get('/contact', 'PageController@getContact');

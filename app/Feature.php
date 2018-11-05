@@ -10,4 +10,9 @@ class Feature extends Model
     {
         return $$this->hasMany('App\Venue');
     }
+
+    public function category()
+    {
+        return $$this->belongsTo('App\Category');
+    }
 }

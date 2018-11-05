@@ -10,8 +10,10 @@
     @foreach($reviews as $review)
       <div class="well">
         <div class="card-title card-tags">
-            <p class="card-title ">Location: {{ $venue->location }}</p>
-            <p class="card-title ">Venue Type: {{ $venue->venue_type }}</p>
+
+          {{--  --}}
+            {{-- <p class="card-title ">Location: {{ $review->venue->location }}</p>
+            <p class="card-title ">Venue Type: {{ $review->venue->venue_type }}</p> --}}
         </div>
         <h3><a href="/reviews/{{ $review->id }}">{{ $review->title }}</h3>
         <h5>{{ $review->body }}</h5>  
@@ -20,9 +22,13 @@
         <small>Written on: {{ date('M j, Y', strtotime($review->created_at)) }}</small>
       </div>
     @endforeach
+    {{-- Pagination Links --}}
     {{ $reviews->links() }}
   @else 
     <p>No reviews submitted</p>
   @endif
 @endsection
+
+
+
 
