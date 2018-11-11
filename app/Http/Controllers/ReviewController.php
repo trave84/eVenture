@@ -19,7 +19,7 @@ class ReviewController extends Controller
     public function index()
     {   
         // DO I STILL NEED TO USE 'App\Venue' is RELATIONSHIP IS SET UP ?? 
-        $venues = Venue::all();   
+        // $venues = Venue::all();   
         $reviews = Review::orderBy('created_at', 'desc')->paginate(2);
 
         return view('reviews.index', compact(['venues', 'reviews']));        

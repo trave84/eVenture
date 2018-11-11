@@ -8,6 +8,7 @@ Route::get('/user', 'UserController@index');
 
 // PAGES:
 Route::get('/', 'PageController@index');
+Route::get('/home', 'PageController@getHome');
 Route::get('/pages/home', 'PageController@getHome')->name('home');
 
 Route::get('/venues', 'VenueController@show');
@@ -26,6 +27,12 @@ Route::get('/venues/edit/{id}', 'VenueController@edit')->name('venues.edit');
 Route::post('/venue/update/{id}', 'VenueController@update');
 Route::post('/venue/store', 'VenueController@store');
 
+// [READ API ENDPOINTS]:DISPLAY A VENUE FILTER CHECKLIST SIDEBAR 
+Route::get('/api/venues', 'VenueController@venues');
+Route::get('/api/venues/{id}', 'VenueController@filter_results');
+Route::get('/api/venues/venuetypes', 'VenueController@venuetypes');
+
+
 // CATEGORIES:
 Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 Route::resource('tags', 'TagController', ['except' => ['create']]);
@@ -42,6 +49,9 @@ Route::get('/comments/{id}/delete', 'CommentController@delete') ->name('comments
 
 // MOODIFIER:
 Route::resource('/moodifier','MoodifierController');
+
+
+
 
 // GROCERIES:
 Route::get('/groceries', 'GroceryController@index');

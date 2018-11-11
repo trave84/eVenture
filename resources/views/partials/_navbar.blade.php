@@ -21,7 +21,7 @@
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="/tags">Filter </a>
+              <a class="nav-link" href="/venues/filter">Filter </a>
             </li>
             
             <li class="nav-item"> 

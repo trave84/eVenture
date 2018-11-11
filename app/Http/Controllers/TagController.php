@@ -15,10 +15,10 @@ class TagController extends Controller
 
     public function index()
     {
-        $tags = Tag::all();
+        // $tags = Tag::all();
         $categories = Category::all();
 
-        return view('tags.index', compact('tags', 'categories'));
+        return view('tags.index', compact('categories'));
     }
 
     public function create()
@@ -86,6 +86,9 @@ class TagController extends Controller
 
     //     return ;
     // }
-
+    public function filter_results()
+    {
+        return view('filter.index');
+    }
 
 }

@@ -10,7 +10,7 @@ class Attribute extends Model
 
     public function venues()
     {
-        return $$this->hasMany('App\Venue');
+        return $$this->belongsToMany('App\Venue');
     }
 
     

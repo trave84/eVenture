@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeVenueTypeColToVenueTypeIdColInVenuesTable extends Migration
+class CreateFeatureVenueTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class ChangeVenueTypeColToVenueTypeIdColInVenuesTable extends Migration
      */
     public function up()
     {
-        Schema::table('venues', function (Blueprint $table) {
-            $table->renameColumn('venue_type', 'venue_type_id');
+        Schema::create('feature_venue', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('feature_id');
+            $table->integer('venue_id');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class ChangeVenueTypeColToVenueTypeIdColInVenuesTable extends Migration
      */
     public function down()
     {
-        Schema::table('venues', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('feature_venue');
     }
 }

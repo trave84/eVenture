@@ -7,6 +7,8 @@ use \App\Venue;
 use \App\Attribute;
 use \App\Feature;
 use \App\User;
+use \App\Tag;
+use \App\Category;
 
 
 class VenueController extends Controller
@@ -19,8 +21,9 @@ class VenueController extends Controller
     public function index()
     {   
         $venues = Venue::all();
+        // $times = Venue::with();
 
-        return view('venues.index', compact(['venues']));
+        return view('venues.index', compact(['venues', 'times']));
     }
 
     public function create()
@@ -74,4 +77,40 @@ class VenueController extends Controller
 
         return redirect (action('VenueController@index'));
     }
+
+// API ENDPOINT ACTIONS:
+    
+    // api/venues
+    public function venues(){
+        $venues = Venue::all();
+
+        return $venues;
+    }
+
+    // api/venues/venuetypes
+    public function venuetypes(){
+        $venue_types_values = Venue::all();
+
+        // $venues = [];
+        // $venues = Venue::where('venuetype_id', '=', 'venue_type_values');
+
+        return $venue_types_values;
+    }
+
+    // api/venues/{id}
+    public function filter_results(Request $request, $id){
+        $tags = Tag::get();
+        $venue = Venue::findOrFail($id);
+        $categories = Category::all();
+
+        // $searched_venues = ; 
+        // {{ dd($tags); }}
+        // $checkboxes = $request->input('tag-'.$tags->id);
+        // {{ dd($tags); }}
+        // $venues = App\Venue::where ;
+
+        return [$venue];
+    }
+
+
 }

@@ -8,7 +8,7 @@ class Feature extends Model
 {
     public function venues()
     {
-        return $$this->hasMany('App\Venue');
+        return $$this->belongsToMany('App\Venue');
     }
 
     public function category()

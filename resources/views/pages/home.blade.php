@@ -17,6 +17,7 @@
                     @endif
 
                     You are logged in!
+                    <div id="root">Root div</div>
                 </div>
             </div>
         </div>
