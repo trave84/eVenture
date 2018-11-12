@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tag;
 use App\Category;       // to be able to <select-option>
+use App\Venue;
 
 class TagController extends Controller
 {
@@ -12,6 +13,14 @@ class TagController extends Controller
     public function __construct(){
         $this->middleware('auth');  //->only('index')
     }
+
+    public function getResults(Request $req){
+        $locations = [];
+        $locations = $req->input('Location');
+        var_dump($locations);
+    }
+
+    
 
     public function index()
     {

@@ -35,10 +35,12 @@ Route::post('/venue/store', 'VenueController@store');
 Route::resource('/api/tags', 'Api\TagController');
 Route::resource('/api/venues', 'Api\VenueController');
 
-
 // CATEGORIES:
 Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 Route::resource('tags', 'TagController', ['except' => ['create']]);
+
+// FILTER CRITERIA
+Route::get('/tags', 'TagController@getResults');
 
 // REVIEWS :
 Route::resource('/reviews', 'ReviewController');

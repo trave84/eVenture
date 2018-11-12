@@ -13,7 +13,7 @@
           
         {{-- <div action="{{ action('TagController@postSearch')}}" method="post" class="form-group"> --}}      
         <button type="submit" class="btn btn-danger btn-sm">RESET ALL</button>
-        <button type="submit" class="btn btn-success btn-sm">SEARCH</button>
+        <button type="submit" onSubmit="{{action('TagController@getResults')}}"  class="btn btn-success btn-sm">SEARCH</button>
           @csrf
               
         <div  class="filter-list"> 
@@ -25,7 +25,7 @@
               <div class="card card-body">
                 @foreach($category->tags as $tag)
                   <input type="checkbox" class="filter-checkboxes" name="{{ $tag->category->name }}" id="tag-{{ $tag->id }}" value="{{$tag->id}}" selected>{{ $tag->name }}
-                   <br>
+                  {{--  <br> --}}
                 @endforeach
               </div>
             </div>
@@ -36,6 +36,7 @@
       </div>
       <div id="filter-results" class="col-10">
         <h1>Your Results</h1>
+
       </div>  
     </div>
   </div>
