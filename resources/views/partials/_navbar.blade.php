@@ -21,7 +21,7 @@
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="/venues/filter">Filter </a>
+              <a class="nav-link" href="/tags">Filter </a>
             </li>
             
             <li class="nav-item"> 
@@ -82,9 +82,9 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="">eVenturers</a>
-                            <a class="dropdown-item" href="">Bucket List</a>
-                            <a class="dropdown-item" href="">My Reviews</a>
+                            <a class="dropdown-item" href="#">eVenturers</a>
+                            <a class="dropdown-item" href="#">Bucket List</a>
+                            <a class="dropdown-item" href="#">My Reviews</a>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

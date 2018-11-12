@@ -17,7 +17,7 @@
                     @endif
 
                     You are logged in!
-                    <div id="root">Root div</div>
+                    <div id="root">Root div changed</div>
                 </div>
             </div>
         </div>

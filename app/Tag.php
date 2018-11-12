@@ -14,7 +14,7 @@ class Tag extends Model
         return $this->belongsToMany('App\Venue');
     }
 
-    public function categories(){
+    public function category(){
         return $this->belongsTo('App\Category');
     }
 }

@@ -5,6 +5,9 @@ Auth::routes();
 
 // USER ACCESS:
 Route::get('/user', 'UserController@index');
+// Route::group(['middleware' => ['auth']], function () {
+//   Route:: get('/home', 'PageController@getHome');
+// });
 
 // PAGES:
 Route::get('/', 'PageController@index');
@@ -17,10 +20,10 @@ Route::post('/contact', 'PageController@postContact');
 Route::get('/about', 'PageController@getAbout');
 //Route::get('about/{data}', 'PagesController@getAbout');
 
-Route::get('/venues', 'VenueController@index');
-Route::get('/venues/show/{id}', 'VenueController@show')->name('venues.show');
 
 // VENUES: 
+Route::get('/venues', 'VenueController@index');
+Route::get('/venues/show/{id}', 'VenueController@show')->name('venues.show');
 Route::get('/venues/create', 'VenueController@create');
 Route::get('/venues/edit/{id}', 'VenueController@edit')->name('venues.edit');
 
@@ -28,9 +31,9 @@ Route::post('/venue/update/{id}', 'VenueController@update');
 Route::post('/venue/store', 'VenueController@store');
 
 // [READ API ENDPOINTS]:DISPLAY A VENUE FILTER CHECKLIST SIDEBAR 
-Route::get('/api/venues', 'VenueController@venues');
-Route::get('/api/venues/{id}', 'VenueController@filter_results');
-Route::get('/api/venues/venuetypes', 'VenueController@venuetypes');
+
+Route::resource('/api/tags', 'Api\TagController');
+Route::resource('/api/venues', 'Api\VenueController');
 
 
 // CATEGORIES:
@@ -51,22 +54,13 @@ Route::get('/comments/{id}/delete', 'CommentController@delete') ->name('comments
 Route::resource('/moodifier','MoodifierController');
 
 
-
-
-// GROCERIES:
-Route::get('/groceries', 'GroceryController@index');
-Route::post('/groceries/post', 'GroceryController@store');
-
-// SHARES
-Route::resource('/shares', 'ShareController');
-
 //GEOCODE:
 Route::get('/mygeocode', function(){
   return view('mygeocode.index');
 });
-Route::get('/googlemap', function(){
-  return view('googlemap.index');
-});
+// Route::get('/googlemap', function(){
+//   return view('googlemap.index');
+// });
 
 
 // Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');

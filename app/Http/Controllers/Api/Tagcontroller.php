@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class ShareController extends Controller
+use App\Tag;
+
+class Tagcontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,9 @@ class ShareController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::all();
+
+        return $tags;
     }
 
     /**
@@ -45,7 +50,9 @@ class ShareController extends Controller
      */
     public function show($id)
     {
-        //
+        $tag = Tag::find($id);
+
+        return $tag;
     }
 
     /**

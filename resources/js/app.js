@@ -13,4 +13,6 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+// Default: './component/Vue.js' was changed here:
 require('./components/index.js');
