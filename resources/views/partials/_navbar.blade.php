@@ -20,8 +20,9 @@
               <a class="nav-link" href="/venues">Venues</a>
             </li>
             
+            {{-- ONLY WORKS WHEN LOGGED IN !!! --}}
             <li class="nav-item">
-              <a class="nav-link" href="/tags">Filter </a>
+              <a class="nav-link" href="/tags">Filter </a>  
             </li>
             
             <li class="nav-item"> 
