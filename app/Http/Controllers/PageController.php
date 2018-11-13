@@ -20,8 +20,9 @@ class PageController extends Controller
 
     public function getHome()
     {
-        return view('pages.home');
+        return view('home');
     }
+    
     public function getAbout(){
         $first = 'Arpad';
         $last = 'Kajari';

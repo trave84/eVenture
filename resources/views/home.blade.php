@@ -17,7 +17,8 @@
                     @endif
 
                     You are logged in!
-                    <div id="root">Root div changed</div>
+                    {{-- "example" --}}
+                    <div id="root">Root div changed again</div>  
                 </div>
             </div>
         </div>

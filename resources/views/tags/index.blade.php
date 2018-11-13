@@ -3,11 +3,12 @@
 @section('title', '| Filter Results')
 @section('content')
 
+
   <div class="container">
     <div class="row">
       
       {{-- COMPONENT WITH STATES --}}
-      <div id="filters-container" class="col-2">
+      <div class="filters-container"  class="col-2 col-md-12">
         <form  method="get">
         <h1>Filter</h1>
           
@@ -34,7 +35,7 @@
         </div>
       </form> {{-- End of Form-Group --}}
       </div>
-      <div id="filter-results" class="col-10">
+      <div id="filter-results" class="col-10 col-md-12">
         <h1>Your Results</h1>
 
       </div>  

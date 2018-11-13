@@ -1,8 +1,18 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
+import './index.css';
 
-import App from './App';
+// import FilterList from './filterlist/filterlist.jsx';
 
-if (document.getElementById('root')) {
-    ReactDOM.render(<App />, document.getElementById('root'));
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Filter Your Results</h1>
+        {/* <FilterList /> */}
+      </div>
+    );
+  }
 }
+
+render(<App />, document.querySelector('#app'));

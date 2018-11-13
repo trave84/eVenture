@@ -17,6 +17,7 @@ class TagController extends Controller
     public function getResults(Request $req){
         $locations = [];
         $locations = $req->input('Location');
+        
         var_dump($locations);
     }
 

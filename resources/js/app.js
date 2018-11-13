@@ -13,6 +13,6 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
+// REACT SCAFFOLING WAS DONE AND EXAMPLE.JS CHANGED TO INDEX.JS 
 // Default: './component/Vue.js' was changed here:
 require('./components/index.js');

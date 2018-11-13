@@ -1,0 +1,4 @@
+After Vue -> React scafolding:
+1) js/components/example.js => App.js
+2) js/example.js => index.js
+3) views/home.blade.php => has change from "example" to <div id="root">Root div changed</div>
