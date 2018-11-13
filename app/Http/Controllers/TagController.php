@@ -14,12 +14,12 @@ class TagController extends Controller
         $this->middleware('auth');  //->only('index')
     }
 
-    public function getResults(Request $req){
-        $locations = [];
-        $locations = $req->input('Location');
+    // public function getResults(Request $req){
+    //     $locations = [];
+    //     $locations = $req->input('Location');
         
-        var_dump($locations);
-    }
+    //     var_dump($locations);
+    // }
 
     
 

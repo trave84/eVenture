@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Tag;
+use App\Category;
 
 class Tagcontroller extends Controller
 {
@@ -16,9 +17,9 @@ class Tagcontroller extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
+        $categories = Category::with('tags')->get();
 
-        return $tags;
+        return $categories;
     }
 
     /**
