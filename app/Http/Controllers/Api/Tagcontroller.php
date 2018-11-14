@@ -16,7 +16,8 @@ class Tagcontroller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        // EAGER LOADING (for relating Models)
         $categories = Category::with('tags')->get();
 
         return $categories;

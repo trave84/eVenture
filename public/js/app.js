@@ -36605,7 +36605,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-// index.html  was changed to views/app.blade.php
+// import from '.index.html';  was changed to views/app.blade.php
 
 
 
@@ -36627,7 +36627,7 @@ var App = function (_React$Component) {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'h1',
           null,
-          'Filter Your Results'
+          'I\'m index.js'
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__filterlist_filterlist_jsx__["a" /* default */], null)
       );
@@ -59560,7 +59560,6 @@ var FilterList = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (FilterList.__proto__ || Object.getPrototypeOf(FilterList)).call(this, props));
 
     _this.resultsListingsRef = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createRef(); // Calling on createREf() and ASSIGN TO VAR
-
     _this.itemChanged = _this.itemChanged.bind(_this);
 
     _this.state = {
@@ -59614,6 +59613,15 @@ var FilterList = function (_React$Component) {
       this.setState({
         selected: selected
       });
+
+      this.postFilterCriteria();
+    }
+  }, {
+    key: 'postFilterCriteria',
+    value: function postFilterCriteria() {
+      axios.post('/api/search_requests', {
+        selected: this.state.selected
+      });
     }
 
     // Whatever is in the State will be rendered here / State should be ready before
@@ -59631,7 +59639,7 @@ var FilterList = function (_React$Component) {
           { className: 'row' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { id: 'filter-container', className: 'col-2 col-md-12' },
+            { id: 'filter-container', className: 'col-md-2' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'h1',
               null,
@@ -59644,25 +59652,25 @@ var FilterList = function (_React$Component) {
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'button',
-              { type: 'submit', onSubmit: '{{action(\'TagController@getResults\')}}', className: 'btn btn-success btn-sm' },
+              { type: 'submit', className: 'btn btn-success btn-sm' },
               'SEARCH'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
               { className: 'filter-list' },
-              this.state.items == null ? null : this.state.items.map(function (category) {
+              this.state.items == null ? null : this.state.items.map(function (category, index) {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
                   null,
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'h4',
-                    null,
+                    'button',
+                    { className: 'btn btn-primary', type: 'button', 'data-toggle': 'collapse', 'data-target': '#collapseExample', 'aria-expanded': 'false', 'aria-controls': 'collapseExample' },
                     category.name
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
                     null,
-                    category.tags.map(function (tag) {
+                    category.tags.map(function (tag, index) {
                       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__filteritem_filteritem_jsx__["a" /* default */], {
                         changed: _this3.itemChanged,
 
@@ -59676,7 +59684,7 @@ var FilterList = function (_React$Component) {
 
             )
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__resultslisting_resultslisting_jsx__["a" /* default */], { ref: this.resultsListingRef })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__resultslisting_resultslisting_jsx__["a" /* default */], { ref: this.resultsListingRef, className: 'col-md-10' })
         )
       );
     }
@@ -59852,7 +59860,8 @@ var ResultsListing = function (_React$Component) {
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { className: 'results-listing' },
+        { ref: this.resultsListingRef, className: 'results-listing col-md-10' },
+        'Number of selected tags: ',
         this.state.value
       );
     }
@@ -59903,7 +59912,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".results-listing {\r\n  font-weight: bold;\r\n  font-size: 400%;\r\n  color: orange;\r\n  padding: 1rem;\r\n}", ""]);
+exports.push([module.i, ".results-listing {\r\n  font-weight: bold;\r\n  font-size: 100%;\r\n  color: orange;\r\n  padding: 1rem;\r\n}", ""]);
 
 // exports
 

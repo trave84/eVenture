@@ -19,8 +19,8 @@ export default class ResultsListing extends React.Component {
 
   render() {
     return (
-      <div className="results-listing">
-        {this.state.value}
+      <div ref={this.resultsListingRef} className="results-listing col-md-10">
+        Number of selected tags: {this.state.value}
       </div>
     );
   }

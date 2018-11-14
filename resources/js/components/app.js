@@ -27,11 +27,6 @@ export default class App extends Component {
 
     render() {
     return (
-      // <BrowserRouter>
-      //   <div>
-      //     <Header />
-      //   </div>
-      // </BrowserRouter>
       <>
         <FilterList />
       </>

@@ -11,7 +11,6 @@ export default class FilterList extends React.Component {
     super(props);
 
     this.resultsListingsRef = React.createRef();    // Calling on createREf() and ASSIGN TO VAR
-
     this.itemChanged = this.itemChanged.bind(this);
 
     this.state = {
@@ -53,8 +52,15 @@ export default class FilterList extends React.Component {
     this.setState({
       selected: selected
     });
+
+    this.postFilterCriteria();
   }
 
+  postFilterCriteria(){
+    axios.post('/api/search_requests', {
+      selected: this.state.selected
+    });
+  }
 
   // Whatever is in the State will be rendered here / State should be ready before
   render() {
@@ -62,23 +68,23 @@ export default class FilterList extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div id="filter-container"  className="col-2 col-md-12">
+          <div id="filter-container"  className="col-md-2">
           <h1>Filter</h1>
                 
           <button type="submit" className="btn btn-danger btn-sm">RESET ALL</button>
-          <button type="submit" onSubmit="{{action('TagController@getResults')}}"  className="btn btn-success btn-sm">SEARCH</button>
+          <button type="submit"   className="btn btn-success btn-sm">SEARCH</button>
               
           <div  className="filter-list"> 
           {/* MAP: all FilterItems (from JSON) + create VIRT.DOM +  assign 'changed' = e.target.checked*/}              
             { this.state.items == null ? null : 
               ( 
-                this.state.items.map(
-                  category => 
+                this.state.items.map((
+                  category, index) => 
                   <div>
-                    <h4>{category.name}</h4>
+                    <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">{category.name}</button>
                     <div>
                       {
-                        category.tags.map(tag => 
+                        category.tags.map((tag, index) => 
                           <FilterItem 
                           changed={this.itemChanged}
                             
@@ -94,7 +100,7 @@ export default class FilterList extends React.Component {
           </div>
       </div>
             
-      <ResultsListing ref={this.resultsListingRef} />
+      <ResultsListing ref={this.resultsListingRef} className="col-md-10"/>
       {/* Binding the Reference to the component  */}
       {/* doc.getElByID (add ID to the Counter Component) */}
       </div>
