@@ -2,9 +2,9 @@ import React from 'react';
 import './filterlist.css';
 import {Button} from 'react-bootstrap';
 import Navbar from '../partials/navbar.jsx'; 
-import FilterItem from '../filteritem/filteritem.jsx'; 
+import SliderItem from '../filteritem/filteritem.jsx'; 
 import ResultsListing from '../resultslisting/resultslisting.jsx';
-import BadgeListing from '../badgelisting/badgelisting';
+// import BadgeListing from '../badgelisting/badgelisting';
 
 
 export default class FilterList extends React.Component {
@@ -82,6 +82,7 @@ export default class FilterList extends React.Component {
 
   // Whatever is in the State will be rendered here / State should be ready before
   render() {
+    
     return (
 
       <div className="main">
@@ -112,15 +113,16 @@ export default class FilterList extends React.Component {
                             category={category}/>
                           )
                         }
+
                   </div>
                 )
               )
             }
           </div>
       </div>
-      {/* <div className="tags-badges col-md-9">
-        <BadgeListing selectedTagsTags={this.state.selectedTags}/>
-      </div> */}
+      <div className="tags-badges">
+        <BadgeListing selectedTags={this.state.selectedTags}/>
+      </div>
       <div className="col-md-9">
         <ResultsListing
           results={this.state.results}  />

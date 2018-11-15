@@ -10,23 +10,21 @@ use App\Tag;
 
 class FilterController extends Controller
 {
-    public function postSearch(Request $req)
+    public function findFilterMatch(Request $req)
     {
+        $selectedTags = $req->selectedTags;
 
-        $requested_tags = $req;
+        $venues = Venue::query();
 
-        // create response
-        console.log($requested_tags);
+        foreach($selectedTags as $category => $tags){
+            $venues->whereHas('tags', function($query) use($tags){
+                $query->whereIn('tags.id', $tags);
+            });
+        }
+
+        //return $venues->toSql();
+        return $venues->with('tags')->get();
     }
 
-    public function showResults(Request $req)
-    {
-
-        $req->tags()->find([
-            'selected_tags' => $req->selected,
-        ]);
-
-        // create response
-    }
-
+    
 }

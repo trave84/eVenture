@@ -8,10 +8,9 @@ class Venue extends Model
 {
     protected $table = 'venues';
     protected $fillable = [
-        'name', 'location', 'description', 
-        'venue_type', 'night_type','music_type', 
-        'budget',  'opening_time', 'closing_time',
-        'cuisine', 'link', 'banner_img' 
+        'name', 'description', 
+        'opening_time', 'closing_time',
+        'link', 'banner_img' 
     ];
 
 

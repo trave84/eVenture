@@ -1,15 +1,15 @@
  <?php
 
-// [API ENDPOINTS]
+// API END: Tables to Display
 
 Route::resource('/api/tags', 'Api\TagController');
 Route::resource('/api/venues', 'Api\VenueController');
-Route::post('/api/search_requests', 'Api\FilterController@postSearch');
+// API END: FilterPost  
+Route::post('/api/search_request', 'Api\FilterController@findFilterMatch');
+// Route::get('/api/search_request', 'Api\FilterController@findFilterMatch');
 
-
-
-// routes/web.php
-Route::view('/{path?}', 'app');
+// app.blade.php =>  
+Route::view('/filter_results', 'app');
 
 //Example:  Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
@@ -24,7 +24,7 @@ Route::get('/user', 'UserController@index');
 Route::get('/', 'PageController@index');
 Route::get('/home', 'PageController@getHome');
 Route::get('/pages/home', 'PageController@getHome')->name('home');
-Route::get('/venues', 'VenueController@show');
+Route::view('/venues', 'VenueController@show');
 Route::get('/contact', 'PageController@getContact');
 Route::post('/contact', 'PageController@postContact');
 Route::get('/about', 'PageController@getAbout');

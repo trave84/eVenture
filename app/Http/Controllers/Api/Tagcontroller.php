@@ -18,6 +18,7 @@ class Tagcontroller extends Controller
     public function index()
     {   
         // EAGER LOADING (for relating Models)
+        // GETs: Category Table wit belonging  Tag[] rows
         $categories = Category::with('tags')->get();
 
         return $categories;

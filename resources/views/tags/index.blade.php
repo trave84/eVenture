@@ -19,18 +19,23 @@
               
         <div  class="filter-list"> 
           @foreach($categories as $category)
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">{{ $category->name }}
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse"{category.name} aria-expanded="false" aria-controls="collapse"{category.name}>{{ $category->name }}
             </button>
+
+          {{-- FilterItem --}}
           <div classs="filter-list-items">
-            <div class="collapse" id="collapseExample">
+            <div class="collapse" id="collapse"{}>
               <div class="card card-body">
+            
                 @foreach($category->tags as $tag)
                   <input type="checkbox" class="filter-checkboxes" name="{{ $tag->category->name }}" id="tag-{{ $tag->id }}" value="{{$tag->id}}" selected>{{ $tag->name }}
                   {{--  <br> --}}
                 @endforeach
+
               </div>
             </div>
-          </div>
+          </div>  
+          {{-- END OF FilterItem :'filter-list-items' --}}
           @endforeach
         </div>
       </form> {{-- End of Form-Group --}}

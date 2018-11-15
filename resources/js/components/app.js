@@ -1,35 +1,15 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+// import ReactDOM from 'react-dom'
+// import { BrowserRouter, Route, Switch } from 'react-router-dom'
 // import Header from './Header'
-
-import FilterList from './filterlist/filterlist'
 
 export default class App extends Component {
 
-    // constructor(){
-    //     super(props);
-    //     this.state = {
-    //       value: 'false'
-    //     };
-    // }
-
-    // handleSubmit(e){
-    //     e.preventDefault();
-    //     console.log('posted');
-
-    //     this.handleSubmit = this.handleSubmit.bind(this);
-    // }
-
-    // handleChange(e){
-      
-    // }
-
-    render() {
+  render() {
     return (
-      <>
-        <FilterList />
-      </>
+      <div>
+        components/App.js
+      </div>
       );
     }
 }

@@ -17,8 +17,8 @@
     "jquery": "^3.1.1",
     "laravel-mix": "^1.0",
     "lodash": "^4.17.10",
-    "react": "^16.0.*",
-    "react-dom": "^16.3.1"
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
   },
   "dependencies": {
     "bootstrap": "^4.1.1",
@@ -29,6 +29,7 @@
     "popper.js": "^1.14.5",
     "random-string": "^0.2.0",
     "react-addons-update": "^15.6.2",
+    "react-bootstrap": "^0.32.4",
     "react-dot-fragment": "^0.2.6",
     "react-images": "^0.5.17"
   }

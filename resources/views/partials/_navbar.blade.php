@@ -22,7 +22,7 @@
             
             {{-- ONLY WORKS WHEN LOGGED IN !!! --}}
             <li class="nav-item">
-              <a class="nav-link" href="/tags">Filter </a>  
+              <a class="nav-link" href="/filter_results">Filter </a>  
             </li>
             
             <li class="nav-item"> 
