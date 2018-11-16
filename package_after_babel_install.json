@@ -10,14 +10,15 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
     "axios": "^0.16.2",
     "babel-preset-react": "^6.23.0",
     "cross-env": "^5.1.6",
     "jquery": "^3.1.1",
     "laravel-mix": "^1.0",
     "lodash": "^4.17.10",
-    "react": "^16.0.*",
-    "react-dom": "^16.3.1"
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
   },
   "dependencies": {
     "bootstrap": "^4.1.1",
@@ -25,9 +26,12 @@
     "draft-convert": "^2.1.2",
     "draft-js": "^0.10.5",
     "konva": "^2.5.0",
+    "popper.js": "^1.14.5",
     "random-string": "^0.2.0",
     "react-addons-update": "^15.6.2",
+    "react-bootstrap": "^0.32.4",
     "react-dot-fragment": "^0.2.6",
-    "react-images": "^0.5.17"
+    "react-images": "^0.5.17",
+    "save": "^2.3.2"
   }
 }
