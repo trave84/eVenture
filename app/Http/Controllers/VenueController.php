@@ -21,12 +21,10 @@ class VenueController extends Controller
     public function index()
     {   
         // tag->category
-        // ALL VENUES WITH TAGS  OF EACH CATEGORY
-        $venues = Venue::with('tags')->get();
-        $categories = Category::with('tags')->get();
+        // ALL VENUES WITH TAGS
+        $venues = Venue::get();
 
-        return [$venues, $categories];
-        return view('venues.index', compact('venues','categories'));
+        return view('venues.index', compact('venues'));
     }
 
     public function create()
@@ -49,10 +47,63 @@ class VenueController extends Controller
         return redirect (action('VenueController@index'));
     }
 
+    public function getCategoriesForVenues()
+    {   
+        $venues = Venue::with('tags')->get();
+        foreach($venues as $tags => $tag_id){
+            $venues->whereHas('tags', function ($q) use($tags){
+                
+            });
+        }
+        return $venues;
+
+        $tagsOfVenue = $req->selectedTags;
+
+        $venues = Venue::query();
+
+        foreach($selectedTags as $category => $tags){
+            $venues->whereHas('tags', function($query) use($tags){
+                $query->whereIn('tags.id', $tags);
+            });
+        }
+        return $venues->with('tags')->get();
+
+        // $venues = Venue::join('tag_venue', 'venues.id', '=', 'tag_venue.venue_id')
+        // ->join('tag_venue', 'tags.id', '=', 'tag_venue.tag_id')
+        // ->join('tags', 'categories.id', '=', 'tags.category_id')
+        // ->select('venues.*', 'tags.*', 'categories.name')
+        // ->get();
+
+        // return ; 
+       // $categories = Category::with('tags')->get();
+
+        // from venue table which fiels you need
+       // echo $venues[0]->name;
+        //    exit;
+        
+       // return [$venues];
+   
+        // for($k=0; $k<count($venues); $k++){
+        //     $data[$k]['name'][] = [$venues[$k]->name];
+        //     $data[$k]['description'][] = [$venues[$k]->description];
+        //     $data[$k]['tags'][] = $venues[$k]->tags;
+        
+        //     for($i=0; $i<count($venues[$k]->tags); $i++){
+        //         $data[$k]['tags'][$i] = $venues[$k]->tags[$i]->category_id;       
+        //         }
+        // } 
+        // return        
+        //     echo "<pre>";
+        //     $myData = getCategoryFromVenue($venues);       
+        //     print_r($myData);
+        //     echo "</pre>";
+        // );
+    }
+
+
     public function show($id)
     {
         $venue = Venue::findOrFail($id);
-        
         return view('venues.show', compact('venue'));
     }
 
@@ -81,40 +132,4 @@ class VenueController extends Controller
 
         return redirect (action('VenueController@index'));
     }
-
-// API ENDPOINT ACTIONS:
-    
-    // api/venues
-    public function venues(){
-        $venues = Venue::all();
-
-        return $venues;
-    }
-
-    // api/venues/venuetypes
-    public function venuetypes(){
-        $venue_types_values = Venue::all();
-
-        // $venues = [];
-        // $venues = Venue::where('venuetype_id', '=', 'venue_type_values');
-
-        return $venue_types_values;
-    }
-
-    // api/venues/{id}
-    public function filter_results(Request $request, $id){
-        $tags = Tag::get();
-        $venue = Venue::findOrFail($id);
-        $categories = Category::all();
-
-        // $searched_venues = ; 
-        // {{ dd($tags); }}
-        // $checkboxes = $request->input('tag-'.$tags->id);
-        // {{ dd($tags); }}
-        // $venues = App\Venue::where ;
-
-        return [$venue];
-    }
-
-
 }

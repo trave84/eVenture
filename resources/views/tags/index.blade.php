@@ -14,7 +14,7 @@
           
         {{-- <div action="{{ action('TagController@postSearch')}}" method="post" class="form-group"> --}}      
         <button type="submit" class="btn btn-danger btn-sm">RESET ALL</button>
-        <button type="submit" onSubmit="{{action('TagController@getResults')}}"  class="btn btn-success btn-sm">SEARCH</button>
+        <button type="submit" onSubmit=""  class="btn btn-success btn-sm">SEARCH</button>
           @csrf
               
         <div  class="filter-list"> 

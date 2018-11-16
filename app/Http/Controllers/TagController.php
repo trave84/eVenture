@@ -14,15 +14,6 @@ class TagController extends Controller
         $this->middleware('auth');  //->only('index')
     }
 
-    // public function getResults(Request $req){
-    //     $locations = [];
-    //     $locations = $req->input('Location');
-        
-    //     var_dump($locations);
-    // }
-
-    
-
     public function index()
     {
         // $tags = Tag::all();
@@ -89,16 +80,4 @@ class TagController extends Controller
 
         return redirect (action('TagController@index'));
     }
-
-    // public function postSearch(Request $request)
-    // {
-    //     $search_results = ;
-
-    //     return ;
-    // }
-    public function filter_results()
-    {
-        return view('filter.index');
-    }
-
 }

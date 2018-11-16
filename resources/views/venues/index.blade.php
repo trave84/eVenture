@@ -6,20 +6,31 @@
 
     @foreach ($venues as $venue)
       <div class="venue">
+{{--         
+        @php
+        echo "<pre>";
+        echo $venue->name;
+        //echo $venue->tags[0]->category_id;
+        
+        print_r($venue);
+        echo "</pre>";
+
+        @endphp --}}
+
+
         <div class="card" style="width: 30rem;">
-        <h3 class="card-title">name</h3>
+        <h3 class="card-title">{{ $venue->name}}</h3>
         <div class="card-title card-tags">
-          <p class="card-title ">Location: {{ $venue->tags }}</p>
-          {{-- <p class="card-title ">Venue Type: {{ $venue->venuetype->name }}</p> --}}
+          <i class="fas fa-dollar sign"></i><p class="card-tag">Location:  </p>
+          <i class="fas fa-dollar sign"></i> <p class="card-tg">Budget:</p>
+          <i class="fas fa-dollar sign"></i><p class="card-tag">Venue Type: </p>
+          <i class="fas fa-dollar sign"></i><p class="card-tag">Night Type: </p>
         </div>
-        <img class="card-img-top" src=".../180px100/" alt="$venue->banner_img">
-        <div class="card-title card-tags">
-          <i class="fas fa-dollar sign"></i> <p class="card-title ">{{ $venue->budget }}</p>
-          {{-- <p class="card-title ">Night Type:{{ $venue->nighttype }}</p> --}}
+        <img class="card-img-top" src="/public/images/sample_banner.jpg" alt="$venue->banner_img">
+        <div class="card-tags">
           {{-- @foreach ($times as $time)
-          <p class="card-title ">{{$time->days." ".$time->opening." ".$time->closing}} </p>    
+          <p class="card-tag ">{{$time->days." ".$time->opening." ".$time->closing}} </p>    
           @endforeach --}}
-          
         </div>
         <div class="card-body">
         <p class="card-text">{{ substr($venue->description, 0, 100) }} {{ strlen($venue->description) > 100 ? "..." : ""  }}</p> 
@@ -31,8 +42,6 @@
         {{-- <a href="{{ route('venues.single', $venue->slug) }}" class="btn btn-primary">Read More</a> --}}
 
         <a href="venues/show/{{ $venue->id }}" class="btn btn-primary">View</a>
-        <a href="venues/edit/{{ $venue->id }}" class="btn btn-primary">Edit</a>
-        <a href="venues/delete/{{ $venue->id }}" class="btn btn-primary">Delete</a>
         </div>
       </div>
     </div>
