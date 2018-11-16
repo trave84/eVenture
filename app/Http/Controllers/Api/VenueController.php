@@ -16,7 +16,7 @@ class Venuecontroller extends Controller
      */
     public function index()
     {
-        $venues = Venue::all();
+        $venues = Venue::withTag()->get();
 
         return $venues;
     }

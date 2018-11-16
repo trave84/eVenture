@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Venue;
-use \App\Attribute;
+use \App\Attribute; 
 use \App\Feature;
 use \App\User;
 use \App\Tag;
@@ -20,10 +20,13 @@ class VenueController extends Controller
 
     public function index()
     {   
-        $venues = Venue::all();
-        // $times = Venue::with();
+        // tag->category
+        // ALL VENUES WITH TAGS  OF EACH CATEGORY
+        $venues = Venue::with('tags')->get();
+        $categories = Category::with('tags')->get();
 
-        return view('venues.index', compact(['venues', 'times']));
+        return [$venues, $categories];
+        return view('venues.index', compact('venues','categories'));
     }
 
     public function create()
@@ -41,7 +44,8 @@ class VenueController extends Controller
     public function store(Request $request)
     {
         $venue = Venue::create($request->all());
-
+        $venue->with('tags')->get();
+        
         return redirect (action('VenueController@index'));
     }
 

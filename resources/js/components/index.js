@@ -10,8 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        index.js
-        {/* <Navbar /> */}
+        <Navbar />
         <FilterList />
         {/* <ResultsListing/> */}
       </div>

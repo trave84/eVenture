@@ -1,24 +1,37 @@
 import React from 'react';
-
-export default class SliderItem extends React.Component {
-  constructor(props) {
+ 
+export class InputSlider extends React.Component {
+  constructor(props){
     super(props);
 
-    this.changed = this.changed.bind(this);
+    this.props{
+      
+    }
+
+    this.state = {
+      x: 10,
+      y: 10
+    }
+      this.props.handleChange = this.handleChange.bind(this);
   }
-  
-  changed (e) {
-    this.props.changed(e.target.changed, this.props.id);  
-  }
+    
+    handleChange(e) {
+      this.props.handleChange(e.target.pos.x, e.target.pos.y)
+    }
+    
 
   render() {
     return (
-      <div className="slider-list-items">
-        <input id={this.props.id} 
-        // (changed will create the Input DOM => (e))
-        onChange={this.changed}/>     
-        <label htmlFor={this.props.name}>{this.props.name}</label>
-      </div>
-    );
-  }
+        <div className="input-slider-items">
+          <InputSlider className="slider slider-xy"
+          axis={this.axis}="xy"
+          x={this.x}={this.state.x}
+          xmax={100}
+          y={this.state.y}
+          ymax={100}
+
+          onChange={this.handleChange} />
+        </div>
+      );
+  };
 }

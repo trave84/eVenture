@@ -7,9 +7,9 @@
     @foreach ($venues as $venue)
       <div class="venue">
         <div class="card" style="width: 30rem;">
-        <h3 class="card-title">{{ $venue->name }}</h3>
+        <h3 class="card-title">name</h3>
         <div class="card-title card-tags">
-          <p class="card-title ">Location: {{ $venue->location->name }}</p>
+          <p class="card-title ">Location: {{ $venue->tags }}</p>
           {{-- <p class="card-title ">Venue Type: {{ $venue->venuetype->name }}</p> --}}
         </div>
         <img class="card-img-top" src=".../180px100/" alt="$venue->banner_img">

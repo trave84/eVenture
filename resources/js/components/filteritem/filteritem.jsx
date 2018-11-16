@@ -16,6 +16,7 @@ export default class FilterItem extends React.Component {
       <div className="filter-list-items">
         <input type="checkbox" id={this.props.id} 
         onChange={this.changed}/>     
+        
         <label htmlFor={this.props.name}>{this.props.name}</label>
       </div>
     );

@@ -6,9 +6,10 @@ import FilterItem from '../filteritem/filteritem.jsx';
 import ResultsListing from '../resultslisting/resultslisting.jsx';
 import BadgeListing from '../badgelisting/badgelisting';
 
+import { Slider } from 'rc-slider';
+import 'rc-slider/assets/index.css'
 
 export default class FilterList extends React.Component {
-  
   constructor(props) {
     super(props);
 
@@ -80,19 +81,20 @@ export default class FilterList extends React.Component {
     });
   }
 
+
   // Whatever is in the State will be rendered here / State should be ready before
   render() {
     return (
-
       <div className="main">
-      {/* <Navbar /> */}
         <div className="row">
           <div className="results-container col-md-3">
           <h1>Filter</h1>
           
           <button type="submit" className="btn btn-danger btn-sm">RESET ALL</button>
           <button type="submit"   className="btn btn-success btn-sm">CLOSE</button>
-              
+
+          <Slider /> 
+          {/* <Range /> */}
           <div  className="filter-list"> 
             { this.state.items == null ? null : 
               ( 
@@ -118,14 +120,8 @@ export default class FilterList extends React.Component {
             }
           </div>
       </div>
-      {/* <div className="tags-badges col-md-9">
+      <div className="tags-badges col-md-9">
         <BadgeListing selectedTagsTags={this.state.selectedTags}/>
-      </div> */}
-      <div className="col-md-9">
-        <ResultsListing
-          results={this.state.results}  />
-        {/* Binding the Reference to the component  */}
-        {/* doc.getElByID (add ID to the Counter Component) */}
       </div>
       </div>
     </div>
