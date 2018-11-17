@@ -1,6 +1,5 @@
 import React from 'react';
 import './resultslisting.css';
-// import '../venueitem/venueitem.jsx';
 import VenueItem from '../venueitem/venueitem.jsx';
 
 export default class ResultsListing extends React.Component {
@@ -26,13 +25,16 @@ export default class ResultsListing extends React.Component {
     return (
 
         <div>
-          {this.props.results == null ? null : 
-            this.props.results.map((venue, index) => 
+          This is col-m-9!! Below should be the results with map(VenuItem): 
+          {this.props. results == null ? null : 
+            (
+              this.props.results.map((venue, index) => 
             
               <VenueItem key={index} 
               name={venue.name} description={venue.description} address={venue.address}
               openingTime = {venue.opening_time} closingTime={venue.closing_time} banner = {venue.banner_img} link={venue.link} 
               />
+              )
             )
           }
         </div>

@@ -23,9 +23,9 @@ export default class VenuesList extends Component {
   render () {
     const { venues } = this.state
     return (
-      <div className='container py-4'>
-        <div className='row justify-content-center'>
-          <div className='col-md-8'>
+      <div className='venues-list container py-4'>
+        <div className='row justify-content-end'>
+          <div className='col-md-9'>
             <div className='card'>
               <div className='card-header'>All Venues</div>
               <div className='card-body'>

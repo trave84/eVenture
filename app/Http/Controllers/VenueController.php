@@ -18,7 +18,7 @@ class VenueController extends Controller
         $this->middleware('auth')->only('create', 'store', 'edit');
     }
 
-    public function index()
+    public function venues()
     {   
         // tag->category
         // ALL VENUES WITH TAGS
@@ -26,6 +26,16 @@ class VenueController extends Controller
         
         // return venues;
         return view('venues.index', compact('venues'));
+    }
+
+    public function barsclubs()
+    {   
+        // tag->category
+        // ALL VENUES WITH TAGS
+        $bars_pubs = Venue::with('tags')->where('tag_id', [])->get();
+        
+        // return venues;
+        return view('venues.bars_pubs', compact('bars_clubs'));
     }
 
     public function create()

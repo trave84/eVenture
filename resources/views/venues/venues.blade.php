@@ -2,7 +2,7 @@
 
 @section('title', '| Full List of Venues')
 @section('content')
-    <h1>ADMIN: Full List of Venues</h1>
+    <h1>Full List of Venues</h1>
 
     @foreach ($venues as $venue)
       <div class="venue">
@@ -21,7 +21,7 @@
         <div class="card" style="width: 30rem;">
         <h3 class="card-title">{{ $venue->name}}</h3>
         <div class="card-title card-tags">
-          <i class="fas fa-dollar sign"></i><p class="card-tag">Location:  </p>
+        <i class="fas fa-dollar-sign"> </i>
           <i class="fas fa-dollar sign"></i> <p class="card-tg">Budget:</p>
           <i class="fas fa-dollar sign"></i><p class="card-tag">Venue Type: </p>
           <i class="fas fa-dollar sign"></i><p class="card-tag">Night Type: </p>

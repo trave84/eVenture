@@ -22,9 +22,21 @@
             
             {{-- ONLY WORKS WHEN LOGGED IN !!! --}}
             <li class="nav-item">
-              <a class="nav-link" href="/filter_results">Filter </a>  
+              <a class="nav-link" href="/filter_navlink">Filter </a>  
             </li>
             
+            <li class="nav-item">
+                <a class="nav-link" href="/venues">Bars & Pubs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/venues">Clubs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/venues">Restaurants</a>
+            </li>
+              
+              
+
             <li class="nav-item"> 
               <a class="nav-link" href="/reviews">Reviews</a>
             </li>

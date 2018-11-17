@@ -5,7 +5,7 @@ import './index.css';
 import Navbar from './partials/navbar/navbar.jsx'
 import FilterList from './filterlist/filterlist.jsx'
 import ResultsListing from './resultslisting/resultslisting.jsx'
-import VenuesList from './venueslist/venueslist';
+import VenuesList from './venueslist/venueslist.jsx';
 
 class App extends React.Component {
   render() {

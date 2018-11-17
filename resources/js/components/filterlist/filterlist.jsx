@@ -89,7 +89,7 @@ export default class FilterList extends React.Component {
     const self = this;    //TO REFER: to FilterList below IN  Axios.then()
 
     axios.post('/api/search_request', {
-      selectedTags: this.state.selectedTags,
+      selectedTags: this.state.selectedTags
       
       // TODO#5
       // attributes: {
@@ -99,12 +99,15 @@ export default class FilterList extends React.Component {
     }).then(function (response) {
       // handle success
       self.setState({
-        results:response.data     // 
+        results:response.data
       });
     });
   }
 
-
+  // componentWillUpdate(nextProps, nextState) {
+  //   localStorage.setItem()
+  // }
+  
   // Whatever is in the State will be rendered here / State should be ready before
   render() {
     return (
@@ -124,24 +127,25 @@ export default class FilterList extends React.Component {
           <div className="filter-list"> 
             { this.state.items == null ? null : 
               ( 
-                this.state.items.map((
-                  category, index) => 
-                  <div key={index} className="category-divs">
-                    
-                    <Button key={index} className="btn btn-primary category-btns" onClick={() => this.setState({ open: !this.state.open })}>{category.name}</Button>
-                          
-                          {
-                            category.tags.map((tag, index) => 
-                            
-                            <FilterItem 
-                            key={index}
+                this.state.items.map((category, index) => 
+                  <div key={index} >
+                    <button type="button"  className="btn btn-primary category-btns" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      {category.name}
+                      </button>
+                      <div  id="collapseExample" className="category-divs collapse">
+                            {
+                              category.tags.map((tag, index) => 
+                              
+                              <FilterItem 
+                              key={index}
 
-                            changed={this.itemChanged}  //CallBack:(attributes = props)
-                            id={tag.id}
-                            name={tag.name} 
-                            category={category}/>
-                          )
-                        }
+                              changed={this.itemChanged}  //CallBack:(attributes = props)
+                              id={tag.id}
+                              name={tag.name} 
+                              category={category}/>
+                            )
+                          }
+                    </div>
                   </div>
                 )
               )
@@ -149,7 +153,7 @@ export default class FilterList extends React.Component {
           </div>
       </div>
 
-  {/* <div className="tags-badges col-md-9">
+    {/* <div className="tags-badges col-md-9">
         <BadgeListing selectedTagsTags={this.state.selectedTags}/>
       </div> */}
       <div className="resultslisting-container col-md-9">

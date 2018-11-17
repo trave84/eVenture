@@ -20,8 +20,12 @@ class Venue extends Model
     }
 
     public function tags()
-    {   // MUST BE LIKE THIS: FOR otherwise HTTP POST Response fails on 500 (SQL Unknown Column)
+    {   // CAN NOT BE 'hasMany' FOR: otherwise HTTP POST Response fails on 500 (SQL Unknown Column)
         return $this->belongsToMany('App\Tag');
     }
+
+    // public function tags(){
+    //     return $this->hasManyThrough('App\Tag','App\Category');
+    // }
 
 }

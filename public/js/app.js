@@ -21979,7 +21979,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-// import '../venueitem/venueitem.jsx';
 
 
 var ResultsListing = function (_React$Component) {
@@ -22012,6 +22011,7 @@ var ResultsListing = function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         null,
+        'This is col-m-9!! Below should be the results with map(VenuItem):',
         this.props.results == null ? null : this.props.results.map(function (venue, index) {
           return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__venueitem_venueitem_jsx__["a" /* default */], { key: index,
             name: venue.name, description: venue.description, address: venue.address,
@@ -67363,10 +67363,14 @@ var FilterList = function (_React$Component) {
       }).then(function (response) {
         // handle success
         self.setState({
-          results: response.data // 
+          results: response.data
         });
       });
     }
+
+    // componentWillUpdate(nextProps, nextState) {
+    //   localStorage.setItem()
+    // }
 
     // Whatever is in the State will be rendered here / State should be ready before
 
@@ -67395,23 +67399,25 @@ var FilterList = function (_React$Component) {
               this.state.items == null ? null : this.state.items.map(function (category, index) {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
-                  { key: index, className: 'category-divs' },
+                  { key: index },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__["a" /* Button */],
-                    { key: index, className: 'btn btn-primary category-btns', onClick: function onClick() {
-                        return _this3.setState({ open: !_this3.state.open });
-                      } },
+                    'button',
+                    { type: 'button', className: 'btn btn-primary category-btns', 'data-toggle': 'collapse', 'data-target': '#collapseExample', 'aria-expanded': 'false', 'aria-controls': 'collapseExample' },
                     category.name
                   ),
-                  category.tags.map(function (tag, index) {
-                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__filteritem_filteritem_jsx__["a" /* default */], {
-                      key: index,
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { id: 'collapseExample', className: 'category-divs collapse' },
+                    category.tags.map(function (tag, index) {
+                      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__filteritem_filteritem_jsx__["a" /* default */], {
+                        key: index,
 
-                      changed: _this3.itemChanged //CallBack:(attributes = props)
-                      , id: tag.id,
-                      name: tag.name,
-                      category: category });
-                  })
+                        changed: _this3.itemChanged //CallBack:(attributes = props)
+                        , id: tag.id,
+                        name: tag.name,
+                        category: category });
+                    })
+                  )
                 );
               })
             )
@@ -67508,7 +67514,7 @@ exports.push([module.i, "\r\n.main, .results-container, .filter-list{\r\n  paddi
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__BreadcrumbItem__ = __webpack_require__(97);
 /* unused harmony reexport BreadcrumbItem */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Button__ = __webpack_require__(28);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__Button__["a"]; });
+/* unused harmony reexport Button */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ButtonGroup__ = __webpack_require__(61);
 /* unused harmony reexport ButtonGroup */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ButtonToolbar__ = __webpack_require__(203);
@@ -78903,7 +78909,7 @@ exports = module.exports = __webpack_require__(52)(false);
 
 
 // module
-exports.push([module.i, ".resultslisting-container {\r\n  font-weight: bold;\r\n  font-size: 100%;\r\n  padding: 1rem;\r\n}", ""]);
+exports.push([module.i, ".results-list {\r\n  font-weight: bold;\r\n  font-size: 100%;\r\n  padding: 1rem;\r\n}", ""]);
 
 // exports
 
@@ -79165,7 +79171,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__partials_navbar_navbar_jsx__ = __webpack_require__(329);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__filterlist_filterlist_jsx__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__resultslisting_resultslisting_jsx__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__venueslist_venueslist__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__venueslist_venueslist_jsx__ = __webpack_require__(332);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -79200,7 +79206,7 @@ var App = function (_React$Component) {
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__filterlist_filterlist_jsx__["a" /* default */], null),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__resultslisting_resultslisting_jsx__["a" /* default */], null),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__venueslist_venueslist__["a" /* default */], null)
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__venueslist_venueslist_jsx__["a" /* default */], null)
       );
     }
   }]);
@@ -79265,13 +79271,13 @@ var VenuesList = function (_Component) {
 
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
         'div',
-        { className: 'container py-4' },
+        { className: 'venues-list container py-4' },
         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
           'div',
-          { className: 'row justify-content-center' },
+          { className: 'row justify-content-end' },
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
             'div',
-            { className: 'col-md-8' },
+            { className: 'col-md-9' },
             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
               'div',
               { className: 'card' },

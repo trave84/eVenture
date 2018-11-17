@@ -12,7 +12,7 @@ Route::post('/api/search_request', 'Api\FilterController@findFilterMatch');
 
 // SHOW REACT  APP IN: views/app.blade.php in <div id='root'></div>
 Route::view('/filter_results', 'app');
-Route::view('/filter_navlink', 'filter/index');
+Route::view('/filter_navlink', 'filter/search');
 
 //Example:  Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
@@ -37,10 +37,22 @@ Route::get('/about', 'PageController@getAbout');
 // VENUES: 
 Route::get('/venues', 'VenueController@index');
 Route::get('/venues/show/{id}', 'VenueController@show')->name('venues.show');
-Route::get('/venues/create', 'VenueController@create');
-Route::get('/venues/edit/{id}', 'VenueController@edit')->name('venues.edit');
-Route::post('/venue/update/{id}', 'VenueController@update');
-Route::post('/venue/store', 'VenueController@store');
+// Route::get('/venues/create', 'VenueController@create');
+// Route::get('/venues/edit/{id}', 'VenueController@edit')->name('venues.edit');
+// Route::post('/venue/update/{id}', 'VenueController@update');
+// Route::post('/venue/store', 'VenueController@store');
+
+// BARS & PUBS
+Route::get('/venues/{venuetype}', 'VenueController@venues');
+Route::get('/venues/show/{id}', 'VenueController@show')->name('venues.show');
+
+// CLUBS
+Route::get('/venues', 'VenueController@index');
+Route::get('/venues/show/{id}', 'VenueController@show')->name('venues.show');
+
+// RESTAURANTS
+Route::get('/venues', 'VenueController@index');
+Route::get('/venues/show/{id}', 'VenueController@show')->name('venues.show');
 
 // [RESROUCES FOR  API ENDPOINTS]: 
 Route::resource('/api/tags', 'Api\TagController');
