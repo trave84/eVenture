@@ -1,13 +1,13 @@
 import React from 'react';
-import './filterlist.css';
 import {Button} from 'react-bootstrap';
-import Navbar from '../partials/navbar.jsx'; 
+import './filterlist.css';
+import Navbar from '../partials/navbar/navbar.jsx'; 
+// import FilterCloseBtn from '../filterclosebtn/filterclosebtn.jsx'; 
+// import FilterResetBtn from '../filterresetbtn/filterresetbtn.jsx'; 
+// TODO#1 import SliderItem from '../slideritem/slideritem.jsx'; 
 import FilterItem from '../filteritem/filteritem.jsx'; 
 import ResultsListing from '../resultslisting/resultslisting.jsx';
 import BadgeListing from '../badgelisting/badgelisting';
-
-import { Slider } from 'rc-slider';
-import 'rc-slider/assets/index.css'
 
 export default class FilterList extends React.Component {
   constructor(props) {
@@ -15,43 +15,59 @@ export default class FilterList extends React.Component {
 
     this.resultsListingsRef = React.createRef();    // Calling on createREf() and ASSIGN TO VAR
     this.itemChanged = this.itemChanged.bind(this);
+    // TODO#2 this.sliderChanged = this.sliderChanged.bind(this);
 
     this.state = {
-      items: null,
-      selectedTags: {},
-      results: [],
+      // TODO#3 moodValue: 5,     //default state: sliders
+      // TODO#3 energyValue: 5,
+
+      items: null,      // default state: number of checkboxes
+      selectedTags: {}, //selected checkboxes
+      results: [],      //to save: JSON response from axios
     };
   }
-
-  // consoleThings(e){
-  //   e.preventDefault();
-  //   console.log(this.refs);
-  // }
 
   // Lifecycle hook #1
   componentDidMount(){
     fetch('http://www.eventure.test/api/tags')
     .then(resp => resp.json())
     .then(json => {
-      this.setState({
+      this.setState({   // newState for: items[]
         items: json
       })
       console.log(json)
     });
   }
 
-  // Callback: to create a 
+  // TODO#4 
+  // Slider ResetAll/ Slider Close:  Callback Functions()
+  // resetBtnClicked(clicked, id){
+  //   console.log(clicked, id);
+
+  //   let resetBtnClicked = this.state.resetBtnClicked;
+  //   if(clicked){
+  //     selectedTags = {};
+  //   } 
+  //   for sliders below:
+  //   this.setState({[event.target.name]:event.target.value});
+  // }
+
+
+  // Callback Function: method to <Checkbox Attributes />  (with parameters)
   itemChanged(checked, category, tag) {
     console.log(checked, category, tag);
 
-    let selectedTags = this.state.selectedTags;
+    let selectedTags = this.state.selectedTags;   //inScope: selectedTags{}
 
+    // Assign selectedTags[][] now:
     if(checked) {
       if(!selectedTags[category]){
         selectedTags[category] = [];
       }
       selectedTags[category].push(tag);
       // this.resultsListingRef.current.changeValue(1);
+    
+    // FOR: deselect checkboxes
     } else {
       selectedTags[category] = selectedTags[category].filter(e => e !== tag);
       if(selectedTags[category].length === 0){
@@ -62,21 +78,28 @@ export default class FilterList extends React.Component {
 
     console.log(selectedTags);
     this.setState({
-      selectedTags: selectedTags
-    });
+      selectedTags: selectedTags    //
+    });  // TOWAIT: for setting new state AND THEN call postFilter ADD this.postFilterCriteria() here as Second parameter
 
-    this.postFilterCriteria();
+   this.postFilterCriteria();    //IS ASYNC NOW 
   }
 
+
   postFilterCriteria(){
-    const self = this;
+    const self = this;    //TO REFER: to FilterList below IN  Axios.then()
 
     axios.post('/api/search_request', {
-      selectedTags: this.state.selectedTags
+      selectedTags: this.state.selectedTags,
+      
+      // TODO#5
+      // attributes: {
+      //   mood: this.state.mood,
+      //   energy: this.state.energy
+      // }
     }).then(function (response) {
       // handle success
       self.setState({
-        results:response.data
+        results:response.data     // 
       });
     });
   }
@@ -88,19 +111,23 @@ export default class FilterList extends React.Component {
       <div className="main">
         <div className="row">
           <div className="results-container col-md-3">
-          <h1>Filter</h1>
+          <h4>Filter Criteria</h4>
           
-          <button type="submit" className="btn btn-danger btn-sm">RESET ALL</button>
-          <button type="submit"   className="btn btn-success btn-sm">CLOSE</button>
+          {/* TODO#1 */}
+          {/* <FilterResetButton type="submit" hanldeClick={this.handleclick} className="btn btn-danger btn-sm">RESET ALL</FilterResetButton> */}
+          
+          {/* <FilterCloseBtn type="submit" onClick={this.hanldeClick}   className="btn btn-success btn-sm">CLOSE</FilterCloseBtn> */}
 
-          <Slider /> 
+          {/* <SliderItem />  */}
           {/* <Range /> */}
-          <div  className="filter-list"> 
+
+          <div className="filter-list"> 
             { this.state.items == null ? null : 
               ( 
                 this.state.items.map((
                   category, index) => 
                   <div key={index} className="category-divs">
+                    
                     <Button key={index} className="btn btn-primary category-btns" onClick={() => this.setState({ open: !this.state.open })}>{category.name}</Button>
                           
                           {
@@ -108,7 +135,8 @@ export default class FilterList extends React.Component {
                             
                             <FilterItem 
                             key={index}
-                            changed={this.itemChanged}
+
+                            changed={this.itemChanged}  //CallBack:(attributes = props)
                             id={tag.id}
                             name={tag.name} 
                             category={category}/>
@@ -120,9 +148,11 @@ export default class FilterList extends React.Component {
             }
           </div>
       </div>
-      <div className="tags-badges col-md-9">
+
+  {/* <div className="tags-badges col-md-9">
         <BadgeListing selectedTagsTags={this.state.selectedTags}/>
-      </div>
+      </div> */}
+
       </div>
     </div>
     );
