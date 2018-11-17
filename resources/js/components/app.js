@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom'
-// import { BrowserRouter, Route, Switch } from 'react-router-dom'
-// import Header from './Header'
+import ReactDOM from 'react-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Header from './Header'
 
-export default class App extends Component {
+// import VenuesList from './VenuesList'
+
+
+class App extends Component {
 
   render() {
     return (
       <div>
-        components/App.js
+        <BrowserRouter>
+            <div>
+              <Header />
+              <Switch>
+                <Route exact path='/' component={VenuesList} />
+              </Switch>
+            </div>
+        </BrowserRouter>   
       </div>
-      );
-    }
+    );
+  }
 }
+ReactDOM.render(<App />, document.getElementById('app'))
 
 
 //  <div className="container">

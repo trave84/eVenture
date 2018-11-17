@@ -20,8 +20,8 @@ class Venue extends Model
     }
 
     public function tags()
-    {
-        return $this->hasMany('App\Tag');
+    {   // MUST BE LIKE THIS: FOR otherwise HTTP POST Response fails on 500 (SQL Unknown Column)
+        return $this->belongsToMany('App\Tag');
     }
 
 }

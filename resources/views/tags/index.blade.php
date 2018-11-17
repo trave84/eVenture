@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
-@section('title', '| Filter Results')
+@section('title', '| views/tags/index')
 @section('content')
-
-
-  <div class="container">
+  
+<div class="container">
     <div class="row">
       
       {{-- COMPONENT WITH STATES --}}

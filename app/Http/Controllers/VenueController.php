@@ -22,8 +22,9 @@ class VenueController extends Controller
     {   
         // tag->category
         // ALL VENUES WITH TAGS
-        $venues = Venue::get();
-
+        $venues = Venue::with('tags')->get();
+        
+        // return venues;
         return view('venues.index', compact('venues'));
     }
 

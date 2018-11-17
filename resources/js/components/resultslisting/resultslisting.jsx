@@ -1,6 +1,6 @@
 import React from 'react';
 import './resultslisting.css';
-import '../venueitem/venueitem.jsx';
+// import '../venueitem/venueitem.jsx';
 import VenueItem from '../venueitem/venueitem.jsx';
 
 export default class ResultsListing extends React.Component {
@@ -24,8 +24,8 @@ export default class ResultsListing extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="venues-list">
+
+        <div>
           {this.props.results == null ? null : 
             this.props.results.map((venue, index) => 
             
@@ -36,7 +36,6 @@ export default class ResultsListing extends React.Component {
             )
           }
         </div>
-      </div>
     );
   }
 }

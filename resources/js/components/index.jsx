@@ -5,6 +5,7 @@ import './index.css';
 import Navbar from './partials/navbar/navbar.jsx'
 import FilterList from './filterlist/filterlist.jsx'
 import ResultsListing from './resultslisting/resultslisting.jsx'
+import VenuesList from './venueslist/venueslist';
 
 class App extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class App extends React.Component {
         {/* <Navbar /> */}
         <FilterList />
         <ResultsListing/>
+        <VenuesList />
       </div>
     );
   }

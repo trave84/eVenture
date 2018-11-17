@@ -110,7 +110,7 @@ export default class FilterList extends React.Component {
     return (
       <div className="main">
         <div className="row">
-          <div className="results-container col-md-3">
+          <div className="filterlist-container col-md-3">
           <h4>Filter Criteria</h4>
           
           {/* TODO#1 */}
@@ -152,7 +152,9 @@ export default class FilterList extends React.Component {
   {/* <div className="tags-badges col-md-9">
         <BadgeListing selectedTagsTags={this.state.selectedTags}/>
       </div> */}
-
+      <div className="resultslisting-container col-md-9">
+        <ResultsListing />
+      </div>
       </div>
     </div>
     );

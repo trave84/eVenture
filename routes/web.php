@@ -12,6 +12,7 @@ Route::post('/api/search_request', 'Api\FilterController@findFilterMatch');
 
 // SHOW REACT  APP IN: views/app.blade.php in <div id='root'></div>
 Route::view('/filter_results', 'app');
+Route::view('/filter_navlink', 'filter/index');
 
 //Example:  Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
