@@ -1,4 +1,27 @@
-After Vue -> React scafolding:
-1) js/components/example.js => App.js
-2) js/example.js => index.js
-3) views/home.blade.php => has change from "example" to <div id="root">Root div changed</div>
+npm init
+
+1) INDEX.HTML = views/app.blade.php
+2) NO webpack.config.js where:
+  'plugins:[new HTMLPlugIn({
+    template: './resources/index.html'})]'
+
+3) NO package.json:
+    "devDependencies" {
+        "babel-preset-react": ""
+    }
+
+3) NO PRESET KNOWN TO USE: 
+    .babelrc where {
+      "presets": ['env', 'react'] 
+    }
+
+4)  IN index.jsx:
+      import React from 'react';
+      import ReactDOM from 'react-dom';
+      import App from /.components/App;
+
+      ReactDOM.render(<App />, document.getElementById('app')); 
+
+      [in Views/app.blade.php NOW]
+
+

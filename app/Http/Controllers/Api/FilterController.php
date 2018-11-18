@@ -25,7 +25,7 @@ class FilterController extends Controller
                 $query->whereIn('tags.id', $tags);  //Verifies: ('column_value' , IN , $array)
             });
         }
-        // return $venues->toSql();
+        //return $venues->toSql();
         // THEN GET() THE query results WITH(tags column)
         return $venues->with('tags')->get();
     }

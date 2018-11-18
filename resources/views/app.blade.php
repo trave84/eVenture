@@ -16,7 +16,7 @@
 
     <body>
 
-        {{-- INCLUDING: the REACT "App class WILL=> Render()" HERE  --}}
+        {{-- REACT OUTPUT: the REACT "App class WILL=> Render()" HERE  --}}
         <div id="app"></div>
 
 

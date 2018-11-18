@@ -13,3 +13,6 @@ const mix = require('laravel-mix');
 
 mix.react('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
+
+// AutoInstall Babel plug-ins necesarry for React support:  
+// mix.react('resources/js/app.jsx', 'public/js');
