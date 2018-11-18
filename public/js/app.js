@@ -44449,6 +44449,13 @@ var App = function (_React$Component) {
 
 Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(App, null), document.querySelector('#app'));
 
+// SHOULD BE HERE:
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import App from './components/App';
+
+// ReactDOM.render(<App />, document.getElementById('app'));
+
 /***/ }),
 /* 158 */
 /***/ (function(module, exports, __webpack_require__) {

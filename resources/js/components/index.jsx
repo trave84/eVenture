@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { render }  from 'react-dom';
 import './index.css';
 // import from '.index.html';  was changed to views/app.blade.php
 import Navbar from './partials/navbar/navbar.jsx'
@@ -21,3 +21,12 @@ class App extends React.Component {
 }
 
 render(<App />, document.querySelector('#app'));
+
+
+// SHOULD BE HERE:
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import App from './components/App';
+
+// ReactDOM.render(<App />, document.getElementById('app'));
+
