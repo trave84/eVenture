@@ -4,16 +4,25 @@
 @section('title', '|')
 @section('content')
 {{-- <div class="container"> --}}
-  <div class="row">
-    
-    <div class="col-md-8 m-1">
-      <div class="card px-1 py-1" style="width: 30rem;">
-        <h3 class="card-title">{{ $venue->name }}</h3>
+  <section class="header jumbotron py-3 mb-0">
+    <h1 class="page-header text-center">{{ $venue->name }} </h1>
+    <div class="tags-list text-center px-2 d-flex justify-content-between">
+      <i class="far fa-compass"> <br> Prague 1 </i>
+      <i class="fas fa-dollar-sign"> <br> Cheap  </i>
+      <i class="fas fa-cocktail"> <br> Night Club </i>
+      <i class="far fa-grin-tongue"> <br> Chill with Mates </i>
+      <i class="fas fa-music"> <br> Latino </i>
+    </div>
+  </section>
+  
+  <section class="row">
+    <div class="venues-listing col-lg-8 m-1">
+      <div class="card px-1 py-1" style="width: 35rem;">
         <div class="card-title card-tags">
           {{-- <p class="card-title ">Location: {{ $venue->tags-> }}</p>
           <p class="card-title ">Venue Type: {{ $venue->venuetype }}</p> --}}
         </div>
-        <img class="card-img-top" src="{{URL::asset('/images/sample_banner.jpg')}}" height="200" width="200" alt="$venue->banner_img">
+        <img class="card-img-top img-fluid" src="{{URL::asset('/images/sample_banner.jpg')}}"  alt="$venue->banner_img">
         <div class="card-title card-tags">
           {{-- <i class="fas fa-dollar sign"></i> <p class="card-title ">{{ $venue->budget }}</p>
           <p class="card-title ">Night Type: {{ $venue->nighttype }}</p> --}}
@@ -25,7 +34,7 @@
       </div>
     </div>
 
-    <div class="col-md-3 m-1">
+    <div class="side-bar col-md-3 m-1">
         <blockquote class="blockquote">
           <p>Tripadvisor comments</p>
           <blockquote class=""><cite title="John Doe">John Doe</cite></footer>
@@ -38,6 +47,6 @@
         <div class="clearfix"></div>
         <hr /> --}}
     </div>
-  </div>
+  </section>
 {{-- </div> --}}
 @endsection

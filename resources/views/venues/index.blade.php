@@ -2,6 +2,7 @@
 
 @section('title', '| Full List of Venues')
 @section('content')
+    
     <section class="header">
       <h1 class="page-header">Full List of Venues 
       </h1>
@@ -30,7 +31,6 @@
             <i class="fas fa-cocktail"> Night Club </i>
             <i class="far fa-grin-tongue"> Chill with Mates </i>
             <i class="fas fa-music"> Latino </i>
-
           </div>
           <img class="card-img-top" src="{{URL::asset('/images/sample_banner.jpg')}}" height="200" width="200" alt="$venue->banner_img">
           <div class="card-tags">
