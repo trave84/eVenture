@@ -12,20 +12,26 @@ class Venue extends Model
         'opening_time', 'closing_time',
         'link', 'banner_img' 
     ];
-
-
-    public function reviews()
-    {
-        return $this->belongsToMany('App\Review');
-    }
+    protected $hidden=['created_at', 'updated_at'];
 
     public function tags()
     {   // CAN NOT BE 'hasMany' FOR: otherwise HTTP POST Response fails on 500 (SQL Unknown Column)
         return $this->belongsToMany('App\Tag');
     }
-
+    
     // public function tags(){
-    //     return $this->hasManyThrough('App\Tag','App\Category');
-    // }
+        //     return $this->hasManyThrough('App\Tag','App\Category');
+        // }
+        
+    public function photos()
+    {
+        return $this->hasMany('App\Photo');
+    }
+    public function reviews()
+    {
+        return $this->belongsToMany('App\Review');
+    }
+
 
 }
+    

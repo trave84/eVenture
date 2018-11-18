@@ -7,7 +7,13 @@
 
 <!-- Scripts --> 
 {{-- <script src="{{ asset('js/app.js') }}" defer></script>  --}}
-{{-- MAYBE: in conflict with React /components/index.js --}}
+{{-- MAYBE: in conflict with React /components/index.jsx 
+  UNCOMMENTED: loading in the REACT APP ON ALL THE PAGES --}}
+
+{{-- CUSTOM CSS --}}
+<link rel="stylesheet" href="{{ asset('css/app.css')}}">
+<link rel="stylesheet" href="{{ asset('css/custom.css')}}">
+
 
 <!-- Fonts -->
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">

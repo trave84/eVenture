@@ -9,9 +9,9 @@
     @include('partials._navbar')
     {{-- @include('partials._navbar_TM') --}}
 
-    {{-- <main class="py-4 px-1"> --}}
+    <main >
       @yield('content')
-    {{-- </main> --}}
+    </main>
 
     @include('partials._footer')
 

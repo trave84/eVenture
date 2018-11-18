@@ -16,13 +16,17 @@
   </section>
   
   <section class="row">
+    <div class="back-btn ml-3">
+      {!! link_to(URL::previous(), ' << Go back', ['class' => 'btn btn-primary']) !!}
+    </div>
     <div class="venues-listing col-lg-8 m-1">
       <div class="card px-1 py-1" style="width: 35rem;">
         <div class="card-title card-tags">
           {{-- <p class="card-title ">Location: {{ $venue->tags-> }}</p>
           <p class="card-title ">Venue Type: {{ $venue->venuetype }}</p> --}}
         </div>
-        <img class="card-img-top img-fluid" src="{{URL::asset('/images/sample_banner.jpg')}}"  alt="$venue->banner_img">
+        <img class="card-img-top img-fluid" src="{{URL::asset('/images/sample_banner.jpg')}}"  alt="asset_image">
+        <img class="card-img-top img-fluid" src="{{$venue->banner_img}}"  alt="$venue->banner_img">
         <div class="card-title card-tags">
           {{-- <i class="fas fa-dollar sign"></i> <p class="card-title ">{{ $venue->budget }}</p>
           <p class="card-title ">Night Type: {{ $venue->nighttype }}</p> --}}
