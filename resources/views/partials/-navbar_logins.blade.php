@@ -3,9 +3,9 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
-        {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
-        </button> --}}
+        </button>
         
         {{-- HERE: Customer Links --}}
         {{-- <li class="{{ Request::is('/') ? "nav-item active" : "" }}"> --}}
@@ -13,36 +13,38 @@
         <ul class="navbar-nav mr-auto">
             
             <li class="nav-item active">
-                <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
-              </li>
+              <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/venues">Venues</a>
+            </li>
+            
+            {{-- ONLY WORKS WHEN LOGGED IN !!! --}}
+            <li class="nav-item">
+              <a class="nav-link" href="/filter_navlink">Filter </a>  
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/venues/barsPubs">Bars & Pubs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/venues/clubs">Clubs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/venues/restaurants">Restaurants</a>
+            </li>
               
-              <li class="nav-item">
-                <a class="nav-link" href="/venues">Venues</a>
-              </li>
               
-              {{-- NO AUTH ALL: SINCE REACT !!! --}}
-              <li class="nav-item">
-                <a class="nav-link" href="/filter_navlink">Filter </a>  
-              </li>
-              
-              <li class="nav-item">
-                  <a class="nav-link" href="/venues/barsPubs">Bars & Pubs</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/venues/clubs">Clubs</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/venues/restaurants">Restaurants</a>
-              </li>
-                
-              <li class="nav-item"> 
-                <a class="nav-link" href="/reviews">Reviews</a>
-              </li>
-              
-              <li class="nav-item">
-                  <a class="nav-link" href="/about">About Us</a>
-              </li>
-  
+
+            <li class="nav-item"> 
+              <a class="nav-link" href="/reviews">Reviews</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About Us</a>
+            </li>
+            
             {{-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown
@@ -65,16 +67,17 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form> --}}
 
-        {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> --}}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           
             <!-- Left Side Of Navbar -->
             {{-- <ul class="navbar-nav mr-auto">
+
             </ul> --}}
 
             <!-- Right Side Of Navbar -->
-            {{-- <ul class="navbar-nav ml-auto"> --}}
+            <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
-                {{-- @guest
+                @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
@@ -83,10 +86,10 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     </li>
-                @else --}}
+                @else
                 
                  <!-- Here goes the links visible only to auth. user -->
-                    {{-- <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Hi  
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
@@ -107,8 +110,8 @@
                             </form>
                         </div>
                     </li>
-                @endguest --}}
-            {{-- </ul> --}}
-        {{-- </div> --}}
+                @endguest
+            </ul>
+        </div>
     </div>
 </nav>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Header from './Header'
+// import { BrowserRouter, Route, Switch } from 'react-router-dom'
+// import Header from './Header'
 
 // import VenuesList from './VenuesList'
 
@@ -11,14 +11,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
-            <div>
-              <Header />
+        {/* <BrowserRouter> */}
+              {/* <Header />
               <Switch>
                 <Route exact path='/' component={VenuesList} />
-              </Switch>
-            </div>
-        </BrowserRouter>   
+              </Switch> */}
+        {/* </BrowserRouter>    */}
       </div>
     );
   }

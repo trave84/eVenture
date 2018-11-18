@@ -18,7 +18,7 @@
 
                     You are logged in!
                     {{-- "example" --}}
-                    <div id="root">Root div changed again</div>  
+                    <div id="root">Root</div>  
                 </div>
             </div>
         </div>

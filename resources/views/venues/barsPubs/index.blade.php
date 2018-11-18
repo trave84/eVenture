@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('title', '| List or Bars and Pubs')
 @section('content')
