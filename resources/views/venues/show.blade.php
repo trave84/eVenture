@@ -25,8 +25,9 @@
           {{-- <p class="card-title ">Location: {{ $venue->tags-> }}</p>
           <p class="card-title ">Venue Type: {{ $venue->venuetype }}</p> --}}
         </div>
-        <img class="card-img-top img-fluid" src="{{URL::asset('/images/sample_banner.jpg')}}"  alt="asset_image">
+        {{-- <img class="card-img-top img-fluid" src="{{URL::asset('/images/sample_banner.jpg')}}"  alt="asset_image"> --}}
         <img class="card-img-top img-fluid" src="{{$venue->banner_img}}"  alt="$venue->banner_img">
+        <p>{{$venue->banner_img}}"</p>
         <div class="card-title card-tags">
           {{-- <i class="fas fa-dollar sign"></i> <p class="card-title ">{{ $venue->budget }}</p>
           <p class="card-title ">Night Type: {{ $venue->nighttype }}</p> --}}

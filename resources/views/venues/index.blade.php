@@ -4,7 +4,7 @@
 @section('content')
     
     <section class="header jumbotron">
-      <h1 class="page-header">Full List of Venues 
+      <h1 class="page-header"> Venues in Prague 
       </h1>
     </section>
 
@@ -26,7 +26,8 @@
             <i class="fas fa-cocktail"> </i> <span> Cocktail bar / Restaurant bar </span>
             <i class="far fa-compass"> </i> <span> Prague 1 </span>
           </div>
-          <img class="card-img-top" src="{{URL::asset('/images/sample_banner.jpg')}}" height="200" width="200" alt="$venue->banner_img">
+          {{-- <img class="card-img-top" src="{{URL::asset('/images/sample_banner.jpg')}}" height="200" width="200" alt="$venue->banner_img"> --}}
+          <img class="card-img-top" src="{{$venue->banner_img}}" height="200" width="200" alt="$venue->banner_img">
           <div class="card-tags">
             {{-- @foreach ($times as $time)
               <p class="card-tag ">{{$time->days." ".$time->opening." ".$time->closing}} </p>    

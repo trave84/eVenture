@@ -42,7 +42,7 @@ class VenueController extends Controller
                 $query->whereIn('tags.id', $tags);  //Verifies: ('column_value' , IN , $array)
             });
         }
-        $venues->with('tags')->get();
+        return $venues->with('tags')->get();
         return view('venues.barsPubs.index', compact('venues'));
     }
     public function clubs()
@@ -59,7 +59,7 @@ class VenueController extends Controller
                 $query->whereIn('tags.id', $tags);  //Verifies: ('column_value' , IN , $array)
             });
         }
-        // return $venues->with('tags')->get();
+        return $venues->with('tags')->get();
         return view('venues.clubs.index', compact('venues'));
     }
     
@@ -78,13 +78,14 @@ class VenueController extends Controller
             });
         }
 
-        // return $venues->with('tags')->get();
+        return $venues->with('tags')->get();
         return view('venues.restaurants.index', compact('venues'));
     }
 
     public function show($id)
     {
-        $venue = Venue::findOrFail($id)->with('photos')->get();
+        $venue = Venue::findOrFail($id);
+        $photos = $venue::with('photos')->get();
         return view('venues.show', compact('venue', 'photos'));
     }
 
