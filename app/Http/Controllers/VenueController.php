@@ -49,7 +49,7 @@ class VenueController extends Controller
     {   
         // tag->category
         // ALL VENUES WITH TAGS
-        $tags= [7];
+        $tags= [8];
         $venues = Venue::query();
         // dd($venues);
 
@@ -59,7 +59,7 @@ class VenueController extends Controller
                 $query->whereIn('tags.id', $tags);  //Verifies: ('column_value' , IN , $array)
             });
         }
-        $venues->with('tags')->get();
+        // return $venues->with('tags')->get();
         return view('venues.clubs.index', compact('venues'));
     }
     
@@ -77,7 +77,8 @@ class VenueController extends Controller
                 $query->whereIn('tags.id', $tags);  //Verifies: ('column_value' , IN , $array)
             });
         }
-        $venues->with('tags')->get();
+
+        // return $venues->with('tags')->get();
         return view('venues.restaurants.index', compact('venues'));
     }
 

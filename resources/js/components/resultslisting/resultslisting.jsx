@@ -7,7 +7,7 @@ export default class ResultsListing extends React.Component {
     super(props);
 
     this.state = {
-      items: []
+      items: [1,2,3],
     };
   }
   
@@ -26,7 +26,7 @@ export default class ResultsListing extends React.Component {
 
         <div>
           This is col-m-9!! Below should be the results with map(VenuItem): 
-          {this.props. results == null ? null : 
+          {this.props.results == null ? null : 
             (
               this.props.results.map((venue, index) => 
             

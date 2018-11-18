@@ -157,7 +157,7 @@ export default class FilterList extends React.Component {
         <BadgeListing selectedTagsTags={this.state.selectedTags}/>
       </div> */}
       <div className="resultslisting-container col-md-9">
-        <ResultsListing />
+        <ResultsListing/>
       </div>
       </div>
     </div>

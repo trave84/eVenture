@@ -78,9 +78,10 @@ Route::get('/comments/{id}/delete', 'CommentController@delete') ->name('comments
 Route::get('/mygeocode', function(){
   return view('mygeocode.index');
 });
-// Route::get('/googlemap', function(){
-//   return view('googlemap.index');
-// });
+Route::get('/googlemap', function(){
+  return view('googlemap.index');
+});
+
 // Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
 // Route::get('blog', ['uses' => 'BlogController@getIndex', 'as' => 'blog.index']);
 

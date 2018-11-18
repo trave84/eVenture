@@ -21990,7 +21990,7 @@ var ResultsListing = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ResultsListing.__proto__ || Object.getPrototypeOf(ResultsListing)).call(this, props));
 
     _this.state = {
-      items: []
+      items: [1, 2, 3]
     };
     return _this;
   }
