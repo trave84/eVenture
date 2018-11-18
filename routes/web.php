@@ -15,8 +15,6 @@ Route::view('/filter_results', 'app');
 Route::view('/filter_navlink', 'filter/search');
 
 //Example:  Route::get('/home', 'HomeController@index')->name('home');
-Auth::routes();
-
 
 // USER ACCESS: NOT with REACT !!
 Route::get('/user', 'UserController@index');
@@ -43,16 +41,17 @@ Route::get('/venues/show/{id}', 'VenueController@show')->name('venues.show');
 // Route::post('/venue/store', 'VenueController@store');
 
 // BARS & PUBS
-Route::get('/venues/{venuetype}', 'VenueController@venues');
-Route::get('/venues/show/{id}', 'VenueController@show')->name('venues.show');
+Route::get('/venues/barsPubs', 'VenueController@barsPubs');
+// Route::get('/venues/barsPubs/show/{id}', 'VenueController@show')->name('barsPubs.show');
 
 // CLUBS
-Route::get('/venues', 'VenueController@index');
-Route::get('/venues/show/{id}', 'VenueController@show')->name('venues.show');
+Route::get('/venues/clubs', 'VenueController@clubs');
+// Route::get('/venues/clubs/show/{id}', 'VenueController@show')->name('clubs.show');
 
 // RESTAURANTS
-Route::get('/venues', 'VenueController@index');
-Route::get('/venues/show/{id}', 'VenueController@show')->name('venues.show');
+Route::get('/venues/restaurants', 'VenueController@restaurants');
+// Route::get('/venues/restaurants/show/{id}', 'VenueController@show')->name('restaurants.show');
+
 
 // [RESROUCES FOR  API ENDPOINTS]: 
 Route::resource('/api/tags', 'Api\TagController');
@@ -84,3 +83,6 @@ Route::get('/mygeocode', function(){
 // });
 // Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
 // Route::get('blog', ['uses' => 'BlogController@getIndex', 'as' => 'blog.index']);
+
+
+Auth::routes();

@@ -26,13 +26,13 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link" href="/venues">Bars & Pubs</a>
+                <a class="nav-link" href="/venues/barsPubs">Bars & Pubs</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/venues">Clubs</a>
+                <a class="nav-link" href="/venues/clubs">Clubs</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/venues">Restaurants</a>
+                <a class="nav-link" href="/venues/restaurants">Restaurants</a>
             </li>
               
               

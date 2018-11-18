@@ -18,7 +18,7 @@ class VenueController extends Controller
         $this->middleware('auth')->only('create', 'store', 'edit');
     }
 
-    public function venues()
+    public function index()
     {   
         // tag->category
         // ALL VENUES WITH TAGS
@@ -28,15 +28,65 @@ class VenueController extends Controller
         return view('venues.index', compact('venues'));
     }
 
-    public function barsclubs()
+    public function barsPubs()
     {   
         // tag->category
         // ALL VENUES WITH TAGS
-        $bars_pubs = Venue::with('tags')->where('tag_id', [])->get();
-        
-        // return venues;
-        return view('venues.bars_pubs', compact('bars_clubs'));
+        $tags= [1,2,3,4,5,7,9,10,11];
+        $venues = Venue::query();
+        // dd($venues);
+
+        foreach ($tags as $tag){
+            $venues->whereHas('tags', function($query) use($tags){
+                // THAT HAS tagid from  $tags[]
+                $query->whereIn('tags.id', $tags);  //Verifies: ('column_value' , IN , $array)
+            });
+        }
+        $venues->with('tags')->get();
+        return view('venues.barsPubs.index', compact('venues'));
     }
+    public function clubs()
+    {   
+        // tag->category
+        // ALL VENUES WITH TAGS
+        $tags= [7];
+        $venues = Venue::query();
+        // dd($venues);
+
+        foreach ($tags as $tag){
+            $venues->whereHas('tags', function($query) use($tags){
+                // THAT HAS tagid from  $tags[]
+                $query->whereIn('tags.id', $tags);  //Verifies: ('column_value' , IN , $array)
+            });
+        }
+        $venues->with('tags')->get();
+        return view('venues.clubs.index', compact('venues'));
+    }
+    
+    public function restaurants()
+    {   
+        // tag->category
+        // ALL VENUES WITH TAGS
+        $tags= [9,10];
+        $venues = Venue::query();
+        // dd($venues);
+
+        foreach ($tags as $tag){
+            $venues->whereHas('tags', function($query) use($tags){
+                // THAT HAS tagid from  $tags[]
+                $query->whereIn('tags.id', $tags);  //Verifies: ('column_value' , IN , $array)
+            });
+        }
+        $venues->with('tags')->get();
+        return view('venues.restaurants.index', compact('venues'));
+    }
+
+    public function show($id)
+    {
+        $venue = Venue::findOrFail($id);
+        return view('venues.show', compact('venue'));
+    }
+
 
     public function create()
     {
@@ -110,14 +160,6 @@ class VenueController extends Controller
         //     echo "</pre>";
         // );
     }
-
-
-    public function show($id)
-    {
-        $venue = Venue::findOrFail($id);
-        return view('venues.show', compact('venue'));
-    }
-
 
     public function edit($id)
     {

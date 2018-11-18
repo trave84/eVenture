@@ -1,8 +1,8 @@
 @extends('layouts.app');
 
-@section('title', '| Full List of Venues')
+@section('title', '| List or Bars and Pubs')
 @section('content')
-    <h1>Full List of Venues</h1>
+    <h1>List of Bars and Pubs</h1>
 
     @foreach ($venues as $venue)
       <div class="venue">
