@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
 import './filterlist.css';
-import Navbar from '../partials/navbar/navbar.jsx'; 
+// import Navbar from '../partials/navbar/navbar.jsx'; 
 // import FilterCloseBtn from '../filterclosebtn/filterclosebtn.jsx'; 
 // import FilterResetBtn from '../filterresetbtn/filterresetbtn.jsx'; 
 // TODO#1 import SliderItem from '../slideritem/slideritem.jsx'; 
@@ -24,6 +24,7 @@ export default class FilterList extends React.Component {
       items: null,      // default state: number of checkboxes
       selectedTags: {}, //selected checkboxes
       results: [],      //to save: JSON response from axios
+      opened: []
     };
   }
 
@@ -39,19 +40,19 @@ export default class FilterList extends React.Component {
     });
   }
 
-  // TODO#4 
-  // Slider ResetAll/ Slider Close:  Callback Functions()
-  // resetBtnClicked(clicked, id){
-  //   console.log(clicked, id);
+  openClicked(category){
+    let opened = this.state.opened;
 
-  //   let resetBtnClicked = this.state.resetBtnClicked;
-  //   if(clicked){
-  //     selectedTags = {};
-  //   } 
-  //   for sliders below:
-  //   this.setState({[event.target.name]:event.target.value});
-  // }
+    if(opened.includes(category.id)){
+      opened = opened.filter(elm => elm !== category.id);
+    }else{
+      opened.push(category.id);
+    }
 
+    this.setState({
+      opened: opened
+    });
+  }
 
   // Callback Function: method to <Checkbox Attributes />  (with parameters)
   itemChanged(checked, category, tag) {
@@ -110,6 +111,7 @@ export default class FilterList extends React.Component {
   
   // Whatever is in the State will be rendered here / State should be ready before
   render() {
+    console.log(this.state.opened);
     return (
       <div className="main">
         <div className="row">
@@ -129,10 +131,14 @@ export default class FilterList extends React.Component {
               ( 
                 this.state.items.map((category, index) => 
                   <div key={index} >
-                    <button type="button"  className="btn btn-primary category-btns" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <button type="button"  className="btn btn-primary category-btns" onClick={() => {
+                      this.openClicked(category);
+                    }}>
                       {category.name}
-                      </button>
-                      <div  id="collapseExample" className="category-divs collapse">
+                    </button>
+                    {
+                      this.state.opened.includes(category.id) ? (
+                          <div className="category-divs">
                             {
                               category.tags.map((tag, index) => 
                               
@@ -145,7 +151,10 @@ export default class FilterList extends React.Component {
                               category={category}/>
                             )
                           }
-                    </div>
+                        </div>
+                      ) : null
+                    }
+                      
                   </div>
                 )
               )
@@ -153,11 +162,11 @@ export default class FilterList extends React.Component {
           </div>
       </div>
 
-    {/* <div className="tags-badges col-md-9">
+      {/* <div className="tags-badges col-md-9">
         <BadgeListing selectedTagsTags={this.state.selectedTags}/>
       </div> */}
       <div className="resultslisting-container col-md-9">
-        <ResultsListing />
+        <ResultsListing results={this.state.results} />
       </div>
       </div>
     </div>
@@ -182,4 +191,17 @@ export default class FilterList extends React.Component {
 }
 */
 
+
+// TODO#4 
+  // Slider ResetAll/ Slider Close:  Callback Functions()
+  // resetBtnClicked(clicked, id){
+  //   console.log(clicked, id);
+
+  //   let resetBtnClicked = this.state.resetBtnClicked;
+  //   if(clicked){
+  //     selectedTags = {};
+  //   } 
+  //   for sliders below:
+  //   this.setState({[event.target.name]:event.target.value});
+  // }
 

@@ -22176,7 +22176,7 @@ __webpack_require__(134);
 
 // REACT SCAFFOLING WAS DONE AND EXAMPLE.JS CHANGED TO INDEX.JS 
 // Default: './component/Vue.js' was changed here:
-__webpack_require__(329);
+__webpack_require__(157);
 
 /***/ }),
 /* 134 */
@@ -44391,7 +44391,70 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 157 */,
+/* 157 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__index_css__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__index_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__partials_navbar_navbar_jsx__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__filterlist_filterlist_jsx__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__resultslisting_resultslisting_jsx__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__venueslist_venueslist_jsx__ = __webpack_require__(326);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+// import from '.index.html';  was changed to views/filter.blade.php
+
+
+
+
+
+var Filter = function (_React$Component) {
+  _inherits(Filter, _React$Component);
+
+  function Filter() {
+    _classCallCheck(this, Filter);
+
+    return _possibleConstructorReturn(this, (Filter.__proto__ || Object.getPrototypeOf(Filter)).apply(this, arguments));
+  }
+
+  _createClass(Filter, [{
+    key: 'render',
+    value: function render() {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        null,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__filterlist_filterlist_jsx__["a" /* default */], null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__venueslist_venueslist_jsx__["a" /* default */], null)
+      );
+    }
+  }]);
+
+  return Filter;
+}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Filter);
+
+
+if (document.getElementById('filter-root')) {
+  Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Filter, null), document.querySelector('#filter-root'));
+}
+
+/***/ }),
 /* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -67223,10 +67286,9 @@ module.exports = function (css) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_bootstrap__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filterlist_css__ = __webpack_require__(318);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filterlist_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__filterlist_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__partials_navbar_navbar_jsx__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__filteritem_filteritem_jsx__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__resultslisting_resultslisting_jsx__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__badgelisting_badgelisting__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__filteritem_filteritem_jsx__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__resultslisting_resultslisting_jsx__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__badgelisting_badgelisting__ = __webpack_require__(324);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67238,7 +67300,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
+// import Navbar from '../partials/navbar/navbar.jsx'; 
 // import FilterCloseBtn from '../filterclosebtn/filterclosebtn.jsx'; 
 // import FilterResetBtn from '../filterresetbtn/filterresetbtn.jsx'; 
 // TODO#1 import SliderItem from '../slideritem/slideritem.jsx'; 
@@ -67264,7 +67326,8 @@ var FilterList = function (_React$Component) {
 
       items: null, // default state: number of checkboxes
       selectedTags: {}, //selected checkboxes
-      results: [] //to save: JSON response from axios
+      results: [], //to save: JSON response from axios
+      opened: []
     };
     return _this;
   }
@@ -67286,20 +67349,23 @@ var FilterList = function (_React$Component) {
         console.log(json);
       });
     }
+  }, {
+    key: 'openClicked',
+    value: function openClicked(category) {
+      var opened = this.state.opened;
 
-    // TODO#4 
-    // Slider ResetAll/ Slider Close:  Callback Functions()
-    // resetBtnClicked(clicked, id){
-    //   console.log(clicked, id);
+      if (opened.includes(category.id)) {
+        opened = opened.filter(function (elm) {
+          return elm !== category.id;
+        });
+      } else {
+        opened.push(category.id);
+      }
 
-    //   let resetBtnClicked = this.state.resetBtnClicked;
-    //   if(clicked){
-    //     selectedTags = {};
-    //   } 
-    //   for sliders below:
-    //   this.setState({[event.target.name]:event.target.value});
-    // }
-
+      this.setState({
+        opened: opened
+      });
+    }
 
     // Callback Function: method to <Checkbox Attributes />  (with parameters)
 
@@ -67368,6 +67434,7 @@ var FilterList = function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
+      console.log(this.state.opened);
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'main' },
@@ -67391,14 +67458,16 @@ var FilterList = function (_React$Component) {
                   { key: index },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'button',
-                    { type: 'button', className: 'btn btn-primary category-btns', 'data-toggle': 'collapse', 'data-target': '#collapseExample', 'aria-expanded': 'false', 'aria-controls': 'collapseExample' },
+                    { type: 'button', className: 'btn btn-primary category-btns', onClick: function onClick() {
+                        _this3.openClicked(category);
+                      } },
                     category.name
                   ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  _this3.state.opened.includes(category.id) ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { id: 'collapseExample', className: 'category-divs collapse' },
+                    { className: 'category-divs' },
                     category.tags.map(function (tag, index) {
-                      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__filteritem_filteritem_jsx__["a" /* default */], {
+                      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__filteritem_filteritem_jsx__["a" /* default */], {
                         key: index,
 
                         changed: _this3.itemChanged //CallBack:(attributes = props)
@@ -67406,7 +67475,7 @@ var FilterList = function (_React$Component) {
                         name: tag.name,
                         category: category });
                     })
-                  )
+                  ) : null
                 );
               })
             )
@@ -67414,7 +67483,7 @@ var FilterList = function (_React$Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'resultslisting-container col-md-9' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__resultslisting_resultslisting_jsx__["a" /* default */], null)
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__resultslisting_resultslisting_jsx__["a" /* default */], { results: this.state.results })
           )
         )
       );
@@ -67438,6 +67507,19 @@ var FilterList = function (_React$Component) {
   )
 }
 */
+
+// TODO#4 
+// Slider ResetAll/ Slider Close:  Callback Functions()
+// resetBtnClicked(clicked, id){
+//   console.log(clicked, id);
+
+//   let resetBtnClicked = this.state.resetBtnClicked;
+//   if(clicked){
+//     selectedTags = {};
+//   } 
+//   for sliders below:
+//   this.setState({[event.target.name]:event.target.value});
+// }
 
 
 /* harmony default export */ __webpack_exports__["a"] = (FilterList);
@@ -79263,72 +79345,6 @@ var VenuesList = function (_Component) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 328 */,
-/* 329 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__index_css__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__index_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__partials_navbar_navbar_jsx__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__filterlist_filterlist_jsx__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__resultslisting_resultslisting_jsx__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__venueslist_venueslist_jsx__ = __webpack_require__(326);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-// import from '.index.html';  was changed to views/filter.blade.php
-
-
-
-
-
-var Filter = function (_React$Component) {
-  _inherits(Filter, _React$Component);
-
-  function Filter() {
-    _classCallCheck(this, Filter);
-
-    return _possibleConstructorReturn(this, (Filter.__proto__ || Object.getPrototypeOf(Filter)).apply(this, arguments));
-  }
-
-  _createClass(Filter, [{
-    key: 'render',
-    value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__filterlist_filterlist_jsx__["a" /* default */], null),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__resultslisting_resultslisting_jsx__["a" /* default */], null),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__venueslist_venueslist_jsx__["a" /* default */], null)
-      );
-    }
-  }]);
-
-  return Filter;
-}(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (Filter);
-
-
-if (document.getElementById('filter-root')) {
-  Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Filter, null), document.querySelector('#filter-root'));
-}
 
 /***/ })
 /******/ ]);
