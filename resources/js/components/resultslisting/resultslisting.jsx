@@ -7,7 +7,7 @@ export default class ResultsListing extends React.Component {
     super(props);
 
     this.state = {
-      items: [1,2,3],
+      items: []
     };
   }
   
@@ -20,6 +20,7 @@ export default class ResultsListing extends React.Component {
 
   //   });
   // }
+  
 
   render() {
     return (

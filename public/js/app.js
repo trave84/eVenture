@@ -22109,7 +22109,7 @@ var ResultsListing = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (ResultsListing.__proto__ || Object.getPrototypeOf(ResultsListing)).call(this, props));
 
     _this.state = {
-      items: [1, 2, 3]
+      items: []
     };
     return _this;
   }
@@ -22123,6 +22123,7 @@ var ResultsListing = function (_React$Component) {
 
   //   });
   // }
+
 
   _createClass(ResultsListing, [{
     key: 'render',
@@ -67253,7 +67254,7 @@ var FilterList = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (FilterList.__proto__ || Object.getPrototypeOf(FilterList)).call(this, props));
 
-    _this.resultsListingsRef = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createRef(); // Calling on createREf() and ASSIGN TO VAR
+    _this.resultsListingRef = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createRef(); // Calling on createREf() and ASSIGN TO VAR
     _this.itemChanged = _this.itemChanged.bind(_this);
     // TODO#2 this.sliderChanged = this.sliderChanged.bind(this);
 
@@ -79313,6 +79314,7 @@ var Filter = function (_React$Component) {
         'div',
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__filterlist_filterlist_jsx__["a" /* default */], null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__resultslisting_resultslisting_jsx__["a" /* default */], null),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__venueslist_venueslist_jsx__["a" /* default */], null)
       );
     }

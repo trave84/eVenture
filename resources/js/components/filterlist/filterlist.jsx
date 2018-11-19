@@ -13,7 +13,7 @@ export default class FilterList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.resultsListingsRef = React.createRef();    // Calling on createREf() and ASSIGN TO VAR
+    this.resultsListingRef = React.createRef();    // Calling on createREf() and ASSIGN TO VAR
     this.itemChanged = this.itemChanged.bind(this);
     // TODO#2 this.sliderChanged = this.sliderChanged.bind(this);
 
@@ -35,7 +35,7 @@ export default class FilterList extends React.Component {
       this.setState({   // newState for: items[]
         items: json
       })
-      console.log(json)
+      console.log(json);
     });
   }
 
@@ -157,7 +157,7 @@ export default class FilterList extends React.Component {
         <BadgeListing selectedTagsTags={this.state.selectedTags}/>
       </div> */}
       <div className="resultslisting-container col-md-9">
-        <ResultsListing/>
+        <ResultsListing />
       </div>
       </div>
     </div>
