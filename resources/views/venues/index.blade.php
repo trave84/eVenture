@@ -39,7 +39,7 @@
               
               <p><i class="fas fa-spinner"></i> Bowling, Darts </p>
               <p><i class="far fa-grin-tongue"> </i> Chill with Mates/ LGBT Fun </p>
-              <p><i class="fas fa-dollar-sign"> Cheap  </i></p>
+              <p><i class="fas fa-dollar-sign"> </i> Cheap </p>
               <p><i class="fas fa-music"></i> Latino </p>
               <p><i class="fas fa-utensils"></i> Colombian, Brazilian </p>
           {{-- <a href="show/{{ $poll->id }}" class="card-link">Vote</a> --}}
