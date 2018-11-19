@@ -4,7 +4,7 @@
 @section('content')
 {{-- PUt THE REACT APP: into Views/Layouts/app --}}
 
-
+  
   {{-- INCLUDING: the REACT "App class Render()"  here  --}}
   <div id="app">
       {{-- @include('partials._navbar') --}}
