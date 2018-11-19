@@ -67455,7 +67455,7 @@ var FilterList = function (_React$Component) {
               this.state.items == null ? null : this.state.items.map(function (category, index) {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
-                  { key: index },
+                  { key: index, 'class': 'category-listing-div' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'button',
                     { type: 'button', className: 'btn btn-primary category-btns', onClick: function onClick() {
@@ -67472,12 +67472,14 @@ var FilterList = function (_React$Component) {
 
                         changed: _this3.itemChanged //CallBack:(attributes = props)
                         , id: tag.id,
+                        className: 'tag-checkboxes',
                         name: tag.name,
                         category: category });
                     })
                   ) : null
                 );
-              })
+              } //END: .category-divs
+              )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(

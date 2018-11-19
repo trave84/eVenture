@@ -130,12 +130,11 @@ export default class FilterList extends React.Component {
             { this.state.items == null ? null : 
               ( 
                 this.state.items.map((category, index) => 
-                  <div key={index} >
+                  <div key={index} class="category-listing-div">
+                    
                     <button type="button"  className="btn btn-primary category-btns" onClick={() => {
-                      this.openClicked(category);
-                    }}>
-                      {category.name}
-                    </button>
+                      this.openClicked(category);}}>{category.name}</button>
+
                     {
                       this.state.opened.includes(category.id) ? (
                           <div className="category-divs">
@@ -147,6 +146,7 @@ export default class FilterList extends React.Component {
 
                               changed={this.itemChanged}  //CallBack:(attributes = props)
                               id={tag.id}
+                              className="tag-checkboxes"
                               name={tag.name} 
                               category={category}/>
                             )
@@ -155,7 +155,7 @@ export default class FilterList extends React.Component {
                       ) : null
                     }
                       
-                  </div>
+                  </div>  //END: .category-divs
                 )
               )
             }
