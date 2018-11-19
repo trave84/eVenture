@@ -31,7 +31,8 @@ export default class ResultsListing extends React.Component {
             (
               this.props.results.map((venue, index) => 
             
-              <VenueItem key={index} 
+              <VenueItem key={index}
+              id={venue.id} 
               name={venue.name} description={venue.description} address={venue.address}
               openingTime = {venue.opening_time} closingTime={venue.closing_time} banner = {venue.banner_img} link={venue.link} 
               />

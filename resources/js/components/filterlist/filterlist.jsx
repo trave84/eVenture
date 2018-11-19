@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from 'react-bootstrap';
+// import {Button} from 'react-bootstrap';
 import './filterlist.css';
 // import Navbar from '../partials/navbar/navbar.jsx'; 
 // import FilterCloseBtn from '../filterclosebtn/filterclosebtn.jsx'; 
@@ -24,7 +24,8 @@ export default class FilterList extends React.Component {
       items: null,      // default state: number of checkboxes
       selectedTags: {}, //selected checkboxes
       results: [],      //to save: JSON response from axios
-      opened: []
+      opened: [],
+      // sidebarShown: [],
     };
   }
 
@@ -39,6 +40,16 @@ export default class FilterList extends React.Component {
       console.log(json);
     });
   }
+
+  // hideSidebar(sidebar){
+  //   let sidebarShown = this.state.sidebarShown;
+    
+  //   if (sidebarShown){
+
+  //   }else{
+
+  //   }
+  // }
 
   openClicked(category){
     let opened = this.state.opened;
@@ -132,8 +143,8 @@ export default class FilterList extends React.Component {
                 this.state.items.map((category, index) => 
                   <div key={index} class="category-listing-div">
                     
-                    <button type="button"  className="btn btn-primary category-btns" onClick={() => {
-                      this.openClicked(category);}}>{category.name}</button>
+                    <button type="button"  className="btn btn-primary my-1 btn-block category-btns" onClick={() => {
+                      this.openClicked(category);}}>{category.name} <span class="badge badge-light"><i class="fas fa-caret-right"></i></span></button>
 
                     {
                       this.state.opened.includes(category.id) ? (
@@ -162,9 +173,11 @@ export default class FilterList extends React.Component {
           </div>
       </div>
 
-      {/* <div className="tags-badges col-md-9">
-        <BadgeListing selectedTagsTags={this.state.selectedTags}/>
-      </div> */}
+      {/* <div className="tags-badges col-md-9"> */}
+            {/* Selected Tags: */}
+        {/* <BadgeListing selectedTagsTags={this.state.selectedTags}/> */}
+      {/* </div> */}
+
       <div className="resultslisting-container col-md-9">
         <ResultsListing results={this.state.results} />
       </div>
