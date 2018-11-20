@@ -7,6 +7,11 @@
   <section class="header jumbotron py-3 mb-0">
     <h1 class="page-header text-center">{{ $venue->name }} </h1>
     <div class="tags-list text-center px-2 d-flex justify-content-between">
+      
+      {{-- DB DATA SHOULD LIST HERE: --}}
+      
+      
+
       <i class="far fa-compass"> <br> Prague 1 </i>
       <i class="fas fa-dollar-sign"> <br> Cheap  </i>
       <i class="fas fa-cocktail"> <br> Night Club </i>
@@ -19,8 +24,8 @@
     <div class="back-btn ml-3">
       {!! link_to(URL::previous(), ' << Go back', ['class' => 'btn btn-primary']) !!}
     </div>
-    <div class="venues-listing col-lg-8 m-1">
-      <div class="card px-1 py-1" style="width: 35rem;">
+    <div class="venues-listing col-lg-8 my-1">
+      <div class="card px-1 py-1 card-show">
         <div class="card-title card-tags">
           {{-- <p class="card-title ">Location: {{ $venue->tags-> }}</p>
           <p class="card-title ">Venue Type: {{ $venue->venuetype }}</p> --}}

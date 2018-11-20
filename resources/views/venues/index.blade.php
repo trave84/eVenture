@@ -10,9 +10,10 @@
 
     <section class="venues row  d-flex justify-content-around align-content-stretch flex-wrap">
       @foreach ($venues as $venue)
-        <div class="venue">
-          <div class="card my-2 card-index">
-          <h3 class="card-title card-index"> {{ $venue->name}} </h3>
+      {{-- INDIVIDUAL CARDS START HERE: --}}
+        <div class="venue ">       
+          <div class="card card-index">
+          <h4 class="card-title card-index"> {{ $venue->name}} </h4>
           <div class="card-title card-tags">
             @if (isset($tags_by_cat[$venue->id][2]))
               <i class="fas fa-cocktail"> </i> <span>
