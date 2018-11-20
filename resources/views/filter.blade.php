@@ -24,7 +24,7 @@
 @section('content')
 
     {{-- REACT OUTPUT: the REACT "App class WILL=> Render()" HERE  --}}
-    <div id="filter-root">This is the filter.blade.php "app" div</div>
+    <div id="filter-root">This is filter.blade.php "filter-root" div</div>
     
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

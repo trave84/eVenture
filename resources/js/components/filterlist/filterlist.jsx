@@ -39,8 +39,16 @@ export default class FilterList extends React.Component {
       })
       console.log(json);
     });
-  }
 
+    const tags = localStorage.getItem('savedLocalTags');
+    if (tags !== null) {
+      console.log(JSON.parse(tags));
+      //this.setState({selectedTags: JSON.parse(tags)},
+      // go through the object nd check checkboxes
+      // );
+    }
+  }
+  
   // hideSidebar(sidebar){
   //   let sidebarShown = this.state.sidebarShown;
     
@@ -98,6 +106,8 @@ export default class FilterList extends React.Component {
 
 
   postFilterCriteria(){
+    localStorage.setItem('savedLocalTags', JSON.stringify(this.state.selectedTags));
+
     const self = this;    //TO REFER: to FilterList below IN  Axios.then()
 
     axios.post('/api/search_request', {
@@ -141,10 +151,10 @@ export default class FilterList extends React.Component {
             { this.state.items == null ? null : 
               ( 
                 this.state.items.map((category, index) => 
-                  <div key={index} class="category-listing-div">
+                  <div key={index} className="category-listing-div">
                     
                     <button type="button"  className="btn btn-primary my-1 btn-block category-btns" onClick={() => {
-                      this.openClicked(category);}}>{category.name} <span class="badge badge-light"><i class="fas fa-caret-right"></i></span></button>
+                      this.openClicked(category);}}>{category.name} <span className="badge badge-light"><i className="fas fa-caret-right"></i></span></button>
 
                     {
                       this.state.opened.includes(category.id) ? (
@@ -154,7 +164,7 @@ export default class FilterList extends React.Component {
                               
                               <FilterItem 
                               key={index}
-
+                              
                               changed={this.itemChanged}  //CallBack:(attributes = props)
                               id={tag.id}
                               className="tag-checkboxes"

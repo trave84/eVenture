@@ -13,6 +13,13 @@ export default class FilterItem extends React.Component {
     this.props.changed(e.target.checked, this.props.category.id, this.props.id);  
   }
 
+  // LOCALSTORAGE HERE??
+  // updateChange(e){
+  //   this.setState
+  // }
+
+  
+
   render() {
     return (
       <div className="filter-list-items">

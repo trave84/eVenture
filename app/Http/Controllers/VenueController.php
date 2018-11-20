@@ -23,43 +23,93 @@ class VenueController extends Controller
         // tag->category
         // ALL VENUES WITH TAGS
         $venues = Venue::with('tags')->get();
-        
-        // return venues;
-        return view('venues.index', compact('venues'));
+        $tags_by_cat = [];
+
+        foreach($venues as $venue){
+           foreach ($venue->tags as $tag) {
+                $tags_by_cat[$venue->id][$tag->category_id][] = $tag;
+                // Assigns each individual tag to ASSOC ARRAY 
+            }
+        }
+        // dd($tags_by_cat);
+        return view('venues.index', compact('venues', 'tags_by_cat'));
     }
+
+    public function show($id)
+    {
+        $venue = Venue::findOrFail($id);
+        // $tags_by_cat = [];
+        // dd($venue);
+        // $tags_of_venue = $venue->tags();
+        // $photos = $venue::with('photos')->get();
+        // foreach ($venue->tags as $tag) {
+        //     $tags_by_cat[$venue->id][$tag->category_id][] = $tag;
+        //     // Assigns each individual tag to ASSOC ARRAY 
+        // }
+        // return view('venues.index', compact('venues', 'tags_by_cat'));
+
+        // foreach($tags_of_venue as $)
+        return view('venues.show', compact('venue', 'photos'));
+    }
+
 
     public function barsPubs()
     {   
         // tag->category
         // ALL VENUES WITH TAGS
-        $tags= [1,2,3,4,5,7,9,10,11];
-        $venues = Venue::query();
-        // dd($venues);
+        // $tags_by_cat = [];
 
+        // foreach($bars_pubs as $venue){
+        //    foreach ($venue->tags as $tag) {
+        //         $tags_by_cat[$venue->id][$tag->category_id][] = $tag;
+        //         // Assigns each individual tag to ASSOC ARRAY 
+        //     }
+        // }
+        // dd($tags_by_cat);
+        // return view('venues.index', compact('venues', 'tags_by_cat'));
+
+//================= BEFORE: QUERY ON BRS AND PUBS:
+        // ALL VENUES WITH TAGS[...]
+        $tags= [1,2,3,4,5,7,9,10,11];
+        $bars_pubs_query = Venue::query();
+        // dd($venues);
         foreach ($tags as $tag){
-            $venues->whereHas('tags', function($query) use($tags){
+            $bars_pubs_query->whereHas('tags', function($query) use($tags){
                 // THAT HAS tagid from  $tags[]
                 $query->whereIn('tags.id', $tags);  //Verifies: ('column_value' , IN , $array)
             });
-        }
-        return $venues->with('tags')->get();
-        return view('venues.barsPubs.index', compact('venues'));
+        }        
+        $bars_pubs = $bars_pubs_query->with('tags')->get();
+        
+        foreach($bars_pubs as $bar_pub){
+            foreach ($bar_pub->tags as $tag) {
+                 $tags_by_cat[$bar_pub->id][$tag->category_id][] = $tag;
+                 // Assigns each individual tag to ASSOC ARRAY 
+             }
+         }
+        // dd($tags_by_cat);
+        $venues = $bars_pubs_query->with('tags')->get();
+        return view('venues.barsPubs.index', compact('venues', 'tags_by_cat'));
+
+        //======= WAS THE RETURN BEFORE:
+        // return view('venues.barsPubs.index', compact('venues'));
     }
+
     public function clubs()
     {   
         // tag->category
         // ALL VENUES WITH TAGS
         $tags= [8];
-        $venues = Venue::query();
+        $venues_query = Venue::query();
         // dd($venues);
 
         foreach ($tags as $tag){
-            $venues->whereHas('tags', function($query) use($tags){
+            $venues_query->whereHas('tags', function($query) use($tags){
                 // THAT HAS tagid from  $tags[]
                 $query->whereIn('tags.id', $tags);  //Verifies: ('column_value' , IN , $array)
             });
         }
-        return $venues->with('tags')->get();
+        $venues = $venues_query->with('tags')->get();
         return view('venues.clubs.index', compact('venues'));
     }
     
@@ -68,27 +118,19 @@ class VenueController extends Controller
         // tag->category
         // ALL VENUES WITH TAGS
         $tags= [9,10];
-        $venues = Venue::query();
+        $venues_query = Venue::query();
         // dd($venues);
 
         foreach ($tags as $tag){
-            $venues->whereHas('tags', function($query) use($tags){
+            $venues_query->whereHas('tags', function($query) use($tags){
                 // THAT HAS tagid from  $tags[]
                 $query->whereIn('tags.id', $tags);  //Verifies: ('column_value' , IN , $array)
             });
         }
+        $venues = $venues_query->with('tags')->get();
 
-        return $venues->with('tags')->get();
         return view('venues.restaurants.index', compact('venues'));
     }
-
-    public function show($id)
-    {
-        $venue = Venue::findOrFail($id);
-        $photos = $venue::with('photos')->get();
-        return view('venues.show', compact('venue', 'photos'));
-    }
-
 
     public function create()
     {

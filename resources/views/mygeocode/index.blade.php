@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('content')    
+{{-- @extends('layouts.app')
+@section('content')     --}}
     <!-- Geolocation CDN -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>    
     <title>My Geocode App</title>
@@ -10,6 +10,7 @@
     </div>
 
     <script> 
+      // CALL
       geocode();
 
       function geocode(){
@@ -57,4 +58,4 @@
       }
     </script>
 
-@endsection()
+{{-- @endsection --}}

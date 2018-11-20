@@ -45743,6 +45743,14 @@ var FilterList = function (_React$Component) {
         });
         console.log(json);
       });
+
+      var tags = localStorage.getItem('savedLocalTags');
+      if (tags !== null) {
+        console.log(JSON.parse(tags));
+        //this.setState({selectedTags: JSON.parse(tags)},
+        // go through the object nd check checkboxes
+        // );
+      }
     }
 
     // hideSidebar(sidebar){
@@ -45811,6 +45819,8 @@ var FilterList = function (_React$Component) {
   }, {
     key: 'postFilterCriteria',
     value: function postFilterCriteria() {
+      localStorage.setItem('savedLocalTags', JSON.stringify(this.state.selectedTags));
+
       var self = this; //TO REFER: to FilterList below IN  Axios.then()
 
       axios.post('/api/search_request', {
@@ -45861,7 +45871,7 @@ var FilterList = function (_React$Component) {
               this.state.items == null ? null : this.state.items.map(function (category, index) {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
-                  { key: index, 'class': 'category-listing-div' },
+                  { key: index, className: 'category-listing-div' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'button',
                     { type: 'button', className: 'btn btn-primary my-1 btn-block category-btns', onClick: function onClick() {
@@ -45871,8 +45881,8 @@ var FilterList = function (_React$Component) {
                     ' ',
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                       'span',
-                      { 'class': 'badge badge-light' },
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { 'class': 'fas fa-caret-right' })
+                      { className: 'badge badge-light' },
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fas fa-caret-right' })
                     )
                   ),
                   _this3.state.opened.includes(category.id) ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -46024,6 +46034,13 @@ var FilterItem = function (_React$Component) {
     value: function changed(e) {
       this.props.changed(e.target.checked, this.props.category.id, this.props.id);
     }
+
+    // LOCALSTORAGE HERE??
+    // updateChange(e){
+    //   this.setState
+    // }
+
+
   }, {
     key: "render",
     value: function render() {

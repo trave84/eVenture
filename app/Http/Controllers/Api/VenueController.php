@@ -15,10 +15,18 @@ class Venuecontroller extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   // Retrieve all the Tags of that Venue
         $venues = Venue::with('tags')->get();
+        
+
+
+        // $tags_of_cat2 = $venue->tags()->where('category_id', 2)->get();
 
         return $venues;
+        // $tags_of_category2 = foreach venue SELECT tag.name WHERE CATEROGY_ID =2
+        // foreach($venue->tags as $tag){
+
+        // }
     }
 
     /**
