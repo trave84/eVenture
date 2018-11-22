@@ -150,6 +150,7 @@ export default class FilterList extends React.Component {
       self.setState({
         results:response.data
       });
+      console.log('results[]: ', self.state.results);
     });
   }
 
@@ -165,7 +166,7 @@ export default class FilterList extends React.Component {
         <div className="row">
           {/* <VenuesList /> */}
           <div className="filterlist-container col-md-4">
-          <h4>Filter Criteria</h4>
+          <h4>Your Filter Criteria</h4>
           
           {/* TODO#1 */}
           {/* <FilterResetButton type="submit" hanldeClick={this.handleclick} className="btn btn-danger btn-sm">RESET ALL</FilterResetButton> */}

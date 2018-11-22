@@ -8,6 +8,7 @@
       </h1>
     </section>
 
+    
     <section class="row  d-flex justify-content-around align-content-stretch flex-wrap section-index-venues">
       @foreach ($venues as $venue)
       {{-- INDIVIDUAL CARDS START HERE: --}}
@@ -18,7 +19,7 @@
             @if (isset($tags_by_cat[$venue->id][2]))
               <i class="fas fa-cocktail"> </i> <span>
                 @foreach ($tags_by_cat[$venue->id][2]  as $tag)
-                  {{ $tag->name }} 
+                  {{ $tag->name }}  
                 @endforeach 
               </span>
             @endif
@@ -46,15 +47,16 @@
             @if (isset($tags_by_cat[$venue->id][3]))
               <i class="fas fa-spinner"> </i> <span>
                 @foreach ($tags_by_cat[$venue->id][3]  as $tag)
-                  {{ $tag->name }} 
+                  {{ $tag->name }} <i class="far fa-circle fa-xs"></i> 
                 @endforeach 
               </span>
             @endif
-            <br/>
+            <hr class="clearfix">
+
             @if (isset($tags_by_cat[$venue->id][4]))
               <i class="fas fa-grin-tongue"> </i> <span>
                 @foreach ($tags_by_cat[$venue->id][4]  as $tag)
-                  {{ $tag->name }} 
+                  {{ $tag->name }} <i class="far fa-circle fa-xs"></i> 
                 @endforeach 
               </span>
             @endif
@@ -62,7 +64,7 @@
             @if (isset($tags_by_cat[$venue->id][8]))
               <i class="fas fa-dollar-sign"> </i> <span>
                 @foreach ($tags_by_cat[$venue->id][8]  as $tag)
-                  {{ $tag->name }}  
+                  {{ $tag->name }} <i class="far fa-circle fa-xs"></i> 
                 @endforeach 
               </span>
             @endif
@@ -70,7 +72,7 @@
             @if (isset($tags_by_cat[$venue->id][9]))
               <i class="fas fa-music"> </i> <span>
                 @foreach ($tags_by_cat[$venue->id][9]  as $tag)
-                  {{ $tag->name }}  
+                  {{ $tag->name }} <i class="far fa-circle fa-xs"></i> 
                 @endforeach 
               </span>
             @endif
@@ -78,7 +80,7 @@
             @if (isset($tags_by_cat[$venue->id][10]))
               <i class="fas fa-utensils"> </i> <span>
                 @foreach ($tags_by_cat[$venue->id][10]  as $tag)
-                  {{ $tag->name }}  
+                  {{ $tag->name }} <i class="far fa-circle fa-xs"></i> 
                 @endforeach 
               </span>
             @endif

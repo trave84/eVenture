@@ -14,12 +14,14 @@ export default class ResultsListing extends React.Component {
 
   render() {
     return (
-        <div class="row results-listing-filter">
+        <div className="row results-listing-filter">
             {this.props.results == null ? 
             
             // NEED TO DISPLAY SOMETHING HERE:
             ( 
-              <p> " Your search is too narrow. Try ticking some more boxes."</p>
+              <div className="div-filter-alertbox">
+                {alert('Your search is too narrow..')}
+              </div>
             )
             : 
               (

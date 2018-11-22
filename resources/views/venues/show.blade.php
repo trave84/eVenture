@@ -69,32 +69,33 @@
     </div>
   </section>
   
+  <section class="row btns-show-top">
+      <button class="btn btn-primary col-md-4 col-lg-3  offset-lg-3 my-1 btn-show-back" onclick="goBack()">Get Back to Your Results
+          {{-- {!! link_to(URL::previous(), ' Get Back to Search Results', ['class' => 'btn btn-primary']) !!} --}}
+        </button>
+        <a  href="{{ $venue->link  }}" target="_blank" class="btn btn-primary col-md-4 col-lg-3 my-1 btn-show-website">Website</a>
+        {{-- <div class="venue-show col-md-9"> --}}
+  </section>
   <section class="row">
-    <button class="btn-back-show btn-block btn-primary col-lg-8" onclick="goBack()">Get Back to Your Results
-      {{-- {!! link_to(URL::previous(), ' Get Back to Search Results', ['class' => 'btn btn-primary']) !!} --}}
-    </button>
-    {{-- <div class="venue-show col-md-9"> --}}
-      <div class="card px-0 py-0  col-md-8 card-show">
+      <div class="card px-0 py-2  col-md-8 col-lg-6 offset-lg-3 card-show">
         <div class="card-title card-tags card-show-title">
           {{-- <p class="card-title ">Location: {{ $venue->tags-> }}</p>
           <p class="card-title ">Venue Type: {{ $venue->venuetype }}</p> --}}
         </div>
         {{-- <img class="card-img-top img-fluid" src="{{URL::asset('/images/sample_banner.jpg')}}"  alt="asset_image"> --}}
         <img class="card-img-top img-fluid card-show-img" src="{{$venue->banner_img}}"  alt="$venue->banner_img">
-        <p>{{$venue->banner_img}}"</p>
         <div class="card-title card-tags card-show-title">
           {{-- <i class="fas fa-dollar sign"></i> <p class="card-title ">{{ $venue->budget }}</p>
           <p class="card-title ">Night Type: {{ $venue->nighttype }}</p> --}}
         </div>
-        <div class="card-body  text-justify card-show-body">
+        <div class="card-body text-justify card-show-body">
           <p class="card-text card-show-text">{{ $venue->description }}</p> 
-          <a  href="{{ $venue->link  }}" target="_blank" class="btn btn-primary card-show-btn-website">Website</a>
         </div>
       </div>
     {{-- </div> --}}
 
-    <div class="sidebar-show col-md-4">
-        <blockquote class="blockquote sidebar-blockquote-show">
+    <div class="sidebar-show col-md-3 col-lg-3">
+        <blockquote class="blockquote p-3 sidebar-blockquote-show">
           <p>Tripadvisor comments</p>
           <blockquote class=""><cite title="John Doe">John Doe</cite></footer>
         </blockquote>
@@ -105,7 +106,7 @@
         </blockquote>
         <div class="clearfix"></div>
         <hr /> --}}
-    </div>
+      </div>
   </section>
 {{-- </div> --}}
 @endsection
