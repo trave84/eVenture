@@ -1,3 +1,6 @@
+///========================================
+// GLOBALS:
+//========================================
 * {
   box-sizing: border-box;
 }
@@ -7,29 +10,49 @@ html, body {
   overflow-x: hidden;
 }
 
-// body {
-//   background-color: orange;
-// }
+body {
+  // background-color:lightskyblue;
+}
 
-
-// venues/index
+//========================================
+// ALL INDEX PAGES:
+//========================================
 .card-index {
   width: 20rem;   // 1-2-3-4:sm-md-lg-xl
   margin: 1.5rem;
   // padding: 1rem 0.5rem;
 }
 
-.card-show {
-  width: 30rem;
-  // margin: 2rem 0 2rem 0;
-}
-
-
-.card-title {
-  // padding:
+.card-index-title, .card-index-tags {
+  padding: 0.4rem;
 }
 
 span {
   font-size: 0.9em;
 }
+
+.card-index-btn-view {
+  margin-top: 0.5em;
+  // margin-bottom: 0.3em;
+}
+
+//========================================
+// FILTER/SEARCH PAGE:
+// ALL IN COMPONENTS.CSS
+//========================================
+
+//========================================
+// OVERWRITE BS VENUES/SHOW PAGE:
+//========================================
+.card-show {
+  // width: 40em;
+  // margin: 0rem 2rem ;
+  padding: 0rem 2rem;
+  // max-height: 150vh;
+}
+
+.card-show-body {
+  // overflow: hidden;
+}
+
 

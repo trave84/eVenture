@@ -14,7 +14,7 @@ export default class Filter extends React.Component {
         {/* <Navbar /> */}
         <FilterList />
         {/* <ResultsListing/> */}
-        <VenuesList />
+        {/* <VenuesList /> */}
       </div>
     );
   }

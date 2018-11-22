@@ -13,6 +13,9 @@ export default class FilterItem extends React.Component {
     this.props.changed(e.target.checked, this.props.category.id, this.props.id);  
   }
 
+//  selected (e) {
+//     this.props.selected(e.target.checked);
+//  }
   // LOCALSTORAGE HERE??
   // updateChange(e){
   //   this.setState
@@ -24,14 +27,14 @@ export default class FilterItem extends React.Component {
     return (
       <div className="filter-list-items">
         <input type="checkbox" 
-        
+        //selected={this.selected}
         onChange={this.changed}  
         id={this.props.id} />     
         {/* CallBack:  (attrs = props) */}
         
        
-        <label htmlFor={this.props.name}>{this.props.name}</label>
+        <label htmlFor={this.props.id} className="label-filter-checkbox">{this.props.name}</label>
       </div>
-    );
+    );  //CHANGEDTO: htmlFor={this.props.id} TO associate + allow users to click on Label to select
   }
 }

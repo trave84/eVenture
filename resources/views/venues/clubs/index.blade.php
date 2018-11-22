@@ -88,7 +88,7 @@
           {{-- WHEN SLUG IS DONE --}}
           {{-- <a href="{{ route('venues.single', $venue->slug) }}" class="btn btn-primary">Read More</a> --}}
 
-          <a href="venues/show/{{ $venue->id }}" class="btn btn-primary btn-block">View</a>
+          <a href="/venues/show/{{ $venue->id }}" class="btn btn-primary btn-block">View</a>
           </div>
         </div>
       </div>

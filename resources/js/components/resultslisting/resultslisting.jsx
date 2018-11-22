@@ -11,34 +11,31 @@ export default class ResultsListing extends React.Component {
     };
   }
   
-  // changeValue(amount) {
-  //   let newNumber = this.state.value + amount;
-  //   let newSelected  = this.state.selected;
-  //   this.setState({
-  //     numberOfSelected: newNumber;
-  //     Selected: newSelected;
-
-  //   });
-  // }
-  
 
   render() {
     return (
-
-        <div>
-          This is col-m-9!! Below should be the results with map(VenuItem): 
-          {this.props.results == null ? null : 
-            (
-              this.props.results.map((venue, index) => 
+        <div class="row results-listing-filter">
+            {this.props.results == null ? 
             
-              <VenueItem key={index}
-              id={venue.id} 
-              name={venue.name} description={venue.description} address={venue.address}
-              openingTime = {venue.opening_time} closingTime={venue.closing_time} banner = {venue.banner_img} link={venue.link} 
-              />
-              )
+            // NEED TO DISPLAY SOMETHING HERE:
+            ( 
+              <p> " Your search is too narrow. Try ticking some more boxes."</p>
             )
-          }
+            : 
+              (
+                this.props.results.map((venue, index) => 
+              
+                <VenueItem key={index}
+                id={venue.id} 
+                name={venue.name} 
+                
+                description={venue.description} address={venue.address}
+                openingTime={venue.opening_time} closingTime={venue.closing_time} banner={venue.banner_img} link={venue.link} 
+                tags={venue.tags}
+                />
+                )
+              )
+            }
         </div>
     );
   }

@@ -10488,11 +10488,20 @@ body {
   margin: 1.5rem;
 }
 
-.card-show {
-  width: 30rem;
+.card-index-title,
+.card-index-tags {
+  padding: 0.4rem;
 }
 
 span {
   font-size: 0.9em;
+}
+
+.card-index-btn-view {
+  margin-top: 0.5em;
+}
+
+.card-show {
+  padding: 0rem 2rem;
 }
 

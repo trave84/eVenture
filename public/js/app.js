@@ -161,29 +161,27 @@ var ResultsListing = function (_React$Component) {
     return _this;
   }
 
-  // changeValue(amount) {
-  //   let newNumber = this.state.value + amount;
-  //   let newSelected  = this.state.selected;
-  //   this.setState({
-  //     numberOfSelected: newNumber;
-  //     Selected: newSelected;
-
-  //   });
-  // }
-
-
   _createClass(ResultsListing, [{
     key: 'render',
     value: function render() {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        null,
-        'This is col-m-9!! Below should be the results with map(VenuItem):',
-        this.props.results == null ? null : this.props.results.map(function (venue, index) {
+        { 'class': 'row results-listing-filter' },
+        this.props.results == null ?
+
+        // NEED TO DISPLAY SOMETHING HERE:
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'p',
+          null,
+          ' " Your search is too narrow. Try ticking some more boxes."'
+        ) : this.props.results.map(function (venue, index) {
           return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__venueitem_venueitem_jsx__["a" /* default */], { key: index,
             id: venue.id,
-            name: venue.name, description: venue.description, address: venue.address,
-            openingTime: venue.opening_time, closingTime: venue.closing_time, banner: venue.banner_img, link: venue.link
+            name: venue.name,
+
+            description: venue.description, address: venue.address,
+            openingTime: venue.opening_time, closingTime: venue.closing_time, banner: venue.banner_img, link: venue.link,
+            tags: venue.tags
           });
         })
       );
@@ -22823,8 +22821,7 @@ var Filter = function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         null,
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__filterlist_filterlist_jsx__["a" /* default */], null),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__venueslist_venueslist_jsx__["a" /* default */], null)
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__filterlist_filterlist_jsx__["a" /* default */], null)
       );
     }
   }]);
@@ -45683,6 +45680,7 @@ module.exports = function (css) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__filteritem_filteritem_jsx__ = __webpack_require__(320);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__resultslisting_resultslisting_jsx__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__badgelisting_badgelisting__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__venueslist_venueslist__ = __webpack_require__(326);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45702,6 +45700,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var FilterList = function (_React$Component) {
   _inherits(FilterList, _React$Component);
 
@@ -45712,14 +45711,26 @@ var FilterList = function (_React$Component) {
 
     _this.resultsListingRef = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createRef(); // Calling on createREf() and ASSIGN TO VAR
     _this.itemChanged = _this.itemChanged.bind(_this);
+
+    // this.selectedTags = this.selectedTags.bind(this);
+
     // TODO#2 this.sliderChanged = this.sliderChanged.bind(this);
+
+    var selectedTags = {};
+    var hash = window.location.hash.substr(1);
+    console.log('hash: ' + hash);
+    if (hash) {
+      selectedTags = JSON.parse(decodeURIComponent(hash));
+    }
+    console.log('selectedTags: ', selectedTags);
 
     _this.state = {
       // TODO#3 moodValue: 5,     //default state: sliders
       // TODO#3 energyValue: 5,
 
       items: null, // default state: number of checkboxes
-      selectedTags: {}, //selected checkboxes
+      selectedTags: selectedTags, //selected checkboxes
+      // checkedTags: selectedTags  ;
       results: [], //to save: JSON response from axios
       opened: []
       // sidebarShown: [],
@@ -45741,16 +45752,17 @@ var FilterList = function (_React$Component) {
         _this2.setState({ // newState for: items[]
           items: json
         });
-        console.log(json);
+        console.log('fetch(api/tags)', json);
       });
 
-      var tags = localStorage.getItem('savedLocalTags');
-      if (tags !== null) {
-        console.log(JSON.parse(tags));
-        //this.setState({selectedTags: JSON.parse(tags)},
-        // go through the object nd check checkboxes
-        // );
-      }
+      // const tags = localStorage.getItem('savedLocalTags');
+      // if (tags !== null) {
+      //   console.log(JSON.parse(tags));
+      //   //this.setState({selectedTags: JSON.parse(tags)},
+      // go through the object nd check checkboxes
+      // );
+      // }
+      this.postFilterCriteria(); //IS ASYNC NOW 
     }
 
     // hideSidebar(sidebar){
@@ -45781,15 +45793,24 @@ var FilterList = function (_React$Component) {
       });
     }
 
+    // oldSelected(){
+    //   selectedTags = this.state.selectedTags; 
+    //   // for (let i in this.selectedTags){}
+    //   for(let i = 0; i < this.selectedTags.length; i++) {
+    //     for(let j = 0;    )
+    //     // console.log();
+    //     this.selectedTags[i][];
+    //   }
+    // }
+
     // Callback Function: method to <Checkbox Attributes />  (with parameters)
 
   }, {
     key: 'itemChanged',
     value: function itemChanged(checked, category, tag) {
-      console.log(checked, category, tag);
+      console.log('<FilterItem changed={this.itemChanged} /> ->itemChanged(checked, category, tag.id): ', checked, category, tag);
 
       var selectedTags = this.state.selectedTags; //inScope: selectedTags{}
-
       // Assign selectedTags[][] now:
       if (checked) {
         if (!selectedTags[category]) {
@@ -45797,8 +45818,7 @@ var FilterList = function (_React$Component) {
         }
         selectedTags[category].push(tag);
         // this.resultsListingRef.current.changeValue(1);
-
-        // FOR: deselect checkboxes
+        // FOR: deselect checkboxe
       } else {
         selectedTags[category] = selectedTags[category].filter(function (e) {
           return e !== tag;
@@ -45808,6 +45828,9 @@ var FilterList = function (_React$Component) {
         }
         // this.resultsListingRef.current.changeValue(-1);
       }
+      //  
+      var hash = encodeURIComponent(JSON.stringify(selectedTags));
+      location.replace('#' + hash);
 
       console.log(selectedTags);
       this.setState({
@@ -45859,7 +45882,7 @@ var FilterList = function (_React$Component) {
           { className: 'row' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { className: 'filterlist-container col-md-3' },
+            { className: 'filterlist-container col-md-4' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'h4',
               null,
@@ -45892,7 +45915,10 @@ var FilterList = function (_React$Component) {
                       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__filteritem_filteritem_jsx__["a" /* default */], {
                         key: index,
 
+                        oldSelected: _this3.oldSelected,
                         changed: _this3.itemChanged //CallBack:(attributes = props)
+
+                        // HTML ATTRIBUTES:
                         , id: tag.id,
                         className: 'tag-checkboxes',
                         name: tag.name,
@@ -45906,7 +45932,7 @@ var FilterList = function (_React$Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { className: 'resultslisting-container col-md-9' },
+            { className: 'resultslisting-container col-md-8' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__resultslisting_resultslisting_jsx__["a" /* default */], { results: this.state.results })
           )
         )
@@ -46035,6 +46061,9 @@ var FilterItem = function (_React$Component) {
       this.props.changed(e.target.checked, this.props.category.id, this.props.id);
     }
 
+    //  selected (e) {
+    //     this.props.selected(e.target.checked);
+    //  }
     // LOCALSTORAGE HERE??
     // updateChange(e){
     //   this.setState
@@ -46047,16 +46076,16 @@ var FilterItem = function (_React$Component) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         "div",
         { className: "filter-list-items" },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "checkbox",
-
-          onChange: this.changed,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "checkbox"
+          //selected={this.selected}
+          , onChange: this.changed,
           id: this.props.id }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           "label",
-          { htmlFor: this.props.name },
+          { htmlFor: this.props.id, className: "label-filter-checkbox" },
           this.props.name
         )
-      );
+      ); //CHANGEDTO: htmlFor={this.props.id} TO associate + allow users to click on Label to select
     }
   }]);
 
@@ -46107,7 +46136,7 @@ exports = module.exports = __webpack_require__(52)(false);
 
 
 // module
-exports.push([module.i, ".results-list {\r\n  font-weight: bold;\r\n  font-size: 100%;\r\n  padding: 1rem;\r\n}", ""]);
+exports.push([module.i, ".results-list {\r\n  /* font-weight: bold;\r\n  font-size: 100%;\r\n  padding: 1rem; */\r\n}\r\n\r\n.results-listing-filter {\r\n  /* background-color: orange; */\r\n}\r\n", ""]);
 
 // exports
 
@@ -46120,6 +46149,8 @@ exports.push([module.i, ".results-list {\r\n  font-weight: bold;\r\n  font-size:
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__venueitem_css__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__venueitem_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__venueitem_css__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -46127,6 +46158,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -46139,96 +46171,92 @@ var VenueItem = function (_React$Component) {
     return _possibleConstructorReturn(this, (VenueItem.__proto__ || Object.getPrototypeOf(VenueItem)).call(this, props));
   }
 
-  // changed = (e) => {
-  //   this.props.changed(e.target.checked);   // console.log(e)
-  // }
-
   _createClass(VenueItem, [{
-    key: "render",
+    key: 'trimStr',
+    value: function trimStr(str, len) {
+      return str.slice(0, len) + "...";
+    }
+    // changed = (e) => {
+    //   this.props.changed(e.target.checked);   // console.log(e)
+    // }
+
+  }, {
+    key: 'render',
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
-        { className: "venues" },
+      return (
+        //ID: should be good to call FROM venueslist.js <a href="#{}" 
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { className: "card" },
+          'div',
+          { className: 'col-lg-6 div-card-filter', id: this.props.id },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "h3",
-            { className: "card-title" },
-            this.props.name
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { className: "card-title card-tags" },
+            'div',
+            { className: 'card card-filter' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "p",
-              { className: "card-title " },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fas fa-map-marker-alt" }),
-              " ",
-              this.props.address
+              'h3',
+              { className: 'card-title card-filter-title' },
+              this.props.name
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "p",
-              { className: "card-title " },
-              " Opens at: ",
-              this.props.openingTime
+              'div',
+              { className: 'card-title card-filter-tagsdiv' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'p',
+                { className: 'card-title card-filter-tags-p' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fas fa-map-marker-alt' }),
+                ' ',
+                this.props.address
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'p',
+                { className: 'card-title card-filter-tags-p' },
+                ' Opens at: ',
+                this.props.openingTime
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'p',
+                { className: 'card-title card-filter-tags-p' },
+                'Closes at: ',
+                this.props.closingTime
+              )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "p",
-              { className: "card-title " },
-              "Closes at: ",
-              this.props.closingTime
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { className: "card-img-top", src: this.props.banner, alt: " banner_img values will go here" }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { className: "card-title card-tags" },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "p",
-              { className: "card-title " },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fas fa-dollar-sign" }),
-              " Mid Range"
+              'div',
+              { className: 'card-filter-imgcontainer' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'card-img-top img-fluid card-filter-img', src: this.props.banner, alt: ' banner_img values will go here' })
             ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'card-title card-filter-tagsdiv' }),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "p",
-              { className: "card-title " },
-              " ",
-              this.props.link
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", { className: "card-title " })
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { className: "card-body" },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "p",
-              { className: "card-text" },
-              this.props.description
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("hr", null),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "a",
-              { href: "{{ route('venues.single', $venue->slug) }}", className: "btn btn-primary" },
-              "Read More"
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "a",
-              { href: "venues/show/" + this.props.id, className: "btn btn-primary" },
-              "View"
+              'div',
+              { className: 'card-body card-filter-body' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'p',
+                { className: 'card-filter-text ellipsis card-filter-body' },
+                this.props.description
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                { href: "venues/show/" + this.props.id, className: 'btn btn-primary btn-block card-filter-btn-view' },
+                'Check Features Out'
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                { href: this.props.link, target: '_blank', className: 'btn btn-secondary btn-block card-filter-btn-websitelink' },
+                'Open Website in New Tab '
+              )
             )
           )
         )
-      )
 
-      /* <div class="venues">
-      {/* INITIATE: props HERE TO BE USED IN VENUE LIST */
-      /* <div class="venue-" >{this.props.text}</div>    
-      <div class="quote-rating">{this.props.rating} </div> */
+        /* <div class="venues">
+        {/* INITIATE: props HERE TO BE USED IN VENUE LIST */
+        /* <div class="venue-" >{this.props.text}</div>    
+        <div class="quote-rating">{this.props.rating} </div> */
 
-      /* ("changed" will create the Input DOM => (e))        */
-      /* </div> */
-      ;
+        /* ("changed" will create the Input DOM => (e))        */
+        /* </div> */
+
+      );
     }
   }]);
 
@@ -46396,6 +46424,9 @@ var VenuesList = function (_Component) {
     return _this;
   }
 
+  // SHOULD GET ALL THE RESULT VENUES ONLY !! NOT AXIOS.GET !!
+
+
   _createClass(VenuesList, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
@@ -46414,39 +46445,34 @@ var VenuesList = function (_Component) {
 
       return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
         'div',
-        { className: 'venues-list container py-4' },
+        { className: 'venues-list-container col-md-3 py-2' },
         __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
           'div',
-          { className: 'row justify-content-end' },
+          { className: 'row justify-content-start' },
           __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
             'div',
-            { className: 'col-md-9' },
+            { className: 'col' },
             __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
               'div',
               { className: 'card' },
               __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 'div',
                 { className: 'card-header' },
-                'All Venues'
+                'Your Filtered Venues'
               ),
               __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                 'div',
                 { className: 'card-body' },
-                __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
-                  'a',
-                  { href: '#', className: 'btn btn-primary btn-sm mb-3', to: '/create' },
-                  'Add New Venue'
-                ),
                 __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                   'ul',
                   { className: 'list-group list-group-flush' },
                   venues.map(function (venue) {
                     return __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
                       'a',
-                      { href: '#',
-                        className: 'list-group-item list-group-item-action d-flex justify-content-between align-items-center',
-                        to: '/' + venue.id,
-                        key: venue.id
+                      { href: '`#{this.props.key}`' //NOT SURE: 
+                        , className: 'list-group-item list-group-item-action d-flex justify-content-between align-items-center'
+                        // to={`/${venue.id}`}
+                        , key: venue.id
                       },
                       venue.name,
                       __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(
@@ -46468,7 +46494,7 @@ var VenuesList = function (_Component) {
   return VenuesList;
 }(__WEBPACK_IMPORTED_MODULE_1_react__["Component"]);
 
-/* harmony default export */ __webpack_exports__["a"] = (VenuesList);
+/* unused harmony default export */ var _unused_webpack_default_export = (VenuesList);
 
 /***/ }),
 
@@ -46476,6 +46502,53 @@ var VenuesList = function (_Component) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 330:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(331);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(53)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!./venueitem.css", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!./venueitem.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ 331:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(52)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".card-filter {\r\n  width: 20rem;    \r\n  /* 1-2-3-4:sm-md-lg-xl */\r\n  margin: 1.5rem;\r\n  /* padding: 1rem 0.5rem; */\r\n}\r\n\r\n.card-filter-title, .card-filter-tags-p {\r\n  padding-left: 0.4rem;\r\n}\r\n\r\nspan {\r\n  font-size: 0.9em;\r\n}\r\n\r\n.card-filter-imgcontainer {\r\n  height: 10rem;\r\n  overflow: hidden;\r\n}\r\n\r\n.ellipsis\r\n{\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n/* .card-filter-body {\r\n  max-height: 30rem;\r\n  overflow: hidden;\r\n} */\r\n\r\n.card-filter-btn-websitelink, .card-filter-btn-view {\r\n  margin-top:0.5rem\r\n\r\n}\r\n", ""]);
+
+// exports
+
 
 /***/ }),
 

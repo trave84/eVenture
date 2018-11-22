@@ -1,5 +1,9 @@
 .results-list {
-  font-weight: bold;
+  /* font-weight: bold;
   font-size: 100%;
-  padding: 1rem;
+  padding: 1rem; */
+}
+
+.results-listing-filter {
+  /* background-color: orange; */
 }

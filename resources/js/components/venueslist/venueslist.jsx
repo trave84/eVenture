@@ -12,6 +12,7 @@ export default class VenuesList extends Component {
     }
   }
 
+  // SHOULD GET ALL THE RESULT VENUES ONLY !! NOT AXIOS.GET !!
   componentDidMount () {
     axios.get('/api/venues').then(response => {
       this.setState({
@@ -23,20 +24,20 @@ export default class VenuesList extends Component {
   render () {
     const { venues } = this.state
     return (
-      <div className='venues-list container py-4'>
-        <div className='row justify-content-end'>
-          <div className='col-md-9'>
+      <div className='venues-list-container col-md-3 py-2'>
+        <div className='row justify-content-start'>
+          <div className='col'>
             <div className='card'>
-              <div className='card-header'>All Venues</div>
+              <div className='card-header'>Your Filtered Venues</div>
               <div className='card-body'>
-                <a href="#" className='btn btn-primary btn-sm mb-3' to='/create'>
+                {/* <a href="#" className='btn btn-primary btn-sm mb-3' to='/create'>
                   Add New Venue
-                </a>
+                </a> */}
                 <ul className='list-group list-group-flush'>
                   {venues.map(venue => (
-                    <a href="#"
+                    <a href="`#{this.props.key}`"     //NOT SURE: 
                       className='list-group-item list-group-item-action d-flex justify-content-between align-items-center'
-                      to={`/${venue.id}`}
+                      // to={`/${venue.id}`}
                       key={venue.id}
                     >
                       {venue.name}

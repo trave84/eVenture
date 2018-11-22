@@ -12,9 +12,9 @@
 
         <ul class="navbar-nav mr-auto">
             
-            <li class="nav-item active">
+            {{-- <li class="nav-item active">
                 <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
-              </li>
+            </li> --}}
               
               <li class="nav-item">
                 <a class="nav-link" href="/venues">Venues</a>
@@ -35,9 +35,9 @@
                   <a class="nav-link" href="/venues/restaurants">Restaurants</a>
               </li>
                 
-              <li class="nav-item"> 
+              {{-- <li class="nav-item"> 
                 <a class="nav-link" href="/reviews">Reviews</a>
-              </li>
+              </li> --}}
               
               <li class="nav-item">
                   <a class="nav-link" href="/about">About Us</a>

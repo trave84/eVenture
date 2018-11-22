@@ -8,12 +8,12 @@
       </h1>
     </section>
 
-    <section class="row  d-flex justify-content-around align-content-stretch flex-wrap section-index-venues">
+    <section class="venues row  d-flex justify-content-around align-content-stretch flex-wrap">
       @foreach ($venues as $venue)
       {{-- INDIVIDUAL CARDS START HERE: --}}
-        <div class="div-index-venue">       
-          <div class="card my-2 card-index">
-          <h3 class="card-title card-index-title"> {{ $venue->name}} </h3>
+        <div class="venue venue-index-div">       
+          <div class="card card-index">
+          <h4 class="card-title card-index-title"> {{ $venue->name}} </h4>
           <div class="card-title card-tags card-index-tags">
             @if (isset($tags_by_cat[$venue->id][2]))
               <i class="fas fa-cocktail"> </i> <span>
@@ -96,3 +96,14 @@
     @endforeach
   </section>
 @endsection
+
+
+    {{--         
+        @php
+        echo "<pre>";
+          echo $venue->name;
+          //echo $venue->tags[0]->category_id;
+          print_r($venue);
+          echo "</pre>";
+          @endphp --}}
+      

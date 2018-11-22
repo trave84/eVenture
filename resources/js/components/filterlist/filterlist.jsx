@@ -8,6 +8,7 @@ import './filterlist.css';
 import FilterItem from '../filteritem/filteritem.jsx'; 
 import ResultsListing from '../resultslisting/resultslisting.jsx';
 import BadgeListing from '../badgelisting/badgelisting';
+import VenuesList from '../venueslist/venueslist';
 
 export default class FilterList extends React.Component {
   constructor(props) {
@@ -15,19 +16,32 @@ export default class FilterList extends React.Component {
 
     this.resultsListingRef = React.createRef();    // Calling on createREf() and ASSIGN TO VAR
     this.itemChanged = this.itemChanged.bind(this);
+    
+    // this.selectedTags = this.selectedTags.bind(this);
+
     // TODO#2 this.sliderChanged = this.sliderChanged.bind(this);
+
+    let selectedTags = {};
+    let hash = window.location.hash.substr(1);
+    console.log('hash: ' +  hash);
+    if(hash){
+      selectedTags = JSON.parse(decodeURIComponent(hash));
+    }
+    console.log('selectedTags: ', selectedTags);
 
     this.state = {
       // TODO#3 moodValue: 5,     //default state: sliders
       // TODO#3 energyValue: 5,
 
       items: null,      // default state: number of checkboxes
-      selectedTags: {}, //selected checkboxes
+      selectedTags: selectedTags, //selected checkboxes
+      // checkedTags: selectedTags  ;
       results: [],      //to save: JSON response from axios
       opened: [],
       // sidebarShown: [],
     };
   }
+
 
   // Lifecycle hook #1
   componentDidMount(){
@@ -37,16 +51,18 @@ export default class FilterList extends React.Component {
       this.setState({   // newState for: items[]
         items: json
       })
-      console.log(json);
+      console.log('fetch(api/tags)', json);
     });
 
-    const tags = localStorage.getItem('savedLocalTags');
-    if (tags !== null) {
-      console.log(JSON.parse(tags));
-      //this.setState({selectedTags: JSON.parse(tags)},
+    // const tags = localStorage.getItem('savedLocalTags');
+    // if (tags !== null) {
+    //   console.log(JSON.parse(tags));
+    //   //this.setState({selectedTags: JSON.parse(tags)},
       // go through the object nd check checkboxes
       // );
-    }
+    // }
+    this.postFilterCriteria();    //IS ASYNC NOW 
+
   }
   
   // hideSidebar(sidebar){
@@ -73,12 +89,21 @@ export default class FilterList extends React.Component {
     });
   }
 
+  // oldSelected(){
+  //   selectedTags = this.state.selectedTags; 
+  //   // for (let i in this.selectedTags){}
+  //   for(let i = 0; i < this.selectedTags.length; i++) {
+  //     for(let j = 0;    )
+  //     // console.log();
+  //     this.selectedTags[i][];
+  //   }
+  // }
+
   // Callback Function: method to <Checkbox Attributes />  (with parameters)
   itemChanged(checked, category, tag) {
-    console.log(checked, category, tag);
+    console.log('<FilterItem changed={this.itemChanged} /> ->itemChanged(checked, category, tag.id): ', checked, category, tag);
 
     let selectedTags = this.state.selectedTags;   //inScope: selectedTags{}
-
     // Assign selectedTags[][] now:
     if(checked) {
       if(!selectedTags[category]){
@@ -86,8 +111,7 @@ export default class FilterList extends React.Component {
       }
       selectedTags[category].push(tag);
       // this.resultsListingRef.current.changeValue(1);
-    
-    // FOR: deselect checkboxes
+    // FOR: deselect checkboxe
     } else {
       selectedTags[category] = selectedTags[category].filter(e => e !== tag);
       if(selectedTags[category].length === 0){
@@ -95,6 +119,9 @@ export default class FilterList extends React.Component {
       }
       // this.resultsListingRef.current.changeValue(-1);
     }
+   //  
+   let hash =  encodeURIComponent(JSON.stringify(selectedTags))
+   location.replace('#'+hash)
 
     console.log(selectedTags);
     this.setState({
@@ -136,7 +163,8 @@ export default class FilterList extends React.Component {
     return (
       <div className="main">
         <div className="row">
-          <div className="filterlist-container col-md-3">
+          {/* <VenuesList /> */}
+          <div className="filterlist-container col-md-4">
           <h4>Filter Criteria</h4>
           
           {/* TODO#1 */}
@@ -165,10 +193,13 @@ export default class FilterList extends React.Component {
                               <FilterItem 
                               key={index}
                               
+                              oldSelected={this.oldSelected}
                               changed={this.itemChanged}  //CallBack:(attributes = props)
+                             
+                              // HTML ATTRIBUTES:
                               id={tag.id}
                               className="tag-checkboxes"
-                              name={tag.name} 
+                              name={tag.name}
                               category={category}/>
                             )
                           }
@@ -188,7 +219,7 @@ export default class FilterList extends React.Component {
         {/* <BadgeListing selectedTagsTags={this.state.selectedTags}/> */}
       {/* </div> */}
 
-      <div className="resultslisting-container col-md-9">
+      <div className="resultslisting-container col-md-8">
         <ResultsListing results={this.state.results} />
       </div>
       </div>
