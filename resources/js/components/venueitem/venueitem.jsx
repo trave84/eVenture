@@ -32,7 +32,7 @@ export default class VenueItem extends React.Component {
           </div>
         
           <div className="card-body card-filter-body">
-          <p className="card-filter-text ellipsis card-filter-body">{this.props.description}</p> 
+          <p className="card-filter-text ellipsis card -filter-body">{this.props.description}</p> 
           <hr />
 
           {/* {{-- <a href="show/{{ $poll->id }}" className="card-link">Vote</a> --}} */}

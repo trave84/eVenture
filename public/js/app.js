@@ -46230,7 +46230,7 @@ var VenueItem = function (_React$Component) {
               { className: 'card-body card-filter-body' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'p',
-                { className: 'card-filter-text ellipsis card-filter-body' },
+                { className: 'card-filter-text ellipsis card -filter-body' },
                 this.props.description
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
