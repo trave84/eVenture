@@ -6,6 +6,10 @@ export default class FilterItem extends React.Component {
 
     // ES5 need to bind event handlers !!
     this.changed = this.changed.bind(this);
+
+    this.state = {
+      checked: this.props.checked
+    }
   }
 
   // e.target HOLDS all the event data
@@ -28,8 +32,10 @@ export default class FilterItem extends React.Component {
       <div className="filter-list-items">
         <input type="checkbox" 
         //selected={this.selected}
+        defaultChecked={ this.state.checked }
         onChange={this.changed}  
-        id={this.props.id} />     
+        id={this.props.id} 
+        />     
         {/* CallBack:  (attrs = props) */}
         
        

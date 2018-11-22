@@ -60028,6 +60028,14 @@ var FilterList = function (_React$Component) {
       var _this3 = this;
 
       console.log(this.state.opened);
+
+      var selected_tag_ids = [];
+      for (var cat_id in this.state.selectedTags) {
+        selected_tag_ids = selected_tag_ids.concat(this.state.selectedTags[cat_id]);
+      }
+      console.log('selectedTags', this.state.selectedTags);
+      console.log(selected_tag_ids);
+
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'main' },
@@ -60076,7 +60084,9 @@ var FilterList = function (_React$Component) {
                         , id: tag.id,
                         className: 'tag-checkboxes',
                         name: tag.name,
-                        category: category });
+                        category: category,
+                        checked: selected_tag_ids.indexOf(tag.id) != -1
+                      });
                     })
                   ) : null
                 );
@@ -60200,6 +60210,10 @@ var FilterItem = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (FilterItem.__proto__ || Object.getPrototypeOf(FilterItem)).call(this, props));
 
     _this.changed = _this.changed.bind(_this);
+
+    _this.state = {
+      checked: _this.props.checked
+    };
     return _this;
   }
 
@@ -60229,8 +60243,10 @@ var FilterItem = function (_React$Component) {
         { className: "filter-list-items" },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "checkbox"
           //selected={this.selected}
-          , onChange: this.changed,
-          id: this.props.id }),
+          , defaultChecked: this.state.checked,
+          onChange: this.changed,
+          id: this.props.id
+        }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           "label",
           { htmlFor: this.props.id, className: "label-filter-checkbox" },

@@ -161,6 +161,14 @@ export default class FilterList extends React.Component {
   // Whatever is in the State will be rendered here / State should be ready before
   render() {
     console.log(this.state.opened);
+    
+    let selected_tag_ids = [];
+    for(let cat_id in this.state.selectedTags) {
+      selected_tag_ids = selected_tag_ids.concat(this.state.selectedTags[cat_id]);
+    }
+    console.log('selectedTags', this.state.selectedTags);
+    console.log(selected_tag_ids);
+
     return (
       <div className="main">
         <div className="row">
@@ -201,7 +209,9 @@ export default class FilterList extends React.Component {
                               id={tag.id}
                               className="tag-checkboxes"
                               name={tag.name}
-                              category={category}/>
+                              category={category}
+                              checked={ selected_tag_ids.indexOf(tag.id) != -1 }
+                              />
                             )
                           }
                         </div>
