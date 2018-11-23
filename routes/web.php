@@ -4,7 +4,7 @@
 
 Route::resource('/api/tags', 'Api\TagController');
 Route::resource('/api/venues', 'Api\VenueController');
-Route::get('/api/venues_with_categories', 'VenueController@getCategoriesForVenues');
+// Route::get('/api/venues_with_categories', 'VenueController@getCategoriesForVenues');
 
 // API END: Axios.post the Changed Checkboxes + Sliders  
 Route::post('/api/search_request', 'Api\FilterController@findFilterMatch');
@@ -24,6 +24,7 @@ Route::get('/user', 'UserController@index');
 
 // NAVIGATION LINKS:
 Route::get('/', 'PageController@index');
+Route::get('/index-old', 'PageController@indexOld');
 Route::get('/home', 'PageController@getHome');
 Route::get('/pages/home', 'PageController@getHome')->name('home');
 Route::get('/venues', 'VenueController@index');
@@ -35,10 +36,6 @@ Route::get('/about', 'PageController@getAbout');
 // VENUES: 
 Route::get('/venues', 'VenueController@index');
 Route::get('/venues/show/{id}', 'VenueController@show')->name('venues.show');
-// Route::get('/venues/create', 'VenueController@create');
-// Route::get('/venues/edit/{id}', 'VenueController@edit')->name('venues.edit');
-// Route::post('/venue/update/{id}', 'VenueController@update');
-// Route::post('/venue/store', 'VenueController@store');
 
 // BARS & PUBS
 Route::get('/venues/barsPubs', 'VenueController@barsPubs');

@@ -10490,16 +10490,42 @@ header,
   height: 100%;
 }
 
-.name.strong {
+.div-home-intro,
+.div-home-tired,
+.div-home-hell {
+  color: white;
+}
+
+.name.strong,
+#name {
   color: #007BFF;
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+
+#name {
+  font-size: 3rem;
+}
+
+#hell-out {
+  color: #007BFF;
+  font-weight: 900;
+  font-size: 1.7em;
+}
+
+.h3-home-tired {
+  padding-top: 2rem;
 }
 
 .typer {
+  color: #FFFFFF;
   border-radius: 5%;
   padding: 1rem;
-  background-color: #007BFF;
-  color: #FFFFFF;
+}
+
+#intro {
+  background: url("/images/monkey.jpg");
+  opacity: 0.9;
+  background-size: cover;
 }
 
 .card-index {

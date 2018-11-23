@@ -22,7 +22,7 @@
               
               {{-- NO AUTH ALL: SINCE REACT !!! --}}
               <li class="nav-item">
-                <a class="nav-link" href="/filter_navlink">Filter </a>  
+                <a class="nav-link" href="/filter_navlink">Tagfilters </a>  
               </li>
               
               <li class="nav-item">
@@ -39,9 +39,9 @@
                 <a class="nav-link" href="/reviews">Reviews</a>
               </li> --}}
               
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                   <a class="nav-link" href="/about">About Us</a>
-              </li>
+              </li> --}}
   
             {{-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -14,7 +14,6 @@ body {
   // background-color:lightskyblue;
 }
 
-
 //========================================
 // HOME  PAGE:
 // //========================================
@@ -22,49 +21,58 @@ html, body, header, #intro {
   height: 100%;
 }
 
-.div-home-intro {
-
+.div-home-intro, .div-home-tired, .div-home-hell {
+  color: white;
 }
-.name.strong {
-  color: $btn-primary;
-  font-size: 2rem;
 
+
+
+// OLD VERSION:
+// .name.strong {
+//   color: $btn-primary;  //blue
+//   font-size: 1.5rem;
+
+// }
+// .typer {
+//   border-radius: 5%;
+//   padding: 1rem;
+//   background-color: $btn-primary;
+//   color: white;
+// }
+
+// NEW VERSION:
+.name.strong, #name {
+  color: $btn-primary;
+  font-size: 1.5rem;
+}
+
+#name {
+  font-size: 3rem;
+}
+
+#hell-out {
+  color: $btn-primary;
+  font-weight: 900;
+  font-size: 1.7em;
+}
+
+.h3-home-tired {
+  padding-top: 2rem;
 }
 .typer {
+  color: $bg-primary;
   border-radius: 5%;
   padding: 1rem;
-  background-color: $btn-primary;
-  color: $bg-primary;
 }
 
-// .bubble-home-welcome, .bubble-home-tired, .bubble-home-hell {
-//   width: 10rem;
-//   height: 10rem;
-//   border-radius: 50%;
-//   opacity: 50%;
-
-// }
-
-// .bubble-home-welcome {
-//   background-color: red;
-// }
-
-// .bubble-home-tired {
-//   background-color: yellow;
-// }
-
-// .bubble-home-hell {
-//   background-color: green;
-// }
-
-
-// #intro {
-//   background: url("public/images/penguin.jpg");
-//   -webkit-background-size: cover;
-//   -moz-background-size: cover;
-//   -o-background-size: cover;
-//   background-size: cover;
-// }
+#intro {
+  background: url("/images/monkey.jpg");
+  opacity: 0.9;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 //========================================
 // ALL INDEX PAGES:

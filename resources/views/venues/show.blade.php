@@ -1,7 +1,7 @@
 @extends('layouts.app')
   
 
-@section('title', '|')
+@section('title', '| Your Chosen Venue')
 @section('content')
 {{-- <div class="container"> --}}
   <section class="header jumbotron py-3 mb-0">
@@ -94,13 +94,17 @@
       </div>
     {{-- </div> --}}
 
-    <div class="sidebar-show col-md-3 col-lg-3">
+    <div class="sidebar-show col-md-3 text-right col-lg-3">
         <blockquote class="blockquote p-3 sidebar-blockquote-show">
-          <p>Tripadvisor comments</p>
-          <blockquote class=""><cite title="John Doe">John Doe</cite></footer>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil, minima...</p>
+          <footer class="blockquote foooter"><cite title="John Doe">- by John Doe</cite></footer>
         </blockquote>
         <div class="clearfix"></div>
         <hr />
+        <blockquote class="blockquote p-3 sidebar-blockquote-show">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nihil, minima...</p>
+            <footer class="blockquote foooter"><cite title="John Doe">- by Jane Smith</cite></footer>
+        </blockquote>
         {{-- <blockquote class="blockquote-reverse">
           <p>Photos</p>
         </blockquote>

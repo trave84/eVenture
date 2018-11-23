@@ -8,7 +8,6 @@
       </h1>
     </section>
 
-    
     <section class="row  d-flex justify-content-around align-content-stretch flex-wrap section-index-venues">
       @foreach ($venues as $venue)
       {{-- INDIVIDUAL CARDS START HERE: --}}
@@ -42,7 +41,7 @@
           </div>
           <div class="card-body card-index-body">
             <p class="card-text text-justify card-index-text">{{ substr($venue->description, 0, 100) }} {{ strlen($venue->description) > 100 ? "..." : ""  }}</p> 
-            <hr>
+            {{-- <hr> --}}
             
             @if (isset($tags_by_cat[$venue->id][3]))
               <i class="fas fa-spinner"> </i> <span>
@@ -51,7 +50,8 @@
                 @endforeach 
               </span>
             @endif
-            <hr class="clearfix">
+            <br>
+            {{-- <hr class="clearfix"> --}}
 
             @if (isset($tags_by_cat[$venue->id][4]))
               <i class="fas fa-grin-tongue"> </i> <span>
@@ -97,4 +97,5 @@
       </div>
     @endforeach
   </section>
+
 @endsection

@@ -15,13 +15,19 @@ class PageController extends Controller
         $title = 'Welcome to eVenture';
         return view('pages.index', compact('title'));
         // return view('pages.index')->with('title', $title);
-    
     }
 
-    public function getHome()
-    {
-        return view('home');
+    public function indexOld(){
+        $title = 'Welcome to eVenture';
+        return view('pages.index-old', compact('title'));
+        // return view('pages.index')->with('title', $title);
     }
+
+
+    // public function getHome()
+    // {
+    //     return view('home');
+    // }
     
     public function getAbout(){
         $first = 'Arpad';

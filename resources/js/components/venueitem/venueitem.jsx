@@ -49,10 +49,10 @@ export default class VenueItem extends React.Component {
     );
   }
 }
-      // <div class="venues"> 
-      //  /* INITIATE: props HERE TO BE USED IN VENUE LIST */}
-      //    <div class="venue-" >{this.props.text}</div>    
-      //   <div class="quote-rating">{this.props.rating} </div> */
-          
-      //    /* ("changed" will create the Input DOM => (e))        */
-      //   /* </div> */
+// <div class="venues"> 
+//  /* INITIATE: props HERE TO BE USED IN VENUE LIST */}
+//    <div class="venue-" >{this.props.text}</div>    
+//   <div class="quote-rating">{this.props.rating} </div> */
+    
+//    /* ("changed" will create the Input DOM => (e))        */
+//   /* </div> */

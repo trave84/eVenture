@@ -59870,7 +59870,6 @@ var FilterList = function (_React$Component) {
     _this.itemChanged = _this.itemChanged.bind(_this);
 
     // this.selectedTags = this.selectedTags.bind(this);
-
     // TODO#2 this.sliderChanged = this.sliderChanged.bind(this);
 
     var selectedTags = {};
@@ -59894,15 +59893,12 @@ var FilterList = function (_React$Component) {
     return _this;
   }
 
-  // Lifecycle hook #1
-
-
   _createClass(FilterList, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch('http://www.eventure.test/api/tags').then(function (resp) {
+      fetch('/api/tags').then(function (resp) {
         return resp.json();
       }).then(function (json) {
         _this2.setState({ // newState for: items[]
@@ -59971,7 +59967,6 @@ var FilterList = function (_React$Component) {
       this.setState({
         selectedTags: selectedTags //
       }); // TOWAIT: for setting new state AND THEN call postFilter ADD this.postFilterCriteria() here as Second parameter
-
       this.postFilterCriteria(); //IS ASYNC NOW 
     }
   }, {
@@ -59996,7 +59991,6 @@ var FilterList = function (_React$Component) {
         console.log('results[]: ', self.state.results);
       });
     }
-
     // componentWillUpdate(nextProps, nextState) {
     //   localStorage.setItem()
     // }

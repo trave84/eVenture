@@ -18,7 +18,6 @@ export default class FilterList extends React.Component {
     this.itemChanged = this.itemChanged.bind(this);
     
     // this.selectedTags = this.selectedTags.bind(this);
-
     // TODO#2 this.sliderChanged = this.sliderChanged.bind(this);
 
     let selectedTags = {};
@@ -41,10 +40,8 @@ export default class FilterList extends React.Component {
     };
   }
 
-
-  // Lifecycle hook #1
   componentDidMount(){
-    fetch('http://www.eventure.test/api/tags')
+    fetch('/api/tags')
     .then(resp => resp.json())
     .then(json => {
       this.setState({   // newState for: items[]
@@ -106,10 +103,8 @@ export default class FilterList extends React.Component {
     this.setState({
       selectedTags: selectedTags    //
     });  // TOWAIT: for setting new state AND THEN call postFilter ADD this.postFilterCriteria() here as Second parameter
-
    this.postFilterCriteria();    //IS ASYNC NOW 
   }
-
 
   postFilterCriteria(){
     localStorage.setItem('savedLocalTags', JSON.stringify(this.state.selectedTags));
@@ -131,11 +126,10 @@ export default class FilterList extends React.Component {
       console.log('results[]: ', self.state.results);
     });
   }
-
   // componentWillUpdate(nextProps, nextState) {
   //   localStorage.setItem()
   // }
-  
+
   // Whatever is in the State will be rendered here / State should be ready before
   render() {
     console.log(this.state.opened);
