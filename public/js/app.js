@@ -14381,19 +14381,23 @@ var ResultsListing = function (_React$Component) {
         'div',
         { className: 'row results-listing-filter' },
         this.props.results == null ?
-
         // NEED TO DISPLAY SOMETHING HERE:
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'div-filter-alertbox' },
-          alert('Your search is too narrow..')
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h3',
+            null,
+            'Your search is too narrow. Try choosing more options'
+          )
         ) : this.props.results.map(function (venue, index) {
           return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__venueitem_venueitem_jsx__["a" /* default */], { key: index,
             id: venue.id,
             name: venue.name,
 
             description: venue.description, address: venue.address,
-            openingTime: venue.opening_time, closingTime: venue.closing_time, banner: venue.banner_img, link: venue.link,
+            openingTime: venue.opening_time, closingTime: venue.closing_time,
+            banner: venue.banner_img, link: venue.link,
             tags: venue.tags
           });
         })
@@ -59878,12 +59882,11 @@ var FilterList = function (_React$Component) {
     console.log('selectedTags: ', selectedTags);
 
     _this.state = {
-      // TODO#3 moodValue: 5,     //default state: sliders
+      // TODO#3 moodValue: 5,
       // TODO#3 energyValue: 5,
 
       items: null, // default state: number of checkboxes
       selectedTags: selectedTags, //selected checkboxes
-      // checkedTags: selectedTags  ;
       results: [], //to save: JSON response from axios
       opened: []
       // sidebarShown: [],
@@ -59917,17 +59920,6 @@ var FilterList = function (_React$Component) {
       // }
       this.postFilterCriteria(); //IS ASYNC NOW 
     }
-
-    // hideSidebar(sidebar){
-    //   let sidebarShown = this.state.sidebarShown;
-
-    //   if (sidebarShown){
-
-    //   }else{
-
-    //   }
-    // }
-
   }, {
     key: 'openClicked',
     value: function openClicked(category) {
@@ -59945,16 +59937,6 @@ var FilterList = function (_React$Component) {
         opened: opened
       });
     }
-
-    // oldSelected(){
-    //   selectedTags = this.state.selectedTags; 
-    //   // for (let i in this.selectedTags){}
-    //   for(let i = 0; i < this.selectedTags.length; i++) {
-    //     for(let j = 0;    )
-    //     // console.log();
-    //     this.selectedTags[i][];
-    //   }
-    // }
 
     // Callback Function: method to <Checkbox Attributes />  (with parameters)
 
@@ -59998,7 +59980,6 @@ var FilterList = function (_React$Component) {
       localStorage.setItem('savedLocalTags', JSON.stringify(this.state.selectedTags));
 
       var self = this; //TO REFER: to FilterList below IN  Axios.then()
-
       axios.post('/api/search_request', {
         selectedTags: this.state.selectedTags
 
@@ -60046,9 +60027,9 @@ var FilterList = function (_React$Component) {
             'div',
             { className: 'filterlist-container col-md-4' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'h4',
+              'h3',
               null,
-              'Your Filter Criteria'
+              ' Pick Your Tags '
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
@@ -60090,8 +60071,7 @@ var FilterList = function (_React$Component) {
                     })
                   ) : null
                 );
-              } //END: .category-divs
-              )
+              })
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -60106,21 +60086,6 @@ var FilterList = function (_React$Component) {
 
   return FilterList;
 }(__WEBPACK_IMPORTED_MODULE_0_react___default.a.Component);
-
-/* Version for children 
-
-{ items.map(
-    (item) => {
-      return (
-        <CheckItem 
-          changed={this.itemChanged} 
-          name={item.name} 
-          text={item.text}/>
-      )
-    }
-  )
-}
-*/
 
 // TODO#4 
 // Slider ResetAll/ Slider Close:  Callback Functions()
@@ -60234,7 +60199,6 @@ var FilterItem = function (_React$Component) {
     //   this.setState
     // }
 
-
   }, {
     key: "render",
     value: function render() {
@@ -60301,7 +60265,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, ".results-list {\r\n  /* font-weight: bold;\r\n  font-size: 100%;\r\n  padding: 1rem; */\r\n}\r\n\r\n.results-listing-filter {\r\n  /* background-color: orange; */\r\n}\r\n\r\n.div-filter-alertbox {\r\n  background: orange;\r\n}", ""]);
+exports.push([module.i, ".results-list {\r\n  /* font-weight: bold;\r\n  font-size: 100%;\r\n  padding: 1rem; */\r\n}\r\n\r\n.results-listing-filter {\r\n  /* background-color: orange; */\r\n}\r\n\r\n.div-filter-alertbox {\r\n  /* background: orange; */\r\n}", ""]);
 
 // exports
 

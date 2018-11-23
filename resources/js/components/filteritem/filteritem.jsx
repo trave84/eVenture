@@ -25,8 +25,6 @@ export default class FilterItem extends React.Component {
   //   this.setState
   // }
 
-  
-
   render() {
     return (
       <div className="filter-list-items">
@@ -36,9 +34,8 @@ export default class FilterItem extends React.Component {
         onChange={this.changed}  
         id={this.props.id} 
         />     
-        {/* CallBack:  (attrs = props) */}
         
-       
+        {/* CallBack:  (attrs = props) */}
         <label htmlFor={this.props.id} className="label-filter-checkbox">{this.props.name}</label>
       </div>
     );  //CHANGEDTO: htmlFor={this.props.id} TO associate + allow users to click on Label to select

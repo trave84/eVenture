@@ -30,12 +30,11 @@ export default class FilterList extends React.Component {
     console.log('selectedTags: ', selectedTags);
 
     this.state = {
-      // TODO#3 moodValue: 5,     //default state: sliders
+      // TODO#3 moodValue: 5,
       // TODO#3 energyValue: 5,
 
       items: null,      // default state: number of checkboxes
       selectedTags: selectedTags, //selected checkboxes
-      // checkedTags: selectedTags  ;
       results: [],      //to save: JSON response from axios
       opened: [],
       // sidebarShown: [],
@@ -65,16 +64,6 @@ export default class FilterList extends React.Component {
 
   }
   
-  // hideSidebar(sidebar){
-  //   let sidebarShown = this.state.sidebarShown;
-    
-  //   if (sidebarShown){
-
-  //   }else{
-
-  //   }
-  // }
-
   openClicked(category){
     let opened = this.state.opened;
 
@@ -88,16 +77,6 @@ export default class FilterList extends React.Component {
       opened: opened
     });
   }
-
-  // oldSelected(){
-  //   selectedTags = this.state.selectedTags; 
-  //   // for (let i in this.selectedTags){}
-  //   for(let i = 0; i < this.selectedTags.length; i++) {
-  //     for(let j = 0;    )
-  //     // console.log();
-  //     this.selectedTags[i][];
-  //   }
-  // }
 
   // Callback Function: method to <Checkbox Attributes />  (with parameters)
   itemChanged(checked, category, tag) {
@@ -136,7 +115,6 @@ export default class FilterList extends React.Component {
     localStorage.setItem('savedLocalTags', JSON.stringify(this.state.selectedTags));
 
     const self = this;    //TO REFER: to FilterList below IN  Axios.then()
-
     axios.post('/api/search_request', {
       selectedTags: this.state.selectedTags
       
@@ -174,13 +152,11 @@ export default class FilterList extends React.Component {
         <div className="row">
           {/* <VenuesList /> */}
           <div className="filterlist-container col-md-4">
-          <h4>Your Filter Criteria</h4>
+          <h3> Pick Your Tags </h3>
           
           {/* TODO#1 */}
-          {/* <FilterResetButton type="submit" hanldeClick={this.handleclick} className="btn btn-danger btn-sm">RESET ALL</FilterResetButton> */}
-          
+          {/* <FilterResetButton type="submit" hanldeClick={this.handleclick} className="btn btn-danger btn-sm">RESET ALL</FilterResetButton> */}        
           {/* <FilterCloseBtn type="submit" onClick={this.hanldeClick}   className="btn btn-success btn-sm">CLOSE</FilterCloseBtn> */}
-
           {/* <SliderItem />  */}
           {/* <Range /> */}
 
@@ -217,8 +193,7 @@ export default class FilterList extends React.Component {
                         </div>
                       ) : null
                     }
-                      
-                  </div>  //END: .category-divs
+                  </div>
                 )
               )
             }
@@ -238,23 +213,6 @@ export default class FilterList extends React.Component {
     );
   }
 }
-
-
-
-/* Version for children 
-
-{ items.map(
-    (item) => {
-      return (
-        <CheckItem 
-          changed={this.itemChanged} 
-          name={item.name} 
-          text={item.text}/>
-      )
-    }
-  )
-}
-*/
 
 
 // TODO#4 

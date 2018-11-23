@@ -10483,6 +10483,25 @@ body {
   overflow-x: hidden;
 }
 
+html,
+body,
+header,
+#intro {
+  height: 100%;
+}
+
+.name.strong {
+  color: #007BFF;
+  font-size: 2rem;
+}
+
+.typer {
+  border-radius: 5%;
+  padding: 1rem;
+  background-color: #007BFF;
+  color: #FFFFFF;
+}
+
 .card-index {
   width: 20rem;
   margin: 1.5rem;

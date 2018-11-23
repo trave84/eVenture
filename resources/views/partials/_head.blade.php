@@ -12,7 +12,7 @@
 
 {{-- CUSTOM CSS --}}
 <link rel="stylesheet" href="{{ asset('css/app.css')}}">
-<link rel="stylesheet" href="{{ asset('css/custom.css')}}">
+{{-- <link rel="stylesheet" href="{{ asset('css/custom.css')}}"> --}}
 
 
 <!-- Fonts -->
@@ -23,5 +23,5 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+{{-- <link href="{{ asset('css/custom.css') }}" rel="stylesheet"> --}}
 <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
